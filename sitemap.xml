@@ -2,113 +2,113 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://courseintern.com/about/</loc>
+    <loc>https://www.courseintern.com/about/</loc>
     <lastmod>2021-05-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://courseintern.com/</loc>
+    <loc>https://www.courseintern.com/</loc>
     <lastmod>2021-05-19T01:28:18+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/tags/30-days-of-google-cloud/</loc>
+    <loc>https://www.courseintern.com/tags/30-days-of-google-cloud/</loc>
     <lastmod>2021-05-19T01:28:18+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/categories/</loc>
+    <loc>https://www.courseintern.com/categories/</loc>
     <lastmod>2021-05-19T01:28:18+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/tags/googlecloudready-facilitator-program/</loc>
+    <loc>https://www.courseintern.com/tags/googlecloudready-facilitator-program/</loc>
     <lastmod>2021-05-19T01:28:18+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp321-set-up-and-configure-a-cloud-environment-in-google-cloud/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp321-set-up-and-configure-a-cloud-environment-in-google-cloud/</loc>
     <lastmod>2021-05-19T01:28:18+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/</loc>
+    <loc>https://www.courseintern.com/post/</loc>
     <lastmod>2021-05-19T01:28:18+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/categories/qwiklabs/</loc>
+    <loc>https://www.courseintern.com/categories/qwiklabs/</loc>
     <lastmod>2021-05-19T01:28:18+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/tags/qwiklabs/</loc>
+    <loc>https://www.courseintern.com/tags/qwiklabs/</loc>
     <lastmod>2021-05-19T01:28:18+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/tags/</loc>
+    <loc>https://www.courseintern.com/tags/</loc>
     <lastmod>2021-05-19T01:28:18+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp344-serverless-firebase-development/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp344-serverless-firebase-development/</loc>
     <lastmod>2021-05-19T01:22:25+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp328-serverless-cloud-run-development/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp328-serverless-cloud-run-development/</loc>
     <lastmod>2021-05-19T01:17:06+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp335-secure-workloads-in-google-kubernetes-engine/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp335-secure-workloads-in-google-kubernetes-engine/</loc>
     <lastmod>2021-05-19T01:06:55+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp305-scale-out-and-update-a-containerized-application-on-a-kubernetes-cluster/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp305-scale-out-and-update-a-containerized-application-on-a-kubernetes-cluster/</loc>
     <lastmod>2021-05-19T01:04:08+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp323-perform-foundational-data-ml-and-ai-tasks-in-google-cloud/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp323-perform-foundational-data-ml-and-ai-tasks-in-google-cloud/</loc>
     <lastmod>2021-05-19T00:57:36+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp343-optimize-costs-for-google-kubernetes-engine/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp343-optimize-costs-for-google-kubernetes-engine/</loc>
     <lastmod>2021-05-19T00:51:51+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp306-migrate-a-mysql-database-to-google-cloud-sql/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp306-migrate-a-mysql-database-to-google-cloud-sql/</loc>
     <lastmod>2021-05-19T00:48:21+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp329-integrate-with-machine-learning-apis/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp329-integrate-with-machine-learning-apis/</loc>
     <lastmod>2021-05-19T00:42:47+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp787-insights-from-data-with-bigquery-challenge-lab/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp787-insights-from-data-with-bigquery-challenge-lab/</loc>
     <lastmod>2021-05-19T00:35:20+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp330-implement-devops-in-google-cloud/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp330-implement-devops-in-google-cloud/</loc>
     <lastmod>2021-05-19T00:30:46+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp101-google-cloud-essential-skills/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp101-google-cloud-essential-skills/</loc>
     <lastmod>2021-05-19T00:27:44+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp665-exploring-the-public-cryptocurrency-datasets-available-in-bigquery/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp665-exploring-the-public-cryptocurrency-datasets-available-in-bigquery/</loc>
     <lastmod>2021-05-19T00:25:27+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp342-ensure-access-identity-in-google-cloud/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp342-ensure-access-identity-in-google-cloud/</loc>
     <lastmod>2021-05-18T23:36:24+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp327-engineer-data-in-google-cloud/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp327-engineer-data-in-google-cloud/</loc>
     <lastmod>2021-05-18T23:23:49+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp318-deploy-to-kubernetes-in-google-cloud/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp318-deploy-to-kubernetes-in-google-cloud/</loc>
     <lastmod>2021-05-18T23:17:35+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp314-deploy-and-manage-cloud-environments-with-google-cloud/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp314-deploy-and-manage-cloud-environments-with-google-cloud/</loc>
     <lastmod>2021-05-18T23:09:28+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp341-create-ml-models-with-bigquery-ml/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp341-create-ml-models-with-bigquery-ml/</loc>
     <lastmod>2021-05-18T22:51:16+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp313-create-and-manage-cloud-resources/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp313-create-and-manage-cloud-resources/</loc>
     <lastmod>2021-05-18T22:45:00+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp302-configure-a-firewall-and-a-startup-script-with-deployment-manager/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp302-configure-a-firewall-and-a-startup-script-with-deployment-manager/</loc>
     <lastmod>2021-05-18T22:40:07+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp322-build-and-secure-networks-in-google-cloud/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp322-build-and-secure-networks-in-google-cloud/</loc>
     <lastmod>2021-05-18T22:31:50+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp340-build-and-optimize-data-warehouses-with-bigquery/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp340-build-and-optimize-data-warehouses-with-bigquery/</loc>
     <lastmod>2021-05-18T22:22:05+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp319-build-a-website-on-google-cloud/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp319-build-a-website-on-google-cloud/</loc>
     <lastmod>2021-05-18T22:09:17+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp345-automating-infrastructure-on-google-cloud-with-terraform/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp345-automating-infrastructure-on-google-cloud-with-terraform/</loc>
     <lastmod>2021-05-18T21:57:57+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/post/qwiklabs/challenge-labs/gsp311-automate-interactions-with-contact-center-ai/</loc>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp311-automate-interactions-with-contact-center-ai/</loc>
     <lastmod>2021-05-18T21:34:49+05:30</lastmod>
   </url><url>
-    <loc>https://courseintern.com/archives/</loc>
+    <loc>https://www.courseintern.com/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://courseintern.com/tags/index/</loc>
+    <loc>https://www.courseintern.com/tags/index/</loc>
   </url><url>
-    <loc>https://courseintern.com/series/</loc>
+    <loc>https://www.courseintern.com/series/</loc>
   </url>
 </urlset>

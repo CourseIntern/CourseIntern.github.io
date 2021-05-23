@@ -3,10 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.courseintern.com/</loc>
-    <lastmod>2021-05-22T06:20:42+05:30</lastmod>
+    <lastmod>2021-05-23T18:17:07+05:30</lastmod>
+  </url><url>
+    <loc>https://www.courseintern.com/tags/30-days-of-google-cloud/</loc>
+    <lastmod>2021-05-23T18:17:07+05:30</lastmod>
   </url><url>
     <loc>https://www.courseintern.com/categories/</loc>
-    <lastmod>2021-05-22T06:20:42+05:30</lastmod>
+    <lastmod>2021-05-23T18:17:07+05:30</lastmod>
+  </url><url>
+    <loc>https://www.courseintern.com/tags/googlecloudready-facilitator-program/</loc>
+    <lastmod>2021-05-23T18:17:07+05:30</lastmod>
+  </url><url>
+    <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp304-build-and-deploy-a-docker-image-to-a-kubernetes-cluster/</loc>
+    <lastmod>2021-05-23T18:17:07+05:30</lastmod>
+  </url><url>
+    <loc>https://www.courseintern.com/post/</loc>
+    <lastmod>2021-05-23T18:17:07+05:30</lastmod>
+  </url><url>
+    <loc>https://www.courseintern.com/categories/qwiklabs/</loc>
+    <lastmod>2021-05-23T18:17:07+05:30</lastmod>
+  </url><url>
+    <loc>https://www.courseintern.com/tags/qwiklabs/</loc>
+    <lastmod>2021-05-23T18:17:07+05:30</lastmod>
+  </url><url>
+    <loc>https://www.courseintern.com/tags/</loc>
+    <lastmod>2021-05-23T18:17:07+05:30</lastmod>
   </url><url>
     <loc>https://www.courseintern.com/categories/events/</loc>
     <lastmod>2021-05-22T06:20:42+05:30</lastmod>
@@ -17,13 +38,7 @@
     <loc>https://www.courseintern.com/post/events/hands-on-session-weather-app-python-django/</loc>
     <lastmod>2021-05-22T06:20:42+05:30</lastmod>
   </url><url>
-    <loc>https://www.courseintern.com/post/</loc>
-    <lastmod>2021-05-22T06:20:42+05:30</lastmod>
-  </url><url>
     <loc>https://www.courseintern.com/tags/python-project/</loc>
-    <lastmod>2021-05-22T06:20:42+05:30</lastmod>
-  </url><url>
-    <loc>https://www.courseintern.com/tags/</loc>
     <lastmod>2021-05-22T06:20:42+05:30</lastmod>
   </url><url>
     <loc>https://www.courseintern.com/tags/weather-app-in-python/</loc>
@@ -35,19 +50,7 @@
     <loc>https://www.courseintern.com/about/</loc>
     <lastmod>2021-05-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.courseintern.com/tags/30-days-of-google-cloud/</loc>
-    <lastmod>2021-05-19T01:28:18+05:30</lastmod>
-  </url><url>
-    <loc>https://www.courseintern.com/tags/googlecloudready-facilitator-program/</loc>
-    <lastmod>2021-05-19T01:28:18+05:30</lastmod>
-  </url><url>
     <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp321-set-up-and-configure-a-cloud-environment-in-google-cloud/</loc>
-    <lastmod>2021-05-19T01:28:18+05:30</lastmod>
-  </url><url>
-    <loc>https://www.courseintern.com/categories/qwiklabs/</loc>
-    <lastmod>2021-05-19T01:28:18+05:30</lastmod>
-  </url><url>
-    <loc>https://www.courseintern.com/tags/qwiklabs/</loc>
     <lastmod>2021-05-19T01:28:18+05:30</lastmod>
   </url><url>
     <loc>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp344-serverless-firebase-development/</loc>

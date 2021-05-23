@@ -7,7 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2008–2018, Steve Francia and the Admin; all rights reserved.</copyright>
-    <lastBuildDate>Wed, 19 May 2021 01:28:18 +0530</lastBuildDate><atom:link href="https://www.courseintern.com/tags/googlecloudready-facilitator-program/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 May 2021 18:17:07 +0530</lastBuildDate><atom:link href="https://www.courseintern.com/tags/googlecloudready-facilitator-program/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GSP304 : Build and Deploy a Docker Image to a Kubernetes Cluster</title>
+      <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp304-build-and-deploy-a-docker-image-to-a-kubernetes-cluster/</link>
+      <pubDate>Sun, 23 May 2021 18:17:07 +0530</pubDate>
+      
+      <guid>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp304-build-and-deploy-a-docker-image-to-a-kubernetes-cluster/</guid>
+      <description>
+        
+          &lt;h3 id=&#34;built-docker-image-with-tag-v1&#34;&gt;Built Docker image with tag V1&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;gsutil cp gs://sureskills-ql/challenge-labs/ch04-kubernetes-app-deployment/echo-web.tar.gz .
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;OR&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;gsutil cp gs://&lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt;/echo-web.tar.gz .
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;extract-downloaded-zip&#34;&gt;Extract downloaded zip&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;tar -xvf echo-web.tar.gz
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;gcloud builds submit --tag gcr.io/&lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt;/echo-app:v1 .
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;create-kubernetes-cluster&#34;&gt;Create Kubernetes cluster&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;gcloud container clusters create echo-cluster --num-nodes &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; --zone us-central1-a --machine-type n1-standard-2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;deploy-application-to-kubernetes-cluster&#34;&gt;Deploy application to Kubernetes cluster&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;kubectl create deployment echo-web --image&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;gcr.io/qwiklabs-resources/echo-app:v1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;expose-app-to-allow-external-access&#34;&gt;Expose app to allow external access&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;kubectl expose deployment echo-web --type&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;LoadBalancer --port&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;80&lt;/span&gt; --target-port&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;8000&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;extract-kubernetes-services&#34;&gt;Extract Kubernetes services&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;kubectl get svc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Congratulations, you&#39;re all done with the lab 😄&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
     <item>
       <title>GSP321: Set Up and Configure a Cloud Environment in Google Cloud</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp321-set-up-and-configure-a-cloud-environment-in-google-cloud/</link>

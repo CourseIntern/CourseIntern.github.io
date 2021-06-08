@@ -83,6 +83,9 @@
   <div class="nav_parent">
     <a href="https://www.courseintern.com/about/" class="nav_item" title="About">About </a>
   </div>
+  <div class="nav_parent">
+    <a href="https://www.courseintern.com/campus-leaders/" class="nav_item" title="Hiring Campus Leaders">Hiring Campus Leaders </a>
+  </div>
       <a href='https://www.courseintern.com/' class="nav_brand nav_item nav_center" title="Course Intern">
   <img src="https://www.courseintern.com/logos/logo.png" class="logo" alt="Course Intern">
 </a>
@@ -130,7 +133,7 @@
 </svg></span>
     <span class="post_date">
       May 19, 2021</span>
-    <span class="post_time"> · 4 min read</span><span>&nbsp;· <a href='https://www.courseintern.com/tags/qwiklabs' title="qwiklabs" class="post_tag button button_translucent">qwiklabs
+    <span class="post_time"> · 1 min read</span><span>&nbsp;· <a href='https://www.courseintern.com/tags/qwiklabs' title="qwiklabs" class="post_tag button button_translucent">qwiklabs
         </a><a href='https://www.courseintern.com/tags/googlecloudready-facilitator-program' title="googlecloudready facilitator program" class="post_tag button button_translucent">googlecloudready facilitator program
         </a><a href='https://www.courseintern.com/tags/30-days-of-google-cloud' title="30 days of google cloud" class="post_tag button button_translucent">30 days of google cloud
         </a>
@@ -187,285 +190,285 @@
 </nav>
     <p>From <code>Navigation Menu</code> -&gt; <code>BigQuery</code>.</p>
 <h3 id="task---1--total-confirmed-cases">Task - 1 : Total Confirmed Cases</h3>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="ln">1</span><span class="k">SELECT</span> <span class="k">sum</span><span class="p">(</span><span class="n">cumulative_confirmed</span><span class="p">)</span> <span class="k">as</span> <span class="n">total_cases_worldwide</span>
-<span class="ln">2</span><span class="k">FROM</span> <span class="o">`</span><span class="n">bigquery</span><span class="o">-</span><span class="k">public</span><span class="o">-</span><span class="k">data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="o">`</span>
-<span class="ln">3</span><span class="k">WHERE</span> <span class="nb">date</span><span class="o">=</span><span class="s1">&#39;2020-04-15&#39;</span>
-</code></pre></div><h3 id="task---2--worst-affected-areas">Task - 2 : Worst Affected Areas</h3>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="ln"> 1</span><span class="k">with</span> <span class="n">deaths_by_states</span> <span class="k">as</span> <span class="p">(</span>
-<span class="ln"> 2</span>
-<span class="ln"> 3</span>    <span class="k">SELECT</span> <span class="n">subregion1_name</span> <span class="k">as</span> <span class="k">state</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">cumulative_deceased</span><span class="p">)</span> <span class="k">as</span> <span class="n">death_count</span>
-<span class="ln"> 4</span>
-<span class="ln"> 5</span>    <span class="k">FROM</span> <span class="o">`</span><span class="n">bigquery</span><span class="o">-</span><span class="k">public</span><span class="o">-</span><span class="k">data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="o">`</span>
-<span class="ln"> 6</span>
-<span class="ln"> 7</span>    <span class="k">where</span> <span class="n">country_name</span><span class="o">=</span><span class="s2">&#34;United States of America&#34;</span> <span class="k">and</span> <span class="nb">date</span><span class="o">=</span><span class="s1">&#39;2020-04-10&#39;</span> <span class="k">and</span> <span class="n">subregion1_name</span> <span class="k">is</span> <span class="k">NOT</span> <span class="k">NULL</span>
-<span class="ln"> 8</span>
-<span class="ln"> 9</span>    <span class="k">group</span> <span class="k">by</span> <span class="n">subregion1_name</span>
-<span class="ln">10</span><span class="p">)</span>
-<span class="ln">11</span>
-<span class="ln">12</span><span class="k">select</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">as</span> <span class="n">count_of_states</span>
-<span class="ln">13</span>
-<span class="ln">14</span><span class="k">from</span> <span class="n">deaths_by_states</span>
-<span class="ln">15</span>
-<span class="ln">16</span><span class="k">where</span> <span class="n">death_count</span> <span class="o">&gt;</span> <span class="mi">100</span>
-</code></pre></div><h3 id="task---3--identifying-hotspots">Task - 3 : Identifying Hotspots</h3>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="ln"> 1</span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">(</span>
-<span class="ln"> 2</span>
-<span class="ln"> 3</span>    <span class="k">SELECT</span> <span class="n">subregion1_name</span> <span class="k">as</span> <span class="k">state</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">cumulative_confirmed</span><span class="p">)</span> <span class="k">as</span> <span class="n">total_confirmed_cases</span>
-<span class="ln"> 4</span>
-<span class="ln"> 5</span>    <span class="k">FROM</span> <span class="o">`</span><span class="n">bigquery</span><span class="o">-</span><span class="k">public</span><span class="o">-</span><span class="k">data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="o">`</span>
-<span class="ln"> 6</span>
-<span class="ln"> 7</span>    <span class="k">WHERE</span> <span class="n">country_code</span><span class="o">=</span><span class="s2">&#34;US&#34;</span> <span class="k">AND</span> <span class="nb">date</span><span class="o">=</span><span class="s1">&#39;2020-04-10&#39;</span> <span class="k">AND</span> <span class="n">subregion1_name</span> <span class="k">is</span> <span class="k">NOT</span> <span class="k">NULL</span>
-<span class="ln"> 8</span>
-<span class="ln"> 9</span>    <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">subregion1_name</span>
-<span class="ln">10</span>
-<span class="ln">11</span>    <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">total_confirmed_cases</span> <span class="k">DESC</span>
-<span class="ln">12</span><span class="p">)</span>
-<span class="ln">13</span><span class="k">WHERE</span> <span class="n">total_confirmed_cases</span> <span class="o">&gt;</span> <span class="mi">1000</span>
-</code></pre></div><h3 id="task---4--fatality-ratio">Task - 4 : Fatality Ratio</h3>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="ln">1</span><span class="k">SELECT</span> <span class="k">sum</span><span class="p">(</span><span class="n">cumulative_confirmed</span><span class="p">)</span> <span class="k">as</span> <span class="n">total_confirmed_cases</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">cumulative_deceased</span><span class="p">)</span> <span class="k">as</span> <span class="n">total_deaths</span><span class="p">,</span> <span class="p">(</span><span class="k">sum</span><span class="p">(</span><span class="n">cumulative_deceased</span><span class="p">)</span><span class="o">/</span><span class="k">sum</span><span class="p">(</span><span class="n">cumulative_confirmed</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span> <span class="k">as</span> <span class="n">case_fatality_ratio</span>
-<span class="ln">2</span>
-<span class="ln">3</span><span class="k">FROM</span> <span class="o">`</span><span class="n">bigquery</span><span class="o">-</span><span class="k">public</span><span class="o">-</span><span class="k">data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="o">`</span>
-<span class="ln">4</span>
-<span class="ln">5</span><span class="k">where</span> <span class="n">country_name</span><span class="o">=</span><span class="s2">&#34;Italy&#34;</span> <span class="k">AND</span> <span class="nb">date</span> <span class="k">BETWEEN</span> <span class="s1">&#39;2020-04-01&#39;</span><span class="k">and</span> <span class="s1">&#39;2020-04-30&#39;</span>
-</code></pre></div><h3 id="task---5--identifying-specific-day">Task - 5 : Identifying specific day</h3>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="ln">1</span><span class="k">SELECT</span> <span class="nb">date</span>
-<span class="ln">2</span>
-<span class="ln">3</span><span class="k">FROM</span> <span class="o">`</span><span class="n">bigquery</span><span class="o">-</span><span class="k">public</span><span class="o">-</span><span class="k">data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="o">`</span>
-<span class="ln">4</span>
-<span class="ln">5</span><span class="k">where</span> <span class="n">country_name</span><span class="o">=</span><span class="s2">&#34;Italy&#34;</span> <span class="k">and</span> <span class="n">cumulative_deceased</span><span class="o">&gt;</span><span class="mi">10000</span>
-<span class="ln">6</span>
-<span class="ln">7</span><span class="k">order</span> <span class="k">by</span> <span class="nb">date</span> <span class="k">asc</span>
-<span class="ln">8</span>
-<span class="ln">9</span><span class="k">limit</span> <span class="mi">1</span>
-</code></pre></div><h3 id="task---6--finding-days-with-zero-net-new-cases">Task - 6 : Finding days with zero net new cases</h3>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="ln"> 1</span><span class="k">WITH</span> <span class="n">india_cases_by_date</span> <span class="k">AS</span> <span class="p">(</span>
-<span class="ln"> 2</span>
-<span class="ln"> 3</span>  <span class="k">SELECT</span>
-<span class="ln"> 4</span>
-<span class="ln"> 5</span>    <span class="nb">date</span><span class="p">,</span>
-<span class="ln"> 6</span>
-<span class="ln"> 7</span>    <span class="k">SUM</span><span class="p">(</span> <span class="n">cumulative_confirmed</span> <span class="p">)</span> <span class="k">AS</span> <span class="n">cases</span>
-<span class="ln"> 8</span>
-<span class="ln"> 9</span>  <span class="k">FROM</span>
-<span class="ln">10</span>
-<span class="ln">11</span>    <span class="o">`</span><span class="n">bigquery</span><span class="o">-</span><span class="k">public</span><span class="o">-</span><span class="k">data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="o">`</span>
-<span class="ln">12</span>
-<span class="ln">13</span>  <span class="k">WHERE</span>
-<span class="ln">14</span>
-<span class="ln">15</span>    <span class="n">country_name</span> <span class="o">=</span><span class="s2">&#34;India&#34;</span>
-<span class="ln">16</span>
-<span class="ln">17</span>    <span class="k">AND</span> <span class="nb">date</span> <span class="k">between</span> <span class="s1">&#39;2020-02-21&#39;</span> <span class="k">and</span> <span class="s1">&#39;2020-03-15&#39;</span>
-<span class="ln">18</span>
-<span class="ln">19</span>  <span class="k">GROUP</span> <span class="k">BY</span>
-<span class="ln">20</span>
-<span class="ln">21</span>    <span class="nb">date</span>
-<span class="ln">22</span>
-<span class="ln">23</span>  <span class="k">ORDER</span> <span class="k">BY</span>
-<span class="ln">24</span>
-<span class="ln">25</span>    <span class="nb">date</span> <span class="k">ASC</span>
-<span class="ln">26</span>
-<span class="ln">27</span> <span class="p">)</span>
-<span class="ln">28</span>
-<span class="ln">29</span><span class="p">,</span> <span class="n">india_previous_day_comparison</span> <span class="k">AS</span>
-<span class="ln">30</span>
-<span class="ln">31</span><span class="p">(</span><span class="k">SELECT</span>
-<span class="ln">32</span>
-<span class="ln">33</span>  <span class="nb">date</span><span class="p">,</span>
-<span class="ln">34</span>
-<span class="ln">35</span>  <span class="n">cases</span><span class="p">,</span>
-<span class="ln">36</span>
-<span class="ln">37</span>  <span class="n">LAG</span><span class="p">(</span><span class="n">cases</span><span class="p">)</span> <span class="n">OVER</span><span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="nb">date</span><span class="p">)</span> <span class="k">AS</span> <span class="n">previous_day</span><span class="p">,</span>
-<span class="ln">38</span>
-<span class="ln">39</span>  <span class="n">cases</span> <span class="o">-</span> <span class="n">LAG</span><span class="p">(</span><span class="n">cases</span><span class="p">)</span> <span class="n">OVER</span><span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="nb">date</span><span class="p">)</span> <span class="k">AS</span> <span class="n">net_new_cases</span>
-<span class="ln">40</span>
-<span class="ln">41</span><span class="k">FROM</span> <span class="n">india_cases_by_date</span>
-<span class="ln">42</span>
-<span class="ln">43</span><span class="p">)</span>
-<span class="ln">44</span>
-<span class="ln">45</span><span class="k">select</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
-<span class="ln">46</span>
-<span class="ln">47</span><span class="k">from</span> <span class="n">india_previous_day_comparison</span>
-<span class="ln">48</span>
-<span class="ln">49</span><span class="k">where</span> <span class="n">net_new_cases</span><span class="o">=</span><span class="mi">0</span>
-</code></pre></div><h3 id="task---7--doubling-rate">Task - 7 : Doubling rate</h3>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="ln"> 1</span><span class="k">WITH</span> <span class="n">us_cases_by_date</span> <span class="k">AS</span> <span class="p">(</span>
-<span class="ln"> 2</span>
-<span class="ln"> 3</span>  <span class="k">SELECT</span>
-<span class="ln"> 4</span>
-<span class="ln"> 5</span>    <span class="nb">date</span><span class="p">,</span>
-<span class="ln"> 6</span>
-<span class="ln"> 7</span>    <span class="k">SUM</span><span class="p">(</span><span class="n">cumulative_confirmed</span><span class="p">)</span> <span class="k">AS</span> <span class="n">cases</span>
-<span class="ln"> 8</span>
-<span class="ln"> 9</span>  <span class="k">FROM</span>
-<span class="ln">10</span>
-<span class="ln">11</span>    <span class="o">`</span><span class="n">bigquery</span><span class="o">-</span><span class="k">public</span><span class="o">-</span><span class="k">data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="o">`</span>
-<span class="ln">12</span>
-<span class="ln">13</span>  <span class="k">WHERE</span>
-<span class="ln">14</span>
-<span class="ln">15</span>    <span class="n">country_name</span><span class="o">=</span><span class="s2">&#34;United States of America&#34;</span>
-<span class="ln">16</span>
-<span class="ln">17</span>    <span class="k">AND</span> <span class="nb">date</span> <span class="k">between</span> <span class="s1">&#39;2020-03-22&#39;</span> <span class="k">and</span> <span class="s1">&#39;2020-04-20&#39;</span>
-<span class="ln">18</span>
-<span class="ln">19</span>  <span class="k">GROUP</span> <span class="k">BY</span>
-<span class="ln">20</span>
-<span class="ln">21</span>    <span class="nb">date</span>
-<span class="ln">22</span>
-<span class="ln">23</span>  <span class="k">ORDER</span> <span class="k">BY</span>
-<span class="ln">24</span>
-<span class="ln">25</span>    <span class="nb">date</span> <span class="k">ASC</span>
-<span class="ln">26</span>
-<span class="ln">27</span> <span class="p">)</span>
-<span class="ln">28</span>
-<span class="ln">29</span>
-<span class="ln">30</span>
-<span class="ln">31</span><span class="p">,</span> <span class="n">us_previous_day_comparison</span> <span class="k">AS</span>
-<span class="ln">32</span>
-<span class="ln">33</span><span class="p">(</span><span class="k">SELECT</span>
-<span class="ln">34</span>
-<span class="ln">35</span>  <span class="nb">date</span><span class="p">,</span>
-<span class="ln">36</span>
-<span class="ln">37</span>  <span class="n">cases</span><span class="p">,</span>
-<span class="ln">38</span>
-<span class="ln">39</span>  <span class="n">LAG</span><span class="p">(</span><span class="n">cases</span><span class="p">)</span> <span class="n">OVER</span><span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="nb">date</span><span class="p">)</span> <span class="k">AS</span> <span class="n">previous_day</span><span class="p">,</span>
-<span class="ln">40</span>
-<span class="ln">41</span>  <span class="n">cases</span> <span class="o">-</span> <span class="n">LAG</span><span class="p">(</span><span class="n">cases</span><span class="p">)</span> <span class="n">OVER</span><span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="nb">date</span><span class="p">)</span> <span class="k">AS</span> <span class="n">net_new_cases</span><span class="p">,</span>
-<span class="ln">42</span>
-<span class="ln">43</span>  <span class="p">(</span><span class="n">cases</span> <span class="o">-</span> <span class="n">LAG</span><span class="p">(</span><span class="n">cases</span><span class="p">)</span> <span class="n">OVER</span><span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="nb">date</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span><span class="o">/</span><span class="n">LAG</span><span class="p">(</span><span class="n">cases</span><span class="p">)</span> <span class="n">OVER</span><span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="nb">date</span><span class="p">)</span> <span class="k">AS</span> <span class="n">percentage_increase</span>
-<span class="ln">44</span>
-<span class="ln">45</span><span class="k">FROM</span> <span class="n">us_cases_by_date</span>
-<span class="ln">46</span>
-<span class="ln">47</span><span class="p">)</span>
-<span class="ln">48</span>
-<span class="ln">49</span>
-<span class="ln">50</span>
-<span class="ln">51</span><span class="k">select</span> <span class="nb">Date</span><span class="p">,</span> <span class="n">cases</span> <span class="k">as</span> <span class="n">Confirmed_Cases_On_Day</span><span class="p">,</span> <span class="n">previous_day</span> <span class="k">as</span> <span class="n">Confirmed_Cases_Previous_Day</span><span class="p">,</span> <span class="n">percentage_increase</span> <span class="k">as</span> <span class="n">Percentage_Increase_In_Cases</span>
-<span class="ln">52</span>
-<span class="ln">53</span><span class="k">from</span> <span class="n">us_previous_day_comparison</span>
-<span class="ln">54</span>
-<span class="ln">55</span><span class="k">where</span> <span class="n">percentage_increase</span> <span class="o">&gt;</span> <span class="mi">10</span>
-</code></pre></div><h3 id="task---8--recovery-rate">Task - 8 : Recovery rate</h3>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="ln"> 1</span><span class="k">WITH</span> <span class="n">cases_by_country</span> <span class="k">AS</span> <span class="p">(</span>
-<span class="ln"> 2</span>
-<span class="ln"> 3</span>  <span class="k">SELECT</span>
-<span class="ln"> 4</span>
-<span class="ln"> 5</span>    <span class="n">country_name</span> <span class="k">AS</span> <span class="n">country</span><span class="p">,</span>
-<span class="ln"> 6</span>
-<span class="ln"> 7</span>    <span class="k">sum</span><span class="p">(</span><span class="n">cumulative_confirmed</span><span class="p">)</span> <span class="k">AS</span> <span class="n">cases</span><span class="p">,</span>
-<span class="ln"> 8</span>
-<span class="ln"> 9</span>    <span class="k">sum</span><span class="p">(</span><span class="n">cumulative_recovered</span><span class="p">)</span> <span class="k">AS</span> <span class="n">recovered_cases</span>
-<span class="ln">10</span>
-<span class="ln">11</span>  <span class="k">FROM</span>
-<span class="ln">12</span>
-<span class="ln">13</span>    <span class="n">bigquery</span><span class="o">-</span><span class="k">public</span><span class="o">-</span><span class="k">data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="p">.</span><span class="n">covid19_open_data</span>
-<span class="ln">14</span>
-<span class="ln">15</span>  <span class="k">WHERE</span>
-<span class="ln">16</span>
-<span class="ln">17</span>    <span class="nb">date</span> <span class="o">=</span> <span class="s1">&#39;2020-05-10&#39;</span>
-<span class="ln">18</span>
-<span class="ln">19</span>  <span class="k">GROUP</span> <span class="k">BY</span>
-<span class="ln">20</span>
-<span class="ln">21</span>    <span class="n">country_name</span>
-<span class="ln">22</span>
-<span class="ln">23</span> <span class="p">)</span>
-<span class="ln">24</span>
-<span class="ln">25</span>
-<span class="ln">26</span>
-<span class="ln">27</span><span class="p">,</span> <span class="n">recovered_rate</span> <span class="k">AS</span>
-<span class="ln">28</span>
-<span class="ln">29</span><span class="p">(</span><span class="k">SELECT</span>
-<span class="ln">30</span>
-<span class="ln">31</span>  <span class="n">country</span><span class="p">,</span> <span class="n">cases</span><span class="p">,</span> <span class="n">recovered_cases</span><span class="p">,</span>
-<span class="ln">32</span>
-<span class="ln">33</span>  <span class="p">(</span><span class="n">recovered_cases</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="n">cases</span> <span class="k">AS</span> <span class="n">recovery_rate</span>
-<span class="ln">34</span>
-<span class="ln">35</span><span class="k">FROM</span> <span class="n">cases_by_country</span>
-<span class="ln">36</span>
-<span class="ln">37</span><span class="p">)</span>
-<span class="ln">38</span>
-<span class="ln">39</span>
-<span class="ln">40</span>
-<span class="ln">41</span><span class="k">SELECT</span> <span class="n">country</span><span class="p">,</span> <span class="n">cases</span> <span class="k">AS</span> <span class="n">confirmed_cases</span><span class="p">,</span> <span class="n">recovered_cases</span><span class="p">,</span> <span class="n">recovery_rate</span>
-<span class="ln">42</span>
-<span class="ln">43</span><span class="k">FROM</span> <span class="n">recovered_rate</span>
-<span class="ln">44</span>
-<span class="ln">45</span><span class="k">WHERE</span> <span class="n">cases</span> <span class="o">&gt;</span> <span class="mi">50000</span>
-<span class="ln">46</span>
-<span class="ln">47</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="n">recovery_rate</span> <span class="k">desc</span>
-<span class="ln">48</span>
-<span class="ln">49</span><span class="k">LIMIT</span> <span class="mi">10</span>
-</code></pre></div><h3 id="task---9--cdgr---cumulative-daily-growth-rate">Task - 9 : CDGR - Cumulative Daily Growth Rate</h3>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="ln"> 1</span><span class="k">WITH</span>
-<span class="ln"> 2</span>
-<span class="ln"> 3</span>  <span class="n">france_cases</span> <span class="k">AS</span> <span class="p">(</span>
-<span class="ln"> 4</span>
-<span class="ln"> 5</span>  <span class="k">SELECT</span>
-<span class="ln"> 6</span>
-<span class="ln"> 7</span>    <span class="nb">date</span><span class="p">,</span>
-<span class="ln"> 8</span>
-<span class="ln"> 9</span>    <span class="k">SUM</span><span class="p">(</span><span class="n">cumulative_confirmed</span><span class="p">)</span> <span class="k">AS</span> <span class="n">total_cases</span>
-<span class="ln">10</span>
-<span class="ln">11</span>  <span class="k">FROM</span>
-<span class="ln">12</span>
-<span class="ln">13</span>    <span class="o">`</span><span class="n">bigquery</span><span class="o">-</span><span class="k">public</span><span class="o">-</span><span class="k">data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="o">`</span>
-<span class="ln">14</span>
-<span class="ln">15</span>  <span class="k">WHERE</span>
-<span class="ln">16</span>
-<span class="ln">17</span>    <span class="n">country_name</span><span class="o">=</span><span class="s2">&#34;France&#34;</span>
-<span class="ln">18</span>
-<span class="ln">19</span>    <span class="k">AND</span> <span class="nb">date</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">&#39;2020-01-24&#39;</span><span class="p">,</span>
-<span class="ln">20</span>
-<span class="ln">21</span>      <span class="s1">&#39;2020-05-10&#39;</span><span class="p">)</span>
-<span class="ln">22</span>
-<span class="ln">23</span>  <span class="k">GROUP</span> <span class="k">BY</span>
-<span class="ln">24</span>
-<span class="ln">25</span>    <span class="nb">date</span>
-<span class="ln">26</span>
-<span class="ln">27</span>  <span class="k">ORDER</span> <span class="k">BY</span>
-<span class="ln">28</span>
-<span class="ln">29</span>    <span class="nb">date</span><span class="p">)</span>
-<span class="ln">30</span>
-<span class="ln">31</span><span class="p">,</span> <span class="n">summary</span> <span class="k">as</span> <span class="p">(</span>
-<span class="ln">32</span>
-<span class="ln">33</span><span class="k">SELECT</span>
-<span class="ln">34</span>
-<span class="ln">35</span>  <span class="n">total_cases</span> <span class="k">AS</span> <span class="n">first_day_cases</span><span class="p">,</span>
-<span class="ln">36</span>
-<span class="ln">37</span>  <span class="n">LEAD</span><span class="p">(</span><span class="n">total_cases</span><span class="p">)</span> <span class="n">OVER</span><span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="nb">date</span><span class="p">)</span> <span class="k">AS</span> <span class="n">last_day_cases</span><span class="p">,</span>
-<span class="ln">38</span>
-<span class="ln">39</span>  <span class="n">DATE_DIFF</span><span class="p">(</span><span class="n">LEAD</span><span class="p">(</span><span class="nb">date</span><span class="p">)</span> <span class="n">OVER</span><span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="nb">date</span><span class="p">),</span><span class="nb">date</span><span class="p">,</span> <span class="k">day</span><span class="p">)</span> <span class="k">AS</span> <span class="n">days_diff</span>
-<span class="ln">40</span>
-<span class="ln">41</span><span class="k">FROM</span>
-<span class="ln">42</span>
-<span class="ln">43</span>  <span class="n">france_cases</span>
-<span class="ln">44</span>
-<span class="ln">45</span><span class="k">LIMIT</span> <span class="mi">1</span>
-<span class="ln">46</span>
-<span class="ln">47</span><span class="p">)</span>
-<span class="ln">48</span>
-<span class="ln">49</span><span class="k">select</span> <span class="n">first_day_cases</span><span class="p">,</span> <span class="n">last_day_cases</span><span class="p">,</span> <span class="n">days_diff</span><span class="p">,</span> <span class="n">POW</span><span class="p">((</span><span class="n">last_day_cases</span><span class="o">/</span><span class="n">first_day_cases</span><span class="p">),(</span><span class="mi">1</span><span class="o">/</span><span class="n">days_diff</span><span class="p">))</span><span class="o">-</span><span class="mi">1</span> <span class="k">as</span> <span class="n">cdgr</span>
-<span class="ln">50</span>
-<span class="ln">51</span><span class="k">from</span> <span class="n">summary</span>
-</code></pre></div><h3 id="task---10--create-a-datastudio-report">Task - 10 : Create a Datastudio report</h3>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="ln"> 1</span><span class="k">SELECT</span>
-<span class="ln"> 2</span>
-<span class="ln"> 3</span>  <span class="nb">date</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">cumulative_confirmed</span><span class="p">)</span> <span class="k">AS</span> <span class="n">country_cases</span><span class="p">,</span>
-<span class="ln"> 4</span>
-<span class="ln"> 5</span>  <span class="k">SUM</span><span class="p">(</span><span class="n">cumulative_deceased</span><span class="p">)</span> <span class="k">AS</span> <span class="n">country_deaths</span>
-<span class="ln"> 6</span>
-<span class="ln"> 7</span><span class="k">FROM</span>
-<span class="ln"> 8</span>
-<span class="ln"> 9</span>  <span class="o">`</span><span class="n">bigquery</span><span class="o">-</span><span class="k">public</span><span class="o">-</span><span class="k">data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="o">`</span>
-<span class="ln">10</span>
-<span class="ln">11</span><span class="k">WHERE</span>
-<span class="ln">12</span>
-<span class="ln">13</span>  <span class="nb">date</span> <span class="k">BETWEEN</span> <span class="s1">&#39;2020-03-15&#39;</span>
-<span class="ln">14</span>
-<span class="ln">15</span>  <span class="k">AND</span> <span class="s1">&#39;2020-04-30&#39;</span>
-<span class="ln">16</span>
-<span class="ln">17</span>  <span class="k">AND</span> <span class="n">country_name</span> <span class="o">=</span><span class="s2">&#34;United States of America&#34;</span>
-<span class="ln">18</span>
-<span class="ln">19</span><span class="k">GROUP</span> <span class="k">BY</span> <span class="nb">date</span>
-</code></pre></div><p>Congratulations, you're all done with the lab 😄</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="ln">1</span><span class="k">SELECT</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">cumulative_confirmed</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total_cases_worldwide</span><span class="w">
+</span><span class="ln">2</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="o">`</span><span class="n">bigquery</span><span class="o">-</span><span class="k">public</span><span class="o">-</span><span class="k">data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="o">`</span><span class="w">
+</span><span class="ln">3</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="nb">date</span><span class="o">=</span><span class="s1">&#39;2020-04-15&#39;</span><span class="w">
+</span></code></pre></div><h3 id="task---2--worst-affected-areas">Task - 2 : Worst Affected Areas</h3>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="ln"> 1</span><span class="k">with</span><span class="w"> </span><span class="n">deaths_by_states</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="ln"> 2</span><span class="w">
+</span><span class="ln"> 3</span><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">subregion1_name</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">state</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">cumulative_deceased</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">death_count</span><span class="w">
+</span><span class="ln"> 4</span><span class="w">
+</span><span class="ln"> 5</span><span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="o">`</span><span class="n">bigquery</span><span class="o">-</span><span class="k">public</span><span class="o">-</span><span class="k">data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="o">`</span><span class="w">
+</span><span class="ln"> 6</span><span class="w">
+</span><span class="ln"> 7</span><span class="w">    </span><span class="k">where</span><span class="w"> </span><span class="n">country_name</span><span class="o">=</span><span class="s2">&#34;United States of America&#34;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nb">date</span><span class="o">=</span><span class="s1">&#39;2020-04-10&#39;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">subregion1_name</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w">
+</span><span class="ln"> 8</span><span class="w">
+</span><span class="ln"> 9</span><span class="w">    </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">subregion1_name</span><span class="w">
+</span><span class="ln">10</span><span class="w"></span><span class="p">)</span><span class="w">
+</span><span class="ln">11</span><span class="w">
+</span><span class="ln">12</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">count_of_states</span><span class="w">
+</span><span class="ln">13</span><span class="w">
+</span><span class="ln">14</span><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">deaths_by_states</span><span class="w">
+</span><span class="ln">15</span><span class="w">
+</span><span class="ln">16</span><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">death_count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="w">
+</span></code></pre></div><h3 id="task---3--identifying-hotspots">Task - 3 : Identifying Hotspots</h3>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="ln"> 1</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="ln"> 2</span><span class="w">
+</span><span class="ln"> 3</span><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">subregion1_name</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">state</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">cumulative_confirmed</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total_confirmed_cases</span><span class="w">
+</span><span class="ln"> 4</span><span class="w">
+</span><span class="ln"> 5</span><span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="o">`</span><span class="n">bigquery</span><span class="o">-</span><span class="k">public</span><span class="o">-</span><span class="k">data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="o">`</span><span class="w">
+</span><span class="ln"> 6</span><span class="w">
+</span><span class="ln"> 7</span><span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">country_code</span><span class="o">=</span><span class="s2">&#34;US&#34;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="nb">date</span><span class="o">=</span><span class="s1">&#39;2020-04-10&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">subregion1_name</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w">
+</span><span class="ln"> 8</span><span class="w">
+</span><span class="ln"> 9</span><span class="w">    </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">subregion1_name</span><span class="w">
+</span><span class="ln">10</span><span class="w">
+</span><span class="ln">11</span><span class="w">    </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">total_confirmed_cases</span><span class="w"> </span><span class="k">DESC</span><span class="w">
+</span><span class="ln">12</span><span class="w"></span><span class="p">)</span><span class="w">
+</span><span class="ln">13</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">total_confirmed_cases</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+</span></code></pre></div><h3 id="task---4--fatality-ratio">Task - 4 : Fatality Ratio</h3>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="ln">1</span><span class="k">SELECT</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">cumulative_confirmed</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total_confirmed_cases</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">cumulative_deceased</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total_deaths</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">sum</span><span class="p">(</span><span class="n">cumulative_deceased</span><span class="p">)</span><span class="o">/</span><span class="k">sum</span><span class="p">(</span><span class="n">cumulative_confirmed</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">case_fatality_ratio</span><span class="w">
+</span><span class="ln">2</span><span class="w">
+</span><span class="ln">3</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="o">`</span><span class="n">bigquery</span><span class="o">-</span><span class="k">public</span><span class="o">-</span><span class="k">data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="o">`</span><span class="w">
+</span><span class="ln">4</span><span class="w">
+</span><span class="ln">5</span><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">country_name</span><span class="o">=</span><span class="s2">&#34;Italy&#34;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="s1">&#39;2020-04-01&#39;</span><span class="k">and</span><span class="w"> </span><span class="s1">&#39;2020-04-30&#39;</span><span class="w">
+</span></code></pre></div><h3 id="task---5--identifying-specific-day">Task - 5 : Identifying specific day</h3>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="ln">1</span><span class="k">SELECT</span><span class="w"> </span><span class="nb">date</span><span class="w">
+</span><span class="ln">2</span><span class="w">
+</span><span class="ln">3</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="o">`</span><span class="n">bigquery</span><span class="o">-</span><span class="k">public</span><span class="o">-</span><span class="k">data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="o">`</span><span class="w">
+</span><span class="ln">4</span><span class="w">
+</span><span class="ln">5</span><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">country_name</span><span class="o">=</span><span class="s2">&#34;Italy&#34;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">cumulative_deceased</span><span class="o">&gt;</span><span class="mi">10000</span><span class="w">
+</span><span class="ln">6</span><span class="w">
+</span><span class="ln">7</span><span class="w"></span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">asc</span><span class="w">
+</span><span class="ln">8</span><span class="w">
+</span><span class="ln">9</span><span class="w"></span><span class="k">limit</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></code></pre></div><h3 id="task---6--finding-days-with-zero-net-new-cases">Task - 6 : Finding days with zero net new cases</h3>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="ln"> 1</span><span class="k">WITH</span><span class="w"> </span><span class="n">india_cases_by_date</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="ln"> 2</span><span class="w">
+</span><span class="ln"> 3</span><span class="w">  </span><span class="k">SELECT</span><span class="w">
+</span><span class="ln"> 4</span><span class="w">
+</span><span class="ln"> 5</span><span class="w">    </span><span class="nb">date</span><span class="p">,</span><span class="w">
+</span><span class="ln"> 6</span><span class="w">
+</span><span class="ln"> 7</span><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="w"> </span><span class="n">cumulative_confirmed</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">cases</span><span class="w">
+</span><span class="ln"> 8</span><span class="w">
+</span><span class="ln"> 9</span><span class="w">  </span><span class="k">FROM</span><span class="w">
+</span><span class="ln">10</span><span class="w">
+</span><span class="ln">11</span><span class="w">    </span><span class="o">`</span><span class="n">bigquery</span><span class="o">-</span><span class="k">public</span><span class="o">-</span><span class="k">data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="o">`</span><span class="w">
+</span><span class="ln">12</span><span class="w">
+</span><span class="ln">13</span><span class="w">  </span><span class="k">WHERE</span><span class="w">
+</span><span class="ln">14</span><span class="w">
+</span><span class="ln">15</span><span class="w">    </span><span class="n">country_name</span><span class="w"> </span><span class="o">=</span><span class="s2">&#34;India&#34;</span><span class="w">
+</span><span class="ln">16</span><span class="w">
+</span><span class="ln">17</span><span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="s1">&#39;2020-02-21&#39;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="s1">&#39;2020-03-15&#39;</span><span class="w">
+</span><span class="ln">18</span><span class="w">
+</span><span class="ln">19</span><span class="w">  </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w">
+</span><span class="ln">20</span><span class="w">
+</span><span class="ln">21</span><span class="w">    </span><span class="nb">date</span><span class="w">
+</span><span class="ln">22</span><span class="w">
+</span><span class="ln">23</span><span class="w">  </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w">
+</span><span class="ln">24</span><span class="w">
+</span><span class="ln">25</span><span class="w">    </span><span class="nb">date</span><span class="w"> </span><span class="k">ASC</span><span class="w">
+</span><span class="ln">26</span><span class="w">
+</span><span class="ln">27</span><span class="w"> </span><span class="p">)</span><span class="w">
+</span><span class="ln">28</span><span class="w">
+</span><span class="ln">29</span><span class="w"></span><span class="p">,</span><span class="w"> </span><span class="n">india_previous_day_comparison</span><span class="w"> </span><span class="k">AS</span><span class="w">
+</span><span class="ln">30</span><span class="w">
+</span><span class="ln">31</span><span class="w"></span><span class="p">(</span><span class="k">SELECT</span><span class="w">
+</span><span class="ln">32</span><span class="w">
+</span><span class="ln">33</span><span class="w">  </span><span class="nb">date</span><span class="p">,</span><span class="w">
+</span><span class="ln">34</span><span class="w">
+</span><span class="ln">35</span><span class="w">  </span><span class="n">cases</span><span class="p">,</span><span class="w">
+</span><span class="ln">36</span><span class="w">
+</span><span class="ln">37</span><span class="w">  </span><span class="n">LAG</span><span class="p">(</span><span class="n">cases</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">previous_day</span><span class="p">,</span><span class="w">
+</span><span class="ln">38</span><span class="w">
+</span><span class="ln">39</span><span class="w">  </span><span class="n">cases</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">LAG</span><span class="p">(</span><span class="n">cases</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">net_new_cases</span><span class="w">
+</span><span class="ln">40</span><span class="w">
+</span><span class="ln">41</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">india_cases_by_date</span><span class="w">
+</span><span class="ln">42</span><span class="w">
+</span><span class="ln">43</span><span class="w"></span><span class="p">)</span><span class="w">
+</span><span class="ln">44</span><span class="w">
+</span><span class="ln">45</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w">
+</span><span class="ln">46</span><span class="w">
+</span><span class="ln">47</span><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">india_previous_day_comparison</span><span class="w">
+</span><span class="ln">48</span><span class="w">
+</span><span class="ln">49</span><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">net_new_cases</span><span class="o">=</span><span class="mi">0</span><span class="w">
+</span></code></pre></div><h3 id="task---7--doubling-rate">Task - 7 : Doubling rate</h3>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="ln"> 1</span><span class="k">WITH</span><span class="w"> </span><span class="n">us_cases_by_date</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="ln"> 2</span><span class="w">
+</span><span class="ln"> 3</span><span class="w">  </span><span class="k">SELECT</span><span class="w">
+</span><span class="ln"> 4</span><span class="w">
+</span><span class="ln"> 5</span><span class="w">    </span><span class="nb">date</span><span class="p">,</span><span class="w">
+</span><span class="ln"> 6</span><span class="w">
+</span><span class="ln"> 7</span><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">cumulative_confirmed</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">cases</span><span class="w">
+</span><span class="ln"> 8</span><span class="w">
+</span><span class="ln"> 9</span><span class="w">  </span><span class="k">FROM</span><span class="w">
+</span><span class="ln">10</span><span class="w">
+</span><span class="ln">11</span><span class="w">    </span><span class="o">`</span><span class="n">bigquery</span><span class="o">-</span><span class="k">public</span><span class="o">-</span><span class="k">data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="o">`</span><span class="w">
+</span><span class="ln">12</span><span class="w">
+</span><span class="ln">13</span><span class="w">  </span><span class="k">WHERE</span><span class="w">
+</span><span class="ln">14</span><span class="w">
+</span><span class="ln">15</span><span class="w">    </span><span class="n">country_name</span><span class="o">=</span><span class="s2">&#34;United States of America&#34;</span><span class="w">
+</span><span class="ln">16</span><span class="w">
+</span><span class="ln">17</span><span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="s1">&#39;2020-03-22&#39;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="s1">&#39;2020-04-20&#39;</span><span class="w">
+</span><span class="ln">18</span><span class="w">
+</span><span class="ln">19</span><span class="w">  </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w">
+</span><span class="ln">20</span><span class="w">
+</span><span class="ln">21</span><span class="w">    </span><span class="nb">date</span><span class="w">
+</span><span class="ln">22</span><span class="w">
+</span><span class="ln">23</span><span class="w">  </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w">
+</span><span class="ln">24</span><span class="w">
+</span><span class="ln">25</span><span class="w">    </span><span class="nb">date</span><span class="w"> </span><span class="k">ASC</span><span class="w">
+</span><span class="ln">26</span><span class="w">
+</span><span class="ln">27</span><span class="w"> </span><span class="p">)</span><span class="w">
+</span><span class="ln">28</span><span class="w">
+</span><span class="ln">29</span><span class="w">
+</span><span class="ln">30</span><span class="w">
+</span><span class="ln">31</span><span class="w"></span><span class="p">,</span><span class="w"> </span><span class="n">us_previous_day_comparison</span><span class="w"> </span><span class="k">AS</span><span class="w">
+</span><span class="ln">32</span><span class="w">
+</span><span class="ln">33</span><span class="w"></span><span class="p">(</span><span class="k">SELECT</span><span class="w">
+</span><span class="ln">34</span><span class="w">
+</span><span class="ln">35</span><span class="w">  </span><span class="nb">date</span><span class="p">,</span><span class="w">
+</span><span class="ln">36</span><span class="w">
+</span><span class="ln">37</span><span class="w">  </span><span class="n">cases</span><span class="p">,</span><span class="w">
+</span><span class="ln">38</span><span class="w">
+</span><span class="ln">39</span><span class="w">  </span><span class="n">LAG</span><span class="p">(</span><span class="n">cases</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">previous_day</span><span class="p">,</span><span class="w">
+</span><span class="ln">40</span><span class="w">
+</span><span class="ln">41</span><span class="w">  </span><span class="n">cases</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">LAG</span><span class="p">(</span><span class="n">cases</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">net_new_cases</span><span class="p">,</span><span class="w">
+</span><span class="ln">42</span><span class="w">
+</span><span class="ln">43</span><span class="w">  </span><span class="p">(</span><span class="n">cases</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">LAG</span><span class="p">(</span><span class="n">cases</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span><span class="o">/</span><span class="n">LAG</span><span class="p">(</span><span class="n">cases</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">percentage_increase</span><span class="w">
+</span><span class="ln">44</span><span class="w">
+</span><span class="ln">45</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">us_cases_by_date</span><span class="w">
+</span><span class="ln">46</span><span class="w">
+</span><span class="ln">47</span><span class="w"></span><span class="p">)</span><span class="w">
+</span><span class="ln">48</span><span class="w">
+</span><span class="ln">49</span><span class="w">
+</span><span class="ln">50</span><span class="w">
+</span><span class="ln">51</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="nb">Date</span><span class="p">,</span><span class="w"> </span><span class="n">cases</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Confirmed_Cases_On_Day</span><span class="p">,</span><span class="w"> </span><span class="n">previous_day</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Confirmed_Cases_Previous_Day</span><span class="p">,</span><span class="w"> </span><span class="n">percentage_increase</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Percentage_Increase_In_Cases</span><span class="w">
+</span><span class="ln">52</span><span class="w">
+</span><span class="ln">53</span><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">us_previous_day_comparison</span><span class="w">
+</span><span class="ln">54</span><span class="w">
+</span><span class="ln">55</span><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">percentage_increase</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span></code></pre></div><h3 id="task---8--recovery-rate">Task - 8 : Recovery rate</h3>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="ln"> 1</span><span class="k">WITH</span><span class="w"> </span><span class="n">cases_by_country</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="ln"> 2</span><span class="w">
+</span><span class="ln"> 3</span><span class="w">  </span><span class="k">SELECT</span><span class="w">
+</span><span class="ln"> 4</span><span class="w">
+</span><span class="ln"> 5</span><span class="w">    </span><span class="n">country_name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">country</span><span class="p">,</span><span class="w">
+</span><span class="ln"> 6</span><span class="w">
+</span><span class="ln"> 7</span><span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="n">cumulative_confirmed</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">cases</span><span class="p">,</span><span class="w">
+</span><span class="ln"> 8</span><span class="w">
+</span><span class="ln"> 9</span><span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="n">cumulative_recovered</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">recovered_cases</span><span class="w">
+</span><span class="ln">10</span><span class="w">
+</span><span class="ln">11</span><span class="w">  </span><span class="k">FROM</span><span class="w">
+</span><span class="ln">12</span><span class="w">
+</span><span class="ln">13</span><span class="w">    </span><span class="n">bigquery</span><span class="o">-</span><span class="k">public</span><span class="o">-</span><span class="k">data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="w">
+</span><span class="ln">14</span><span class="w">
+</span><span class="ln">15</span><span class="w">  </span><span class="k">WHERE</span><span class="w">
+</span><span class="ln">16</span><span class="w">
+</span><span class="ln">17</span><span class="w">    </span><span class="nb">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;2020-05-10&#39;</span><span class="w">
+</span><span class="ln">18</span><span class="w">
+</span><span class="ln">19</span><span class="w">  </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w">
+</span><span class="ln">20</span><span class="w">
+</span><span class="ln">21</span><span class="w">    </span><span class="n">country_name</span><span class="w">
+</span><span class="ln">22</span><span class="w">
+</span><span class="ln">23</span><span class="w"> </span><span class="p">)</span><span class="w">
+</span><span class="ln">24</span><span class="w">
+</span><span class="ln">25</span><span class="w">
+</span><span class="ln">26</span><span class="w">
+</span><span class="ln">27</span><span class="w"></span><span class="p">,</span><span class="w"> </span><span class="n">recovered_rate</span><span class="w"> </span><span class="k">AS</span><span class="w">
+</span><span class="ln">28</span><span class="w">
+</span><span class="ln">29</span><span class="w"></span><span class="p">(</span><span class="k">SELECT</span><span class="w">
+</span><span class="ln">30</span><span class="w">
+</span><span class="ln">31</span><span class="w">  </span><span class="n">country</span><span class="p">,</span><span class="w"> </span><span class="n">cases</span><span class="p">,</span><span class="w"> </span><span class="n">recovered_cases</span><span class="p">,</span><span class="w">
+</span><span class="ln">32</span><span class="w">
+</span><span class="ln">33</span><span class="w">  </span><span class="p">(</span><span class="n">recovered_cases</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="n">cases</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">recovery_rate</span><span class="w">
+</span><span class="ln">34</span><span class="w">
+</span><span class="ln">35</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">cases_by_country</span><span class="w">
+</span><span class="ln">36</span><span class="w">
+</span><span class="ln">37</span><span class="w"></span><span class="p">)</span><span class="w">
+</span><span class="ln">38</span><span class="w">
+</span><span class="ln">39</span><span class="w">
+</span><span class="ln">40</span><span class="w">
+</span><span class="ln">41</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">country</span><span class="p">,</span><span class="w"> </span><span class="n">cases</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">confirmed_cases</span><span class="p">,</span><span class="w"> </span><span class="n">recovered_cases</span><span class="p">,</span><span class="w"> </span><span class="n">recovery_rate</span><span class="w">
+</span><span class="ln">42</span><span class="w">
+</span><span class="ln">43</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">recovered_rate</span><span class="w">
+</span><span class="ln">44</span><span class="w">
+</span><span class="ln">45</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">cases</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">50000</span><span class="w">
+</span><span class="ln">46</span><span class="w">
+</span><span class="ln">47</span><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">recovery_rate</span><span class="w"> </span><span class="k">desc</span><span class="w">
+</span><span class="ln">48</span><span class="w">
+</span><span class="ln">49</span><span class="w"></span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span></code></pre></div><h3 id="task---9--cdgr---cumulative-daily-growth-rate">Task - 9 : CDGR - Cumulative Daily Growth Rate</h3>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="ln"> 1</span><span class="k">WITH</span><span class="w">
+</span><span class="ln"> 2</span><span class="w">
+</span><span class="ln"> 3</span><span class="w">  </span><span class="n">france_cases</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="ln"> 4</span><span class="w">
+</span><span class="ln"> 5</span><span class="w">  </span><span class="k">SELECT</span><span class="w">
+</span><span class="ln"> 6</span><span class="w">
+</span><span class="ln"> 7</span><span class="w">    </span><span class="nb">date</span><span class="p">,</span><span class="w">
+</span><span class="ln"> 8</span><span class="w">
+</span><span class="ln"> 9</span><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">cumulative_confirmed</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total_cases</span><span class="w">
+</span><span class="ln">10</span><span class="w">
+</span><span class="ln">11</span><span class="w">  </span><span class="k">FROM</span><span class="w">
+</span><span class="ln">12</span><span class="w">
+</span><span class="ln">13</span><span class="w">    </span><span class="o">`</span><span class="n">bigquery</span><span class="o">-</span><span class="k">public</span><span class="o">-</span><span class="k">data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="o">`</span><span class="w">
+</span><span class="ln">14</span><span class="w">
+</span><span class="ln">15</span><span class="w">  </span><span class="k">WHERE</span><span class="w">
+</span><span class="ln">16</span><span class="w">
+</span><span class="ln">17</span><span class="w">    </span><span class="n">country_name</span><span class="o">=</span><span class="s2">&#34;France&#34;</span><span class="w">
+</span><span class="ln">18</span><span class="w">
+</span><span class="ln">19</span><span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2020-01-24&#39;</span><span class="p">,</span><span class="w">
+</span><span class="ln">20</span><span class="w">
+</span><span class="ln">21</span><span class="w">      </span><span class="s1">&#39;2020-05-10&#39;</span><span class="p">)</span><span class="w">
+</span><span class="ln">22</span><span class="w">
+</span><span class="ln">23</span><span class="w">  </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w">
+</span><span class="ln">24</span><span class="w">
+</span><span class="ln">25</span><span class="w">    </span><span class="nb">date</span><span class="w">
+</span><span class="ln">26</span><span class="w">
+</span><span class="ln">27</span><span class="w">  </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w">
+</span><span class="ln">28</span><span class="w">
+</span><span class="ln">29</span><span class="w">    </span><span class="nb">date</span><span class="p">)</span><span class="w">
+</span><span class="ln">30</span><span class="w">
+</span><span class="ln">31</span><span class="w"></span><span class="p">,</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="ln">32</span><span class="w">
+</span><span class="ln">33</span><span class="w"></span><span class="k">SELECT</span><span class="w">
+</span><span class="ln">34</span><span class="w">
+</span><span class="ln">35</span><span class="w">  </span><span class="n">total_cases</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">first_day_cases</span><span class="p">,</span><span class="w">
+</span><span class="ln">36</span><span class="w">
+</span><span class="ln">37</span><span class="w">  </span><span class="n">LEAD</span><span class="p">(</span><span class="n">total_cases</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">last_day_cases</span><span class="p">,</span><span class="w">
+</span><span class="ln">38</span><span class="w">
+</span><span class="ln">39</span><span class="w">  </span><span class="n">DATE_DIFF</span><span class="p">(</span><span class="n">LEAD</span><span class="p">(</span><span class="nb">date</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="p">),</span><span class="nb">date</span><span class="p">,</span><span class="w"> </span><span class="k">day</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">days_diff</span><span class="w">
+</span><span class="ln">40</span><span class="w">
+</span><span class="ln">41</span><span class="w"></span><span class="k">FROM</span><span class="w">
+</span><span class="ln">42</span><span class="w">
+</span><span class="ln">43</span><span class="w">  </span><span class="n">france_cases</span><span class="w">
+</span><span class="ln">44</span><span class="w">
+</span><span class="ln">45</span><span class="w"></span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="ln">46</span><span class="w">
+</span><span class="ln">47</span><span class="w"></span><span class="p">)</span><span class="w">
+</span><span class="ln">48</span><span class="w">
+</span><span class="ln">49</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">first_day_cases</span><span class="p">,</span><span class="w"> </span><span class="n">last_day_cases</span><span class="p">,</span><span class="w"> </span><span class="n">days_diff</span><span class="p">,</span><span class="w"> </span><span class="n">POW</span><span class="p">((</span><span class="n">last_day_cases</span><span class="o">/</span><span class="n">first_day_cases</span><span class="p">),(</span><span class="mi">1</span><span class="o">/</span><span class="n">days_diff</span><span class="p">))</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">cdgr</span><span class="w">
+</span><span class="ln">50</span><span class="w">
+</span><span class="ln">51</span><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">summary</span><span class="w">
+</span></code></pre></div><h3 id="task---10--create-a-datastudio-report">Task - 10 : Create a Datastudio report</h3>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="ln"> 1</span><span class="k">SELECT</span><span class="w">
+</span><span class="ln"> 2</span><span class="w">
+</span><span class="ln"> 3</span><span class="w">  </span><span class="nb">date</span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">cumulative_confirmed</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">country_cases</span><span class="p">,</span><span class="w">
+</span><span class="ln"> 4</span><span class="w">
+</span><span class="ln"> 5</span><span class="w">  </span><span class="k">SUM</span><span class="p">(</span><span class="n">cumulative_deceased</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">country_deaths</span><span class="w">
+</span><span class="ln"> 6</span><span class="w">
+</span><span class="ln"> 7</span><span class="w"></span><span class="k">FROM</span><span class="w">
+</span><span class="ln"> 8</span><span class="w">
+</span><span class="ln"> 9</span><span class="w">  </span><span class="o">`</span><span class="n">bigquery</span><span class="o">-</span><span class="k">public</span><span class="o">-</span><span class="k">data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="p">.</span><span class="n">covid19_open_data</span><span class="o">`</span><span class="w">
+</span><span class="ln">10</span><span class="w">
+</span><span class="ln">11</span><span class="w"></span><span class="k">WHERE</span><span class="w">
+</span><span class="ln">12</span><span class="w">
+</span><span class="ln">13</span><span class="w">  </span><span class="nb">date</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="s1">&#39;2020-03-15&#39;</span><span class="w">
+</span><span class="ln">14</span><span class="w">
+</span><span class="ln">15</span><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="s1">&#39;2020-04-30&#39;</span><span class="w">
+</span><span class="ln">16</span><span class="w">
+</span><span class="ln">17</span><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">country_name</span><span class="w"> </span><span class="o">=</span><span class="s2">&#34;United States of America&#34;</span><span class="w">
+</span><span class="ln">18</span><span class="w">
+</span><span class="ln">19</span><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="w">
+</span></code></pre></div><p>Congratulations, you're all done with the lab 😄</p>
 
   </article>
 <aside class="sidebar">

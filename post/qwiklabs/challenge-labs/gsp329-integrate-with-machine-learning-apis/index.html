@@ -83,6 +83,9 @@
   <div class="nav_parent">
     <a href="https://www.courseintern.com/about/" class="nav_item" title="About">About </a>
   </div>
+  <div class="nav_parent">
+    <a href="https://www.courseintern.com/campus-leaders/" class="nav_item" title="Hiring Campus Leaders">Hiring Campus Leaders </a>
+  </div>
       <a href='https://www.courseintern.com/' class="nav_brand nav_item nav_center" title="Course Intern">
   <img src="https://www.courseintern.com/logos/logo.png" class="logo" alt="Course Intern">
 </a>
@@ -394,8 +397,8 @@
 </code></pre></div><ul>
 <li>Navigation Menu -&gt; BigQuery, Run</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="ln">1</span><span class="k">SELECT</span> <span class="n">locale</span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="n">locale</span><span class="p">)</span> <span class="k">as</span> <span class="n">lcount</span> <span class="k">FROM</span> <span class="n">image_classification_dataset</span><span class="p">.</span><span class="n">image_text_detail</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">locale</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">lcount</span> <span class="k">DESC</span>
-</code></pre></div><p>Congratulations, you're all done with the lab 😄</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="ln">1</span><span class="k">SELECT</span><span class="w"> </span><span class="n">locale</span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="n">locale</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">lcount</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">image_classification_dataset</span><span class="p">.</span><span class="n">image_text_detail</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">locale</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">lcount</span><span class="w"> </span><span class="k">DESC</span><span class="w">
+</span></code></pre></div><p>Congratulations, you're all done with the lab 😄</p>
 
   </article>
 <aside class="sidebar">

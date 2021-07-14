@@ -7,7 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2008–2018, Steve Francia and the Admin; all rights reserved.</copyright>
-    <lastBuildDate>Sun, 23 May 2021 18:17:07 +0530</lastBuildDate><atom:link href="https://www.courseintern.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Jul 2021 00:37:11 +0530</lastBuildDate><atom:link href="https://www.courseintern.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hands on Session On Developing A Zip Archive using Python</title>
+      <link>https://www.courseintern.com/post/events/create-zip-archive-using-python/</link>
+      <pubDate>Thu, 15 Jul 2021 00:37:11 +0530</pubDate>
+      
+      <guid>https://www.courseintern.com/post/events/create-zip-archive-using-python/</guid>
+      <description>
+        
+          &lt;p&gt;Not only attendees will learn to code a Python program that could create zip-archives from the ground-up, but they will also get a chance to win lot of goodies and stickers.&lt;/p&gt;
+&lt;p&gt;We also thank our community partners, GitHub Campus Experts.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.courseintern.com/images/events/zipster-python-session.png&#34; alt=&#34;Github Campus Experts&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Please fill in this form to register for the event. The seats are filling fast (we already have 150+ registrations till date), so hurry up!!!&lt;/p&gt;
+&lt;p&gt;You&#39;ll receive an email with link to join the session which will be held on July 24, 2021 at 12:00 PM IST on YouTube.&lt;/p&gt;
+&lt;iframe src=&#34;https://docs.google.com/forms/d/e/1FAIpQLSedhgmLuR5ZrIm31ykJRmOZJYsFfyeNqRlTo71P4hoIMGPPBA/viewform?embedded=true&#34; width=&#34;1040&#34; height=&#34;660&#34; frameborder=&#34;0&#34; marginheight=&#34;0&#34; marginwidth=&#34;0&#34;&gt;&lt;/iframe&gt;
+
+
+        
+      </description>
+    </item>
+    
     <item>
       <title>GSP304 : Build and Deploy a Docker Image to a Kubernetes Cluster</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp304-build-and-deploy-a-docker-image-to-a-kubernetes-cluster/</link>
@@ -771,25 +791,25 @@ Save by esc -&amp;gt; Esc - &amp;gt; &amp;quot;:wq&amp;quot; and press enter.&lt
 &lt;span class=&#34;ln&#34;&gt; 18&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 19&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;ow&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;exists&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;environ&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;GOOGLE_APPLICATION_CREDENTIALS&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])):&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 20&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 21&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;print&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;The GOOGLE_APPLICATION_CREDENTIALS file does not exist.&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 21&lt;/span&gt;        &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;The GOOGLE_APPLICATION_CREDENTIALS file does not exist.&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 22&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 23&lt;/span&gt;        &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 23&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;exit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 24&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 25&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 26&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 27&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;print&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;The GOOGLE_APPLICATION_CREDENTIALS environment variable is not defined.&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 27&lt;/span&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;The GOOGLE_APPLICATION_CREDENTIALS environment variable is not defined.&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 28&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 29&lt;/span&gt;    &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 29&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;exit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 30&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 31&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 32&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 33&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sys&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;argv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 34&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 35&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;You must provide parameters for the Google Cloud project ID and Storage bucket&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 35&lt;/span&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;You must provide parameters for the Google Cloud project ID and Storage bucket&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 36&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 37&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;print&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;python3 &amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sys&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;argv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;[PROJECT_NAME] [BUCKET_NAME]&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 37&lt;/span&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;python3 &amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sys&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;argv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;[PROJECT_NAME] [BUCKET_NAME]&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 38&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 39&lt;/span&gt;    &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 39&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;exit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 40&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 41&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 42&lt;/span&gt;
@@ -841,17 +861,17 @@ Save by esc -&amp;gt; Esc - &amp;gt; &amp;quot;:wq&amp;quot; and press enter.&lt
 &lt;span class=&#34;ln&#34;&gt; 88&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 89&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 90&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 91&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Processing image files from GCS. This will take a few minutes..&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 91&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Processing image files from GCS. This will take a few minutes..&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 92&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 93&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 94&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 95&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# Process files from Cloud Storage and save the result to send to BigQuery&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 96&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 97&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;file&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;files&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 97&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;file&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;files&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 98&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 99&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;file&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;endswith&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;jpg&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;or&lt;/span&gt;  &lt;span class=&#34;nb&#34;&gt;file&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;endswith&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;png&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 99&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;file&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;endswith&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;jpg&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;or&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;file&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;endswith&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;png&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;100&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;101&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;file_content&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;file&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;download_as_string&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;101&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;file_content&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;file&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;download_as_string&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;102&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;103&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;104&lt;/span&gt;
@@ -887,7 +907,7 @@ Save by esc -&amp;gt; Esc - &amp;gt; &amp;quot;:wq&amp;quot; and press enter.&lt
 &lt;span class=&#34;ln&#34;&gt;134&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;135&lt;/span&gt;        &lt;span class=&#34;c1&#34;&gt;# Save the text detection response data in &amp;lt;filename&amp;gt;.txt to cloud storage&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;136&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;137&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;file_name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;file&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;split&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;.txt&amp;#39;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;137&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;file_name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;file&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;split&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;.txt&amp;#39;&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;138&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;139&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;blob&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bucket&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;blob&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;file_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;140&lt;/span&gt;
@@ -933,7 +953,7 @@ Save by esc -&amp;gt; Esc - &amp;gt; &amp;quot;:wq&amp;quot; and press enter.&lt
 &lt;span class=&#34;ln&#34;&gt;180&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;181&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;translated_text&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;translation&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;translatedText&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;182&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;183&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;translated_text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;183&lt;/span&gt;        &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;translated_text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;184&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;185&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;186&lt;/span&gt;
@@ -943,11 +963,11 @@ Save by esc -&amp;gt; Esc - &amp;gt; &amp;quot;:wq&amp;quot; and press enter.&lt
 &lt;span class=&#34;ln&#34;&gt;190&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;191&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;response&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;text_annotations&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;192&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;193&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;rows_for_bq&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;desc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;locale&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;translated_text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;file&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;193&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;rows_for_bq&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;desc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;locale&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;translated_text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;file&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;194&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;195&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;196&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;197&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Writing Vision API image data to BigQuery...&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;197&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Writing Vision API image data to BigQuery...&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;198&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;199&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# Write original text, locale and translated text to BQ&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;200&lt;/span&gt;
@@ -1676,24 +1696,24 @@ Press &amp;quot;Esc&amp;quot; -&amp;gt; &amp;quot;:wq&amp;quot; -&amp;gt; Enter&
 &lt;ul&gt;
 &lt;li&gt;SSH to &lt;code&gt;kraken-jumphost&lt;/code&gt; and run&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;cd /work/dm
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; /work/dm
 &lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;sed -i s/SET_REGION/us-east1/g prod-network.yaml
 &lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;gcloud deployment-manager deployments create prod-network --config=prod-network.yaml
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;gcloud deployment-manager deployments create prod-network --config&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;prod-network.yaml
 &lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;gcloud config set compute/zone us-east1-b
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;gcloud config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; compute/zone us-east1-b
 &lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;gcloud container clusters create kraken-prod \
-&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;          --num-nodes 2 \
-&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;          --network kraken-prod-vpc \
-&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;          --subnetwork kraken-prod-subnet\
-&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;          --zone us-east1-b
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;gcloud container clusters create kraken-prod &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --num-nodes &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --network kraken-prod-vpc &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --subnetwork kraken-prod-subnet&lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --zone us-east1-b
 &lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;gcloud container clusters get-credentials kraken-prod
 &lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;cd /work/k8s
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; /work/k8s
 &lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;for F in $(ls *.yaml); do kubectl create -f $F; done
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; F in &lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;ls *.yaml&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt; kubectl create -f &lt;span class=&#34;nv&#34;&gt;$F&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;done&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;task-2--setup-the-admin-instance&#34;&gt;Task 2 : Setup the Admin instance&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Still in kraken-jumphost&#39;s SSH, run&lt;/li&gt;

@@ -202,25 +202,25 @@
 <span class="ln"> 18</span>
 <span class="ln"> 19</span>    <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;GOOGLE_APPLICATION_CREDENTIALS&#39;</span><span class="p">])):</span>
 <span class="ln"> 20</span>
-<span class="ln"> 21</span>        <span class="k">print</span> <span class="p">(</span><span class="s2">&#34;The GOOGLE_APPLICATION_CREDENTIALS file does not exist.</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+<span class="ln"> 21</span>        <span class="nb">print</span> <span class="p">(</span><span class="s2">&#34;The GOOGLE_APPLICATION_CREDENTIALS file does not exist.</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
 <span class="ln"> 22</span>
-<span class="ln"> 23</span>        <span class="nb">exit</span><span class="p">()</span>
+<span class="ln"> 23</span>        <span class="n">exit</span><span class="p">()</span>
 <span class="ln"> 24</span>
 <span class="ln"> 25</span><span class="k">else</span><span class="p">:</span>
 <span class="ln"> 26</span>
-<span class="ln"> 27</span>    <span class="k">print</span> <span class="p">(</span><span class="s2">&#34;The GOOGLE_APPLICATION_CREDENTIALS environment variable is not defined.</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+<span class="ln"> 27</span>    <span class="nb">print</span> <span class="p">(</span><span class="s2">&#34;The GOOGLE_APPLICATION_CREDENTIALS environment variable is not defined.</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
 <span class="ln"> 28</span>
-<span class="ln"> 29</span>    <span class="nb">exit</span><span class="p">()</span>
+<span class="ln"> 29</span>    <span class="n">exit</span><span class="p">()</span>
 <span class="ln"> 30</span>
 <span class="ln"> 31</span>
 <span class="ln"> 32</span>
 <span class="ln"> 33</span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">:</span>
 <span class="ln"> 34</span>
-<span class="ln"> 35</span>    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;You must provide parameters for the Google Cloud project ID and Storage bucket&#39;</span><span class="p">)</span>
+<span class="ln"> 35</span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;You must provide parameters for the Google Cloud project ID and Storage bucket&#39;</span><span class="p">)</span>
 <span class="ln"> 36</span>
-<span class="ln"> 37</span>    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;python3 &#39;</span><span class="o">+</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span> <span class="s1">&#39;[PROJECT_NAME] [BUCKET_NAME]&#39;</span><span class="p">)</span>
+<span class="ln"> 37</span>    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;python3 &#39;</span><span class="o">+</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span> <span class="s1">&#39;[PROJECT_NAME] [BUCKET_NAME]&#39;</span><span class="p">)</span>
 <span class="ln"> 38</span>
-<span class="ln"> 39</span>    <span class="nb">exit</span><span class="p">()</span>
+<span class="ln"> 39</span>    <span class="n">exit</span><span class="p">()</span>
 <span class="ln"> 40</span>
 <span class="ln"> 41</span>
 <span class="ln"> 42</span>
@@ -272,17 +272,17 @@
 <span class="ln"> 88</span>
 <span class="ln"> 89</span>
 <span class="ln"> 90</span>
-<span class="ln"> 91</span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Processing image files from GCS. This will take a few minutes..&#39;</span><span class="p">)</span>
+<span class="ln"> 91</span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Processing image files from GCS. This will take a few minutes..&#39;</span><span class="p">)</span>
 <span class="ln"> 92</span>
 <span class="ln"> 93</span>
 <span class="ln"> 94</span>
 <span class="ln"> 95</span><span class="c1"># Process files from Cloud Storage and save the result to send to BigQuery</span>
 <span class="ln"> 96</span>
-<span class="ln"> 97</span><span class="k">for</span> <span class="nb">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+<span class="ln"> 97</span><span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
 <span class="ln"> 98</span>
-<span class="ln"> 99</span>    <span class="k">if</span> <span class="nb">file</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;jpg&#39;</span><span class="p">)</span> <span class="ow">or</span>  <span class="nb">file</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;png&#39;</span><span class="p">):</span>
+<span class="ln"> 99</span>    <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;jpg&#39;</span><span class="p">)</span> <span class="ow">or</span>  <span class="n">file</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;png&#39;</span><span class="p">):</span>
 <span class="ln">100</span>
-<span class="ln">101</span>        <span class="n">file_content</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">download_as_string</span><span class="p">()</span>
+<span class="ln">101</span>        <span class="n">file_content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">download_as_string</span><span class="p">()</span>
 <span class="ln">102</span>
 <span class="ln">103</span>
 <span class="ln">104</span>
@@ -318,7 +318,7 @@
 <span class="ln">134</span>
 <span class="ln">135</span>        <span class="c1"># Save the text detection response data in &lt;filename&gt;.txt to cloud storage</span>
 <span class="ln">136</span>
-<span class="ln">137</span>        <span class="n">file_name</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.txt&#39;</span>
+<span class="ln">137</span>        <span class="n">file_name</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.txt&#39;</span>
 <span class="ln">138</span>
 <span class="ln">139</span>        <span class="n">blob</span> <span class="o">=</span> <span class="n">bucket</span><span class="o">.</span><span class="n">blob</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
 <span class="ln">140</span>
@@ -364,7 +364,7 @@
 <span class="ln">180</span>
 <span class="ln">181</span>            <span class="n">translated_text</span> <span class="o">=</span> <span class="n">translation</span><span class="p">[</span><span class="s1">&#39;translatedText&#39;</span><span class="p">]</span>
 <span class="ln">182</span>
-<span class="ln">183</span>        <span class="k">print</span><span class="p">(</span><span class="n">translated_text</span><span class="p">)</span>
+<span class="ln">183</span>        <span class="nb">print</span><span class="p">(</span><span class="n">translated_text</span><span class="p">)</span>
 <span class="ln">184</span>
 <span class="ln">185</span>
 <span class="ln">186</span>
@@ -374,11 +374,11 @@
 <span class="ln">190</span>
 <span class="ln">191</span>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text_annotations</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
 <span class="ln">192</span>
-<span class="ln">193</span>            <span class="n">rows_for_bq</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">desc</span><span class="p">,</span> <span class="n">locale</span><span class="p">,</span> <span class="n">translated_text</span><span class="p">,</span> <span class="nb">file</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+<span class="ln">193</span>            <span class="n">rows_for_bq</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">desc</span><span class="p">,</span> <span class="n">locale</span><span class="p">,</span> <span class="n">translated_text</span><span class="p">,</span> <span class="n">file</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
 <span class="ln">194</span>
 <span class="ln">195</span>
 <span class="ln">196</span>
-<span class="ln">197</span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Writing Vision API image data to BigQuery...&#39;</span><span class="p">)</span>
+<span class="ln">197</span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Writing Vision API image data to BigQuery...&#39;</span><span class="p">)</span>
 <span class="ln">198</span>
 <span class="ln">199</span><span class="c1"># Write original text, locale and translated text to BQ</span>
 <span class="ln">200</span>
@@ -420,6 +420,9 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://www.courseintern.com/post/events/create-zip-archive-using-python/" class="nav-link" title="Hands on Session On Developing A Zip Archive using Python">Hands on Session On Developing A Zip Archive using Python</a>
+      </li>
+      <li>
         <a href="https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp304-build-and-deploy-a-docker-image-to-a-kubernetes-cluster/" class="nav-link" title="GSP304 : Build and Deploy a Docker Image to a Kubernetes Cluster">GSP304 : Build and Deploy a Docker Image to a Kubernetes Cluster</a>
       </li>
       <li>
@@ -446,9 +449,6 @@
       <li>
         <a href="https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp343-optimize-costs-for-google-kubernetes-engine/" class="nav-link" title="GSP343: Optimize Costs for Google Kubernetes Engine">GSP343: Optimize Costs for Google Kubernetes Engine</a>
       </li>
-      <li>
-        <a href="https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp306-migrate-a-mysql-database-to-google-cloud-sql/" class="nav-link" title="GSP306: Migrate a Mysql Database to Google Cloud Sql">GSP306: Migrate a Mysql Database to Google Cloud Sql</a>
-      </li>
     </ul>
     <div>
       <h2 class="mt-4 taxonomy" id="categories-section">Categories</h2>
@@ -460,7 +460,7 @@
         
         <a href='https://www.courseintern.com/categories/events/' class="post_tag button button_translucent" title="events">
           EVENTS
-          <span class="button_tally">1</span>
+          <span class="button_tally">2</span>
         </a>
         
         
@@ -486,16 +486,16 @@
         
         <a href='https://www.courseintern.com/tags/events/' class="post_tag button button_translucent" title="events">
           EVENTS
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://www.courseintern.com/tags/index/' class="post_tag button button_translucent" title="index">
-          INDEX
-          <span class="button_tally">1</span>
+          <span class="button_tally">2</span>
         </a>
         
         <a href='https://www.courseintern.com/tags/python-project/' class="post_tag button button_translucent" title="python-project">
           PYTHON-PROJECT
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://www.courseintern.com/tags/index/' class="post_tag button button_translucent" title="index">
+          INDEX
           <span class="button_tally">1</span>
         </a>
         
@@ -506,6 +506,11 @@
         
         <a href='https://www.courseintern.com/tags/weather-app-in-python-django/' class="post_tag button button_translucent" title="weather-app-in-python-django">
           WEATHER-APP-IN-PYTHON-DJANGO
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://www.courseintern.com/tags/zip-archive/' class="post_tag button button_translucent" title="zip-archive">
+          ZIP-ARCHIVE
           <span class="button_tally">1</span>
         </a>
         

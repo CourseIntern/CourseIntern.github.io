@@ -185,24 +185,24 @@
   </ul>
 </nav>
     <h3 id="task-1--remove-the-overly-permissive-rules">Task 1 : Remove the overly permissive rules</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud compute firewall-rules delete open-access
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud compute firewall-rules delete open-access
 </code></pre></div><h3 id="task-2--start-the-bastion-host-instance">Task 2 : Start the bastion host instance</h3>
 <p>Go to <code>Compute Engine</code> and start <code>Bastion</code> instance.</p>
 <h3 id="task-3--create-a-firewall-rule-that-allows-ssh-tcp22-from-the-iap-service-and-add-network-tag-on-bastion">Task 3 : Create a firewall rule that allows SSH (tcp/22) from the IAP service and add network tag on bastion</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud compute firewall-rules create ssh-ingress --allow<span class="o">=</span>tcp:22 --source-ranges 35.235.240.0/20 --target-tags ssh-ingress --network acme-vpc
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud compute firewall-rules create ssh-ingress --allow<span class="o">=</span>tcp:22 --source-ranges 35.235.240.0/20 --target-tags ssh-ingress --network acme-vpc
 <span class="ln">2</span>
 <span class="ln">3</span>gcloud compute instances add-tags bastion --tags<span class="o">=</span>ssh-ingress --zone<span class="o">=</span>us-central1-b
 </code></pre></div><h3 id="task-4--create-a-firewall-rule-that-allows-traffic-on-http-tcp80-to-any-address-and-add-network-tag-on-juice-shop">Task 4 : Create a firewall rule that allows traffic on HTTP (tcp/80) to any address and add network tag on juice-shop</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud compute firewall-rules create http-ingress --allow<span class="o">=</span>tcp:80 --source-ranges 0.0.0.0/0 --target-tags http-ingress --network acme-vpc
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud compute firewall-rules create http-ingress --allow<span class="o">=</span>tcp:80 --source-ranges 0.0.0.0/0 --target-tags http-ingress --network acme-vpc
 <span class="ln">2</span>
 <span class="ln">3</span>gcloud compute instances add-tags juice-shop --tags<span class="o">=</span>http-ingress --zone<span class="o">=</span>us-central1-b
 </code></pre></div><h3 id="task-5--create-a-firewall-rule-that-allows-traffic-on-ssh-tcp22-from-acme-mgmt-subnet-network-address-and-add-network-tag-on-juice-shop">Task 5 : Create a firewall rule that allows traffic on SSH (tcp/22) from acme-mgmt-subnet network address and add network tag on juice-shop</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud compute firewall-rules create internal-ssh-ingress --allow<span class="o">=</span>tcp:22 --source-ranges 192.168.10.0/24 --target-tags internal-ssh-ingress --network acme-vpc
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud compute firewall-rules create internal-ssh-ingress --allow<span class="o">=</span>tcp:22 --source-ranges 192.168.10.0/24 --target-tags internal-ssh-ingress --network acme-vpc
 <span class="ln">2</span>
 <span class="ln">3</span>gcloud compute instances add-tags juice-shop --tags<span class="o">=</span>internal-ssh-ingress --zone<span class="o">=</span>us-central1-b
 </code></pre></div><h3 id="task-6--ssh-to-bastion-host-via-iap-and-juice-shop-via-bastion">Task 6 : SSH to bastion host via IAP and juice-shop via bastion</h3>
 <p>In Compute Engine -&gt; VM Instances page, click the SSH button for the bastion host. Then SSH to juice-shop by</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>ssh <span class="o">[</span>Internal IP address of juice-shop<span class="o">]</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>ssh <span class="o">[</span>Internal IP address of juice-shop<span class="o">]</span>
 </code></pre></div><p>Congratulations, you're all done with the lab 😄</p>
 
   </article>

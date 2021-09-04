@@ -183,7 +183,7 @@
   </ul>
 </nav>
     <h3 id="task-1--create-cluster-and-deploy-an-app">Task 1 : Create cluster and deploy an app</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span><span class="nv">ZONE</span><span class="o">=</span>us-central1-a
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span><span class="nv">ZONE</span><span class="o">=</span>us-central1-a
 <span class="ln"> 2</span>
 <span class="ln"> 3</span>gcloud container clusters create onlineboutique-cluster <span class="se">\
 </span><span class="ln"> 4</span><span class="se"></span>   --project<span class="o">=</span><span class="si">${</span><span class="nv">DEVSHELL_PROJECT_ID</span><span class="si">}</span> --zone<span class="o">=</span><span class="si">${</span><span class="nv">ZONE</span><span class="si">}</span> <span class="se">\
@@ -203,7 +203,7 @@
 <li>Open <code>http://&lt;EXTERNAL_IP&gt;</code> in a new tab. You should see the homepage of the Online Boutique application.</li>
 </ul>
 <h3 id="task-2--migrate-to-an-optimized-nodepool">Task 2 : Migrate to an Optimized Nodepool</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>gcloud container node-pools create optimized-pool <span class="se">\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>gcloud container node-pools create optimized-pool <span class="se">\
 </span><span class="ln"> 2</span><span class="se"></span>   --cluster<span class="o">=</span>onlineboutique-cluster <span class="se">\
 </span><span class="ln"> 3</span><span class="se"></span>   --machine-type<span class="o">=</span>custom-2-3584 <span class="se">\
 </span><span class="ln"> 4</span><span class="se"></span>   --num-nodes<span class="o">=</span><span class="m">2</span> <span class="se">\
@@ -222,18 +222,18 @@
 <span class="ln">17</span>gcloud container node-pools delete default-pool <span class="se">\
 </span><span class="ln">18</span><span class="se"></span>   --cluster onlineboutique-cluster --zone <span class="nv">$ZONE</span>
 </code></pre></div><h3 id="task-3--apply-a-frontend-update">Task 3 : Apply a Frontend Update</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl create poddisruptionbudget onlineboutique-frontend-pdb <span class="se">\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl create poddisruptionbudget onlineboutique-frontend-pdb <span class="se">\
 </span><span class="ln">2</span><span class="se"></span>--selector <span class="nv">app</span><span class="o">=</span>frontend --min-available <span class="m">1</span>  --namespace dev
 <span class="ln">3</span>
 <span class="ln">4</span><span class="nv">KUBE_EDITOR</span><span class="o">=</span><span class="s2">&#34;nano&#34;</span> kubectl edit deployment/frontend --namespace dev
 </code></pre></div><ul>
 <li>Change the following in the configuration to</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>   image to gcr.io/qwiklabs-resources/onlineboutique-frontend:v2.1
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>   image to gcr.io/qwiklabs-resources/onlineboutique-frontend:v2.1
 <span class="ln">2</span>   imagePullPolicy to Always
 </code></pre></div><p>Save by: <code>ctrl + o</code> -&gt; <code>Enter</code> -&gt; <code>ctrl + x</code></p>
 <h3 id="task-4--autoscale-from-estimated-traffic">Task 4 : Autoscale from Estimated Traffic</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>kubectl autoscale deployment frontend --cpu-percent<span class="o">=</span><span class="m">50</span> <span class="se">\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>kubectl autoscale deployment frontend --cpu-percent<span class="o">=</span><span class="m">50</span> <span class="se">\
 </span><span class="ln"> 2</span><span class="se"></span>   --min<span class="o">=</span><span class="m">1</span> --max<span class="o">=</span><span class="m">13</span> --namespace dev
 <span class="ln"> 3</span>
 <span class="ln"> 4</span>kubectl get hpa --namespace dev

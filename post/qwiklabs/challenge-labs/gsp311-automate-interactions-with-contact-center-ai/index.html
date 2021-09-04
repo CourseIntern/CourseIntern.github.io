@@ -172,16 +172,16 @@
     <h2>Overview</h2>
     <nav id="TableOfContents"></nav>
     <p>Please do the following steps to complete this lab:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">export</span> <span class="nv">PROJECT</span><span class="o">=</span><span class="k">$(</span>gcloud info --format<span class="o">=</span><span class="s1">&#39;value(config.project)&#39;</span><span class="k">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">export</span> <span class="nv">PROJECT</span><span class="o">=</span><span class="k">$(</span>gcloud info --format<span class="o">=</span><span class="s1">&#39;value(config.project)&#39;</span><span class="k">)</span>
 <span class="ln">2</span>git clone https://github.com/GoogleCloudPlatform/dataflow-contact-center-speech-analysis.git
 </code></pre></div><ul>
 <li>Task - 1 : Create a Regional Cloud Storage bucket</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gsutil mb -p <span class="si">${</span><span class="nv">PROJECT</span><span class="si">}</span> -l  us-central1 gs://<span class="si">${</span><span class="nv">PROJECT</span><span class="si">}</span>-a
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gsutil mb -p <span class="si">${</span><span class="nv">PROJECT</span><span class="si">}</span> -l  us-central1 gs://<span class="si">${</span><span class="nv">PROJECT</span><span class="si">}</span>-a
 </code></pre></div><ul>
 <li>Task - 2 : Create a Cloud Function</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud functions deploy safLongRunJobFunc <span class="se">\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud functions deploy safLongRunJobFunc <span class="se">\
 </span><span class="ln">2</span><span class="se"></span>  --region us-central1 <span class="se">\
 </span><span class="ln">3</span><span class="se"></span>  --trigger-resource gs://<span class="si">${</span><span class="nv">PROJECT</span><span class="si">}</span>-a <span class="se">\
 </span><span class="ln">4</span><span class="se"></span>  --trigger-event google.storage.object.finalize <span class="se">\
@@ -191,22 +191,22 @@
 </code></pre></div><ul>
 <li>Task - 3 : Create a BigQuery Dataset</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>bq mk helpdesk
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>bq mk helpdesk
 </code></pre></div><ul>
 <li>Task - 4 : Create Cloud Pub/Sub Topic</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud pubsub topics create helpdesk
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud pubsub topics create helpdesk
 </code></pre></div><ul>
 <li>Task - 5 : Create a Cloud Storage Bucket for Staging Contents</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gsutil mb -p <span class="si">${</span><span class="nv">PROJECT</span><span class="si">}</span> -l  us-central1 gs://<span class="si">${</span><span class="nv">PROJECT</span><span class="si">}</span>-t
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gsutil mb -p <span class="si">${</span><span class="nv">PROJECT</span><span class="si">}</span> -l  us-central1 gs://<span class="si">${</span><span class="nv">PROJECT</span><span class="si">}</span>-t
 <span class="ln">2</span>mkdir DFaudio
 <span class="ln">3</span>touch DFaudio/test
 <span class="ln">4</span>gsutil cp -r DFaudio gs://<span class="si">${</span><span class="nv">PROJECT</span><span class="si">}</span>-t
 </code></pre></div><ul>
 <li>Task - 6 : Deploy a Cloud Dataflow Pipeline</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>python -m virtualenv env -p python3
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>python -m virtualenv env -p python3
 <span class="ln"> 2</span><span class="nb">source</span> env/bin/activate
 <span class="ln"> 3</span>pip install apache-beam<span class="o">[</span>gcp<span class="o">]</span>
 <span class="ln"> 4</span>pip install dateparser
@@ -227,7 +227,7 @@
 </code></pre></div><ul>
 <li>Task - 7 : Upload Sample Audio Files for Processing :-</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="c1"># mono flac audio sample</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="c1"># mono flac audio sample</span>
 <span class="ln">2</span>gsutil -h x-goog-meta-callid:1234567 -h x-goog-meta-stereo:false -h x-goog-meta-pubsubtopicname:helpdesk -h x-goog-meta-year:2019 -h x-goog-meta-month:11 -h x-goog-meta-day:06 -h x-goog-meta-starttime:1116 cp gs://qwiklabs-bucket-gsp311/speech_commercial_mono.flac gs://<span class="si">${</span><span class="nv">PROJECT</span><span class="si">}</span>-a
 <span class="ln">3</span>
 <span class="ln">4</span><span class="c1"># stereo wav audio sample</span>
@@ -235,7 +235,7 @@
 </code></pre></div><ul>
 <li>Task - 8 : Run a Data Loss Prevention Job</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="k">select</span> * from <span class="o">(</span>SELECT entities.name,entities.type, COUNT<span class="o">(</span>entities.name<span class="o">)</span> AS count FROM saf.transcripts, UNNEST<span class="o">(</span>entities<span class="o">)</span> entities GROUP BY entities.name, entities.type ORDER BY count ASC <span class="o">)</span> Where count &gt; <span class="m">5</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="k">select</span> * from <span class="o">(</span>SELECT entities.name,entities.type, COUNT<span class="o">(</span>entities.name<span class="o">)</span> AS count FROM saf.transcripts, UNNEST<span class="o">(</span>entities<span class="o">)</span> entities GROUP BY entities.name, entities.type ORDER BY count ASC <span class="o">)</span> Where count &gt; <span class="m">5</span>
 </code></pre></div><p>Click “Save Query Results” and select “BigQuery table” option.
 Enter a name for a new table and save.
 Go to the new table in which result is saved and then Click on Export &gt; Scan with DLP</p>

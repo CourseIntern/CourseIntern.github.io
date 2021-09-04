@@ -183,7 +183,7 @@
   </ul>
 </nav>
     <h3 id="task---1--run-a-simple-dataflow-job">Task - 1 : Run a simple Dataflow job</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>bq mk lab
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>bq mk lab
 <span class="ln">2</span>
 <span class="ln">3</span>gsutil cp gs://cloud-training/gsp323/lab.csv .
 <span class="ln">4</span>
@@ -201,7 +201,7 @@
 <li>This has to be done mannually.</li>
 </ul>
 <h3 id="task---4--ai">Task - 4 : AI</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>gcloud iam service-accounts create my-natlang-sa <span class="se">\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>gcloud iam service-accounts create my-natlang-sa <span class="se">\
 </span><span class="ln"> 2</span><span class="se"></span>  --display-name <span class="s2">&#34;my natural language service account&#34;</span>
 <span class="ln"> 3</span>
 <span class="ln"> 4</span>gcloud iam service-accounts keys create ~/key.json <span class="se">\
@@ -219,11 +219,11 @@
 <span class="ln">16</span>
 <span class="ln">17</span>gsutil cp result.json gs://YOUR_PROJECT-marking/task4-cnl.result
 </code></pre></div><h4 id="create-an-api-key-and-export-as-api_key-variable">Create an API key and export as <code>API_KEY</code> variable.</h4>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">export</span> <span class="nv">API_KEY</span><span class="o">={</span>Replace with API KEY<span class="o">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">export</span> <span class="nv">API_KEY</span><span class="o">={</span>Replace with API KEY<span class="o">}</span>
 <span class="ln">2</span>
 <span class="ln">3</span>nano request.json
 </code></pre></div><p>Add this content:</p>
-<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="ln">1</span><span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="ln">1</span><span class="p">{</span>
 <span class="ln">2</span>  <span class="nt">&#34;config&#34;</span><span class="p">:</span> <span class="p">{</span>
 <span class="ln">3</span>      <span class="nt">&#34;encoding&#34;</span><span class="p">:</span><span class="s2">&#34;FLAC&#34;</span><span class="p">,</span>
 <span class="ln">4</span>      <span class="nt">&#34;languageCode&#34;</span><span class="p">:</span> <span class="s2">&#34;en-US&#34;</span>
@@ -232,7 +232,7 @@
 <span class="ln">7</span>      <span class="nt">&#34;uri&#34;</span><span class="p">:</span><span class="s2">&#34;gs://cloud-training/gsp323/task4.flac&#34;</span>
 <span class="ln">8</span>  <span class="p">}</span>
 <span class="ln">9</span><span class="p">}</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>curl -s -X POST -H <span class="s2">&#34;Content-Type: application/json&#34;</span> --data-binary @request.json <span class="se">\
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>curl -s -X POST -H <span class="s2">&#34;Content-Type: application/json&#34;</span> --data-binary @request.json <span class="se">\
 </span><span class="ln"> 2</span><span class="se"></span><span class="s2">&#34;https://speech.googleapis.com/v1/speech:recognize?key=</span><span class="si">${</span><span class="nv">API_KEY</span><span class="si">}</span><span class="s2">&#34;</span> &gt; result.json
 <span class="ln"> 3</span>
 <span class="ln"> 4</span>gsutil cp result.json gs://YOUR_PROJECT-marking/task4-gcs.result
@@ -249,14 +249,14 @@
 <span class="ln">15</span>
 <span class="ln">16</span>nano request.json
 </code></pre></div><p>Add this content:</p>
-<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="ln">1</span><span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="ln">1</span><span class="p">{</span>
 <span class="ln">2</span>   <span class="nt">&#34;inputUri&#34;</span><span class="p">:</span><span class="s2">&#34;gs://spls/gsp154/video/chicago.mp4&#34;</span><span class="p">,</span>
 <span class="ln">3</span>   <span class="nt">&#34;features&#34;</span><span class="p">:</span> <span class="p">[</span>
 <span class="ln">4</span>       <span class="s2">&#34;TEXT_DETECTION&#34;</span>
 <span class="ln">5</span>   <span class="p">]</span>
 <span class="ln">6</span><span class="p">}</span>
 </code></pre></div><p>Now add the following commands on the command line:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>curl -s -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>curl -s -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\
 </span><span class="ln"> 2</span><span class="se"></span>    -H <span class="s2">&#34;Authorization: Bearer </span><span class="nv">$ACCESS_TOKEN</span><span class="s2">&#34;</span> <span class="se">\
 </span><span class="ln"> 3</span><span class="se"></span>    <span class="s1">&#39;https://videointelligence.googleapis.com/v1/videos:annotate&#39;</span> <span class="se">\
 </span><span class="ln"> 4</span><span class="se"></span>    -d @request.json

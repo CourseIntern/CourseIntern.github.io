@@ -175,7 +175,7 @@
     <li><a href="#branch-sources-git">Branch Sources: Git</a></li>
   </ul>
 </nav>
-    <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>gcloud config <span class="nb">set</span> compute/zone us-east1-b
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>gcloud config <span class="nb">set</span> compute/zone us-east1-b
 <span class="ln"> 2</span>
 <span class="ln"> 3</span>git clone https://source.developers.google.com/p/<span class="nv">$DEVSHELL_PROJECT_ID</span>/r/sample-app
 <span class="ln"> 4</span>
@@ -196,7 +196,7 @@
 <span class="ln">19</span><span class="nb">export</span> <span class="nv">POD_NAME</span><span class="o">=</span><span class="k">$(</span>kubectl get pods --namespace default -l <span class="s2">&#34;app.kubernetes.io/component=jenkins-master&#34;</span> -l <span class="s2">&#34;app.kubernetes.io/instance=cd&#34;</span> -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&#34;{.items[0].metadata.name}&#34;</span><span class="k">)</span>
 <span class="ln">20</span>kubectl port-forward <span class="nv">$POD_NAME</span> 8080:8080 &gt;&gt; /dev/null <span class="p">&amp;</span>
 <span class="ln">21</span><span class="nb">printf</span> <span class="k">$(</span>kubectl get secret cd-jenkins -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&#34;{.data.jenkins-admin-password}&#34;</span> <span class="p">|</span> base64 --decode<span class="k">)</span><span class="p">;</span><span class="nb">echo</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">cd</span> sample-app
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">cd</span> sample-app
 <span class="ln">2</span>kubectl create ns production
 <span class="ln">3</span>kubectl apply -f k8s/production -n production
 <span class="ln">4</span>kubectl apply -f k8s/canary -n production
@@ -210,7 +210,7 @@
 <li>Credentials: <code>qwiklabs service account</code></li>
 </ul>
 <p>click Periodically if not...... 1 min</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>git init
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>git init
 <span class="ln">2</span>git config credential.helper gcloud.sh
 <span class="ln">3</span>git remote add origin https://source.developers.google.com/p/<span class="nv">$DEVSHELL_PROJECT_ID</span>/r/sample-app
 <span class="ln">4</span>git config --global user.email <span class="s2">&#34;&lt;user email&gt;&#34;</span>
@@ -219,7 +219,7 @@
 <span class="ln">7</span>git commit -m <span class="s2">&#34;initial commit&#34;</span>
 <span class="ln">8</span>git push origin master
 </code></pre></div><p>Now save your work.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>git checkout -b new-feature
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>git checkout -b new-feature
 <span class="ln"> 2</span>
 <span class="ln"> 3</span>git add Jenkinsfile html.go main.go
 <span class="ln"> 4</span>git commit -m &#34;Version 2.0.0&#34;

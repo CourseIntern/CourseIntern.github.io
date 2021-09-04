@@ -186,7 +186,7 @@
   </ul>
 </nav>
     <h3 id="task-1-download-the-monolith-code-and-build-your-container">Task 1: Download the monolith code and build your container</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>git clone https://github.com/googlecodelabs/monolith-to-microservices.git
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>git clone https://github.com/googlecodelabs/monolith-to-microservices.git
 <span class="ln"> 2</span>
 <span class="ln"> 3</span><span class="nb">cd</span> ~/monolith-to-microservices
 <span class="ln"> 4</span>./setup.sh
@@ -197,32 +197,32 @@
 <span class="ln"> 9</span>gcloud services <span class="nb">enable</span> cloudbuild.googleapis.com
 <span class="ln">10</span>gcloud builds submit --tag gcr.io/<span class="si">${</span><span class="nv">GOOGLE_CLOUD_PROJECT</span><span class="si">}</span>/fancytest:1.0.0 .
 </code></pre></div><h3 id="task-2-create-a-kubernetes-cluster-and-deploy-the-application">Task 2: Create a kubernetes cluster and deploy the application</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud config <span class="nb">set</span> compute/zone us-central1-a
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud config <span class="nb">set</span> compute/zone us-central1-a
 <span class="ln">2</span>gcloud services <span class="nb">enable</span> container.googleapis.com
 <span class="ln">3</span>gcloud container clusters create fancy-cluster --num-nodes <span class="m">3</span>
 <span class="ln">4</span>
 <span class="ln">5</span>kubectl create deployment fancytest --image<span class="o">=</span>gcr.io/<span class="si">${</span><span class="nv">GOOGLE_CLOUD_PROJECT</span><span class="si">}</span>/fancytest:1.0.0
 <span class="ln">6</span>kubectl expose deployment fancytest --type<span class="o">=</span>LoadBalancer --port <span class="m">80</span> --target-port <span class="m">8080</span>
 </code></pre></div><h3 id="task-3-create-a-containerized-version-of-your-microservices">Task 3: Create a containerized version of your Microservices</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">cd</span> ~/monolith-to-microservices/microservices/src/orders
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">cd</span> ~/monolith-to-microservices/microservices/src/orders
 <span class="ln">2</span>gcloud builds submit --tag gcr.io/<span class="si">${</span><span class="nv">GOOGLE_CLOUD_PROJECT</span><span class="si">}</span>/orders:1.0.0 .
 <span class="ln">3</span>
 <span class="ln">4</span><span class="nb">cd</span> ~/monolith-to-microservices/microservices/src/products
 <span class="ln">5</span>gcloud builds submit --tag gcr.io/<span class="si">${</span><span class="nv">GOOGLE_CLOUD_PROJECT</span><span class="si">}</span>/products:1.0.0 .
 </code></pre></div><h3 id="task-4-deploy-the-new-microservices">Task 4: Deploy the new microservices</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl create deployment orders --image<span class="o">=</span>gcr.io/<span class="si">${</span><span class="nv">GOOGLE_CLOUD_PROJECT</span><span class="si">}</span>/orders:1.0.0
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl create deployment orders --image<span class="o">=</span>gcr.io/<span class="si">${</span><span class="nv">GOOGLE_CLOUD_PROJECT</span><span class="si">}</span>/orders:1.0.0
 <span class="ln">2</span>kubectl expose deployment orders --type<span class="o">=</span>LoadBalancer --port <span class="m">80</span> --target-port <span class="m">8081</span>
 <span class="ln">3</span>
 <span class="ln">4</span>kubectl create deployment products --image<span class="o">=</span>gcr.io/<span class="si">${</span><span class="nv">GOOGLE_CLOUD_PROJECT</span><span class="si">}</span>/products:1.0.0
 <span class="ln">5</span>kubectl expose deployment products --type<span class="o">=</span>LoadBalancer --port <span class="m">80</span> --target-port <span class="m">8082</span>
 </code></pre></div><h3 id="task-5-configure-the-frontend-microservice">Task 5: Configure the Frontend microservice</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">cd</span> ~/monolith-to-microservices/react-app
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">cd</span> ~/monolith-to-microservices/react-app
 <span class="ln">2</span>nano .env
 </code></pre></div><h3 id="task-6-create-a-containerized-version-of-the-frontend-microservice">Task 6: Create a containerized version of the Frontend microservice</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">cd</span> ~/monolith-to-microservices/microservices/src/frontend
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">cd</span> ~/monolith-to-microservices/microservices/src/frontend
 <span class="ln">2</span>gcloud builds submit --tag gcr.io/<span class="si">${</span><span class="nv">GOOGLE_CLOUD_PROJECT</span><span class="si">}</span>/frontend:1.0.0 .
 </code></pre></div><h3 id="task-7-deploy-the-frontend-microservice">Task 7: Deploy the Frontend microservice</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl create deployment frontend --image<span class="o">=</span>gcr.io/<span class="si">${</span><span class="nv">GOOGLE_CLOUD_PROJECT</span><span class="si">}</span>/frontend:1.0.0
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl create deployment frontend --image<span class="o">=</span>gcr.io/<span class="si">${</span><span class="nv">GOOGLE_CLOUD_PROJECT</span><span class="si">}</span>/frontend:1.0.0
 <span class="ln">2</span>
 <span class="ln">3</span>kubectl expose deployment frontend --type<span class="o">=</span>LoadBalancer --port <span class="m">80</span> --target-port <span class="m">8080</span>
 </code></pre></div><p>Congratulations, you're all done with the lab 😄</p>

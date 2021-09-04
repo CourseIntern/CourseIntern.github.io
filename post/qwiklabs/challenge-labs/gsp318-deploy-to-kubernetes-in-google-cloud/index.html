@@ -181,7 +181,7 @@
 </nav>
     <p>Please enter the following commands:</p>
 <h4 id="task---1--create-a-docker-image-and-store-the-dockerfile">Task - 1 : Create a Docker image and store the Dockerfile</h4>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>gcloud auth list
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>gcloud auth list
 <span class="ln"> 2</span>gsutil cat gs://cloud-training/gsp318/marking/setup_marking.sh <span class="p">|</span> bash
 <span class="ln"> 3</span>gcloud <span class="nb">source</span> repos clone valkyrie-app
 <span class="ln"> 4</span><span class="nb">cd</span> valkyrie-app
@@ -197,42 +197,42 @@
 <span class="ln">14</span><span class="nb">cd</span> marking
 <span class="ln">15</span>./step1.sh
 </code></pre></div><h4 id="task---2--test-the-created-docker-image">Task - 2 : Test the created Docker image</h4>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">cd</span> ..
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">cd</span> ..
 <span class="ln">2</span><span class="nb">cd</span> valkyrie-app
 <span class="ln">3</span>docker run -p 8080:8080 valkyrie-app:v0.0.1 <span class="p">&amp;</span>
 <span class="ln">4</span><span class="nb">cd</span> ..
 <span class="ln">5</span><span class="nb">cd</span> marking
 <span class="ln">6</span>./step2.sh
 </code></pre></div><h4 id="task---3--push-the-docker-image-in-the-google-container-repository">Task - 3 : Push the Docker image in the Google Container Repository</h4>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">cd</span> ..
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">cd</span> ..
 <span class="ln">2</span><span class="nb">cd</span> valkyrie-app
 <span class="ln">3</span>docker tag valkyrie-app:v0.0.1 gcr.io/<span class="nv">$GOOGLE_CLOUD_PROJECT</span>/valkyrie-app:v0.0.1
 <span class="ln">4</span>docker push gcr.io/<span class="nv">$GOOGLE_CLOUD_PROJECT</span>/valkyrie-app:v0.0.1
 <span class="ln">5</span>sed -i s#IMAGE_HERE#gcr.io/<span class="nv">$GOOGLE_CLOUD_PROJECT</span>/valkyrie-app:v0.0.1#g k8s/deployment.yaml
 </code></pre></div><h4 id="task---4--create-and-expose-a-deployment-in-kubernetes">Task - 4 : Create and expose a deployment in Kubernetes</h4>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>sed -i s#IMAGE_HERE#gcr.io/<span class="nv">$GOOGLE_CLOUD_PROJECT</span>/valkyrie-app:v0.0.1#g k8s/deployment.yaml
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>sed -i s#IMAGE_HERE#gcr.io/<span class="nv">$GOOGLE_CLOUD_PROJECT</span>/valkyrie-app:v0.0.1#g k8s/deployment.yaml
 <span class="ln">2</span>gcloud container clusters get-credentials valkyrie-dev --zone us-east1-d
 <span class="ln">3</span>kubectl create -f k8s/deployment.yaml
 <span class="ln">4</span>kubectl create -f k8s/service.yaml
 <span class="ln">5</span>
 <span class="ln">6</span>git merge origin/kurt-dev
 </code></pre></div><h4 id="task---5--increase-the-replicas-from-1-to-3">Task - 5 : Increase the replicas from 1 to 3</h4>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl edit deployment valkyrie-dev
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl edit deployment valkyrie-dev
 </code></pre></div><ul>
 <li>Press &quot;i&quot; to get into insert mode and change &quot;replicas&quot; from 1 to 3.
 Press &quot;Esc&quot; -&gt; &quot;:wq&quot; -&gt; Enter to exit Vim.</li>
 </ul>
 <h4 id="task---6--update-the-deployment-with-a-new-version-of-valkyrie-app">Task - 6 : Update the deployment with a new version of valkyrie-app</h4>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>docker build -t gcr.io/<span class="nv">$GOOGLE_CLOUD_PROJECT</span>/valkyrie-app:v0.0.2 .
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>docker build -t gcr.io/<span class="nv">$GOOGLE_CLOUD_PROJECT</span>/valkyrie-app:v0.0.2 .
 <span class="ln">2</span>docker push gcr.io/<span class="nv">$GOOGLE_CLOUD_PROJECT</span>/valkyrie-app:v0.0.2
 <span class="ln">3</span>kubectl edit deployment valkyrie-dev
 </code></pre></div><ul>
 <li>Press 'i' to edit and change image to &quot;image: gcr.io/YOUR_PROJECT_ID/valkyrie-app:v0.0.2&quot;.
 Press &quot;Esc&quot; -&gt; &quot;:wq&quot; -&gt; Enter</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>docker ps
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>docker ps
 </code></pre></div><h4 id="task---7--create-a-pipeline-in-jenkins-to-deploy-your-app">Task - 7 : Create a pipeline in Jenkins to deploy your app</h4>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>docker <span class="nb">kill</span> container_id
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>docker <span class="nb">kill</span> container_id
 <span class="ln">2</span>
 <span class="ln">3</span><span class="nb">export</span> <span class="nv">POD_NAME</span><span class="o">=</span><span class="k">$(</span>kubectl get pods --namespace default -l <span class="s2">&#34;app.kubernetes.io/component=jenkins-master&#34;</span> -l <span class="s2">&#34;app.kubernetes.io/instance=cd&#34;</span> -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&#34;{.items[0].metadata.name}&#34;</span><span class="k">)</span>
 <span class="ln">4</span>kubectl port-forward <span class="nv">$POD_NAME</span> 8080:8080 &gt;&gt; /dev/null <span class="p">&amp;</span>
@@ -242,7 +242,7 @@ Press &quot;Esc&quot; -&gt; &quot;:wq&quot; -&gt; Enter</li>
 </code></pre></div><ul>
 <li>Open Jenkins Web View -&gt; Preview on port 8080</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="ln">1</span><span class="w">   </span><span class="nt">Username </span><span class="p">:</span><span class="w"> </span><span class="l">admin</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="ln">1</span><span class="w">   </span><span class="nt">Username </span><span class="p">:</span><span class="w"> </span><span class="l">admin</span><span class="w">
 </span><span class="ln">2</span><span class="w">   </span><span class="nt">Password </span><span class="p">:</span><span class="w"> </span>{<span class="l">Code output from previous command}</span><span class="w">
 </span></code></pre></div><p>Go through the following:</p>
 <p>-&gt; Manage Jenkins
@@ -266,7 +266,7 @@ Press &quot;Esc&quot; -&gt; &quot;:wq&quot; -&gt; Enter</li>
 <ul>
 <li>In cloud shell , run</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>sed -i <span class="s2">&#34;s/green/orange/g&#34;</span> source/html.go
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>sed -i <span class="s2">&#34;s/green/orange/g&#34;</span> source/html.go
 <span class="ln">2</span>
 <span class="ln">3</span>sed -i <span class="s2">&#34;s/YOUR_PROJECT/</span><span class="nv">$GOOGLE_CLOUD_PROJECT</span><span class="s2">/g&#34;</span> Jenkinsfile
 <span class="ln">4</span>git config --global user.email <span class="s2">&#34;you@example.com&#34;</span>              // Email

@@ -172,13 +172,13 @@
     <h2>Overview</h2>
     <nav id="TableOfContents"></nav>
     <p>Do the following steps:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>mkdir deployment_manager
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>mkdir deployment_manager
 <span class="ln">2</span><span class="nb">cd</span> deployment_manager
 <span class="ln">3</span>gsutil cp gs://spls/gsp302/* .
 <span class="ln">4</span>
 <span class="ln">5</span>nano qwiklabs.jinja
 </code></pre></div><p>Delete all the content of <code>qwiklabs.jinja</code> and paste</p>
-<div class="highlight"><pre class="chroma"><code class="language-terraform" data-lang="terraform"><span class="ln"> 1</span><span class="nx">resources</span><span class="o">:</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-terraform" data-lang="terraform"><span class="ln"> 1</span><span class="nx">resources</span><span class="o">:</span>
 <span class="ln"> 2</span><span class="o">-</span> <span class="nx">type</span><span class="o">:</span> <span class="nx">compute</span><span class="p">.</span><span class="nx">v1</span><span class="p">.</span><span class="nx">instance</span>
 <span class="ln"> 3</span>  <span class="nx">name</span><span class="o">:</span> <span class="nx">vm</span><span class="o">-</span><span class="nx">test</span>
 <span class="ln"> 4</span>  <span class="nx">properties</span><span class="o">:</span>
@@ -223,9 +223,9 @@
 <span class="ln">43</span>    <span class="nx">sourceRanges</span><span class="o">:</span>
 <span class="ln">44</span>    <span class="o">-</span> <span class="m">0</span><span class="p">.</span><span class="m">0</span><span class="p">.</span><span class="m">0</span><span class="p">.</span><span class="m">0</span><span class="o">/</span><span class="m">0</span>
 </code></pre></div><p>To save press, ctrl + o -&gt; Enter -&gt; ctrl + x</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>nano qwiklabs.yaml
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>nano qwiklabs.yaml
 </code></pre></div><p>Delete the content of qwiklabs.yaml and paste</p>
-<div class="highlight"><pre class="chroma"><code class="language-terraform" data-lang="terraform"><span class="ln">1</span><span class="nx">imports</span><span class="o">:</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-terraform" data-lang="terraform"><span class="ln">1</span><span class="nx">imports</span><span class="o">:</span>
 <span class="ln">2</span><span class="o">-</span> <span class="nx">path</span><span class="o">:</span> <span class="nx">qwiklabs</span><span class="p">.</span><span class="nx">jinja</span>
 <span class="ln">3</span>
 <span class="ln">4</span><span class="nx">resources</span><span class="o">:</span>
@@ -233,7 +233,7 @@
 <span class="ln">6</span>  <span class="nx">type</span><span class="o">:</span> <span class="nx">qwiklabs</span><span class="p">.</span><span class="nx">jinja</span>
 <span class="ln">7</span>  <span class="nx">properties</span><span class="o">:</span>
 <span class="ln">8</span>    <span class="nx">zone</span><span class="o">:</span> <span class="nx">us</span><span class="o">-</span><span class="nx">central1</span><span class="o">-</span><span class="nx">a</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud deployment-manager deployments create <span class="nb">test</span> --config<span class="o">=</span>qwiklabs.yaml
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud deployment-manager deployments create <span class="nb">test</span> --config<span class="o">=</span>qwiklabs.yaml
 </code></pre></div><p>Congratulations, you're all done with the lab 😄</p>
 
   </article>

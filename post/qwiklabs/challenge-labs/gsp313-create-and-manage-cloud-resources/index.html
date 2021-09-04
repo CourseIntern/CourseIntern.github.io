@@ -183,14 +183,14 @@
 </nav>
     <p>Please follow these commands:</p>
 <h3 id="task-1--create-a-project-jumphost-instance-zone-us-east1-b">Task 1 : Create a project jumphost instance (zone: us-east1-b)</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud compute instances create nucleus-jumphost <span class="se">\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud compute instances create nucleus-jumphost <span class="se">\
 </span><span class="ln">2</span><span class="se"></span>          --network nucleus-vpc <span class="se">\
 </span><span class="ln">3</span><span class="se"></span>          --zone us-east1-b  <span class="se">\
 </span><span class="ln">4</span><span class="se"></span>          --machine-type f1-micro  <span class="se">\
 </span><span class="ln">5</span><span class="se"></span>          --image-family debian-9  <span class="se">\
 </span><span class="ln">6</span><span class="se"></span>          --image-project debian-cloud <span class="se">\
 </span></code></pre></div><h3 id="task-2--create-a-kubernetes-service-cluster">Task 2 : Create a Kubernetes service cluster</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>gcloud container clusters create nucleus-backend <span class="se">\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>gcloud container clusters create nucleus-backend <span class="se">\
 </span><span class="ln"> 2</span><span class="se"></span>          --num-nodes <span class="m">1</span> <span class="se">\
 </span><span class="ln"> 3</span><span class="se"></span>          --network nucleus-vpc <span class="se">\
 </span><span class="ln"> 4</span><span class="se"></span>          --region us-east1
@@ -204,7 +204,7 @@
 </span><span class="ln">12</span><span class="se"></span>          --type<span class="o">=</span>LoadBalancer <span class="se">\
 </span><span class="ln">13</span><span class="se"></span>          --port <span class="m">8080</span>
 </code></pre></div><h3 id="task-3--create-the-web-server-frontend">Task 3 : Create the web server frontend</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>cat <span class="s">&lt;&lt; EOF &gt; startup.sh
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>cat <span class="s">&lt;&lt; EOF &gt; startup.sh
 </span><span class="ln"> 2</span><span class="s">#! /bin/bash
 </span><span class="ln"> 3</span><span class="s">apt-get update
 </span><span class="ln"> 4</span><span class="s">apt-get install -y nginx

@@ -186,7 +186,7 @@
   </ul>
 </nav>
     <p>Start by executing the following commands:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>gcloud auth list
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>gcloud auth list
 <span class="ln"> 2</span>gcloud config list project
 <span class="ln"> 3</span>
 <span class="ln"> 4</span>gcloud config <span class="nb">set</span> project <span class="se">\
@@ -199,21 +199,21 @@
 <span class="ln">11</span>git clone https://github.com/rosera/pet-theory.git <span class="o">&amp;&amp;</span> <span class="nb">cd</span> pet-theory/lab07
 <span class="ln">12</span><span class="nb">export</span> <span class="nv">PROJECT_ID</span><span class="o">=</span><span class="k">$(</span>gcloud info --format<span class="o">=</span><span class="s1">&#39;value(config.project)&#39;</span><span class="k">)</span>
 </code></pre></div><h3 id="task---1--deploy-a-public-billing-service">Task - 1 : Deploy a Public Billing Service</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">cd</span> ~/pet-theory/lab07/unit-api-billing
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">cd</span> ~/pet-theory/lab07/unit-api-billing
 <span class="ln">2</span>
 <span class="ln">3</span>gcloud builds submit --tag gcr.io/<span class="si">${</span><span class="nv">PROJECT_ID</span><span class="si">}</span>/billing-staging-api:0.1
 <span class="ln">4</span>gcloud run deploy public-billing-service --image gcr.io/<span class="si">${</span><span class="nv">PROJECT_ID</span><span class="si">}</span>/billing-staging-api:0.1
 <span class="ln">5</span>
 <span class="ln">6</span>gcloud run services list
 </code></pre></div><h3 id="task---2--deploy-the-frontend-service">Task - 2 : Deploy the Frontend Service</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">cd</span> ~/pet-theory/lab07/staging-frontend-billing
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">cd</span> ~/pet-theory/lab07/staging-frontend-billing
 <span class="ln">2</span>
 <span class="ln">3</span>gcloud builds submit --tag gcr.io/<span class="si">${</span><span class="nv">PROJECT_ID</span><span class="si">}</span>/frontend-staging:0.1
 <span class="ln">4</span>gcloud run deploy public-billing-service --image gcr.io/<span class="si">${</span><span class="nv">PROJECT_ID</span><span class="si">}</span>/frontend-staging:0.1
 <span class="ln">5</span>
 <span class="ln">6</span>gcloud run services list
 </code></pre></div><h3 id="task---3--deploy-a-private-billing-service">Task - 3 : Deploy a Private Billing Service</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span><span class="nb">cd</span> ~/pet-theory/lab07/staging-api-billing
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span><span class="nb">cd</span> ~/pet-theory/lab07/staging-api-billing
 <span class="ln"> 2</span>
 <span class="ln"> 3</span>gcloud builds submit --tag gcr.io/<span class="si">${</span><span class="nv">PROJECT_ID</span><span class="si">}</span>/billing-staging-api:0.2
 <span class="ln"> 4</span>gcloud run deploy public-billing-service --image gcr.io/<span class="si">${</span><span class="nv">PROJECT_ID</span><span class="si">}</span>/billing-staging-api:0.2
@@ -227,9 +227,9 @@
 <span class="ln">12</span>
 <span class="ln">13</span>curl -X get -H <span class="s2">&#34;Authorization: Bearer </span><span class="k">$(</span>gcloud auth print-identity-token<span class="k">)</span><span class="s2">&#34;</span> <span class="nv">$BILLING_URL</span>
 </code></pre></div><h3 id="task---4--create-a-billing-service-account">Task - 4 : Create a Billing Service Account</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud iam service-accounts create billing-service-sa --display-name <span class="s2">&#34;Billing Service Cloud Run&#34;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud iam service-accounts create billing-service-sa --display-name <span class="s2">&#34;Billing Service Cloud Run&#34;</span>
 </code></pre></div><h3 id="task---5--deploy-a-billing-service-in-production">Task - 5 : Deploy a Billing Service in Production</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span><span class="nb">cd</span> ~/pet-theory/lab07/prod-api-billing
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span><span class="nb">cd</span> ~/pet-theory/lab07/prod-api-billing
 <span class="ln"> 2</span>
 <span class="ln"> 3</span>gcloud builds submit --tag gcr.io/<span class="si">${</span><span class="nv">PROJECT_ID</span><span class="si">}</span>/billing-prod-api:0.1
 <span class="ln"> 4</span>gcloud run deploy public-billing-service --image gcr.io/<span class="si">${</span><span class="nv">PROJECT_ID</span><span class="si">}</span>/billing-prod-api:0.1
@@ -248,9 +248,9 @@
 </span><span class="ln">17</span><span class="s2"> </span><span class="k">$(</span>gcloud auth print-identity-token<span class="k">)</span><span class="s2">&#34;</span> <span class="se">\
 </span><span class="ln">18</span><span class="se"></span> <span class="nv">$PROD_BILLING_URL</span>
 </code></pre></div><h3 id="task---6--create-a-frontend-service-account">Task - 6 : Create a Frontend Service Account</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud iam service-accounts create frontend-service-sa --display-name <span class="s2">&#34;Billing Service Cloud Run Invoker&#34;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud iam service-accounts create frontend-service-sa --display-name <span class="s2">&#34;Billing Service Cloud Run Invoker&#34;</span>
 </code></pre></div><h3 id="task---7--deploy-the-frontend-service-in-production">Task - 7 : Deploy the Frontend Service in Production</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">cd</span> ~/pet-theory/lab07/prod-frontend-billing
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">cd</span> ~/pet-theory/lab07/prod-frontend-billing
 <span class="ln">2</span>
 <span class="ln">3</span>gcloud builds submit --tag gcr.io/<span class="si">${</span><span class="nv">PROJECT_ID</span><span class="si">}</span>/frontend-prod:0.1
 <span class="ln">4</span>gcloud run deploy public-billing-service --image gcr.io/<span class="si">${</span><span class="nv">PROJECT_ID</span><span class="si">}</span>/frontend-prod:0.1

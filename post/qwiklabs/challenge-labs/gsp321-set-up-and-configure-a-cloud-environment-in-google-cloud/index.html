@@ -188,13 +188,13 @@
   </ul>
 </nav>
     <h3 id="task---1--create-development-vpc-manually">Task - 1 : Create development VPC manually</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud compute networks create griffin-dev-vpc --subnet-mode custom
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud compute networks create griffin-dev-vpc --subnet-mode custom
 <span class="ln">2</span>
 <span class="ln">3</span>gcloud compute networks subnets create griffin-dev-wp --network<span class="o">=</span>griffin-dev-vpc --region us-east1 --range<span class="o">=</span>192.168.16.0/20
 <span class="ln">4</span>
 <span class="ln">5</span>gcloud compute networks subnets create griffin-dev-mgmt --network<span class="o">=</span>griffin-dev-vpc --region us-east1 --range<span class="o">=</span>192.168.32.0/20
 </code></pre></div><h3 id="task---2--create-production-vpc-manually">Task - 2 : Create production VPC manually</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>gsutil cp -r gs://cloud-training/gsp321/dm .
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>gsutil cp -r gs://cloud-training/gsp321/dm .
 <span class="ln"> 2</span>
 <span class="ln"> 3</span><span class="nb">cd</span> dm
 <span class="ln"> 4</span>
@@ -205,13 +205,13 @@
 <span class="ln"> 9</span>
 <span class="ln">10</span><span class="nb">cd</span> ..
 </code></pre></div><h3 id="task---3--create-bastion-host">Task - 3 : Create bastion host</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud compute instances create bastion --network-interface<span class="o">=</span><span class="nv">network</span><span class="o">=</span>griffin-dev-vpc,subnet<span class="o">=</span>griffin-dev-mgmt  --network-interface<span class="o">=</span><span class="nv">network</span><span class="o">=</span>griffin-prod-vpc,subnet<span class="o">=</span>griffin-prod-mgmt --tags<span class="o">=</span>ssh --zone<span class="o">=</span>us-east1-b
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud compute instances create bastion --network-interface<span class="o">=</span><span class="nv">network</span><span class="o">=</span>griffin-dev-vpc,subnet<span class="o">=</span>griffin-dev-mgmt  --network-interface<span class="o">=</span><span class="nv">network</span><span class="o">=</span>griffin-prod-vpc,subnet<span class="o">=</span>griffin-prod-mgmt --tags<span class="o">=</span>ssh --zone<span class="o">=</span>us-east1-b
 <span class="ln">2</span>
 <span class="ln">3</span>gcloud compute firewall-rules create fw-ssh-dev --source-ranges<span class="o">=</span>0.0.0.0/0 --target-tags ssh --allow<span class="o">=</span>tcp:22 --network<span class="o">=</span>griffin-dev-vpc
 <span class="ln">4</span>
 <span class="ln">5</span>gcloud compute firewall-rules create fw-ssh-prod --source-ranges<span class="o">=</span>0.0.0.0/0 --target-tags ssh --allow<span class="o">=</span>tcp:22 --network<span class="o">=</span>griffin-prod-vpc
 </code></pre></div><h3 id="task---4--create-and-configure-cloud-sql-instance">Task - 4 : Create and configure Cloud SQL Instance</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud sql instances create griffin-dev-db --root-password password --region<span class="o">=</span>us-east1
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud sql instances create griffin-dev-db --root-password password --region<span class="o">=</span>us-east1
 <span class="ln">2</span>
 <span class="ln">3</span>gcloud sql connect griffin-dev-db
 <span class="ln">4</span>
@@ -221,7 +221,7 @@
 <span class="ln">8</span>
 <span class="ln">9</span><span class="nb">exit</span>
 </code></pre></div><h3 id="task---5--create-kubernetes-cluster">Task - 5 : Create Kubernetes cluster</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>gcloud container clusters create griffin-dev <span class="se">\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>gcloud container clusters create griffin-dev <span class="se">\
 </span><span class="ln"> 2</span><span class="se"></span>  --network griffin-dev-vpc <span class="se">\
 </span><span class="ln"> 3</span><span class="se"></span>  --subnetwork griffin-dev-wp <span class="se">\
 </span><span class="ln"> 4</span><span class="se"></span>  --machine-type n1-standard-4 <span class="se">\
@@ -239,12 +239,12 @@
 <li>Open <code>Editor</code> -&gt; <code>wp-k8s</code> -&gt; <code>wp-env.yaml</code>
 Change username and password to:</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="ln">1</span><span class="nt">username </span><span class="p">:</span><span class="w"> </span><span class="l">wp_user</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="ln">1</span><span class="nt">username </span><span class="p">:</span><span class="w"> </span><span class="l">wp_user</span><span class="w">
 </span><span class="ln">2</span><span class="w"></span><span class="nt">password </span><span class="p">:</span><span class="w"> </span><span class="l">stormwind_rules</span><span class="w">
 </span></code></pre></div><ul>
 <li>Save.</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">cd</span> wp-k8s
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">cd</span> wp-k8s
 <span class="ln">2</span>
 <span class="ln">3</span>kubectl create -f wp-env.yaml
 <span class="ln">4</span>
@@ -261,7 +261,7 @@ Change username and password to:</li>
 <p>Save.</p>
 </li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl create -f wp-deployment.yaml
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl create -f wp-deployment.yaml
 <span class="ln">2</span>kubectl create -f wp-service.yaml
 </code></pre></div><h3 id="task---8--enable-monitoring">Task - 8 : Enable monitoring</h3>
 <ul>
@@ -272,11 +272,11 @@ Change username and password to:</li>
 <p><code>Navigation Menu</code> -&gt; <code>Monitoring</code> -&gt; <code>Uptime Checks</code> -&gt; <code>+ CREATE UPTIME CHECK</code></p>
 </li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="ln">1</span><span class="w">   </span><span class="nt">Title </span><span class="p">:</span><span class="w"> </span><span class="l">Wordpress Uptime</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="ln">1</span><span class="w">   </span><span class="nt">Title </span><span class="p">:</span><span class="w"> </span><span class="l">Wordpress Uptime</span><span class="w">
 </span></code></pre></div><ul>
 <li>Next -&gt; Target</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="ln">1</span><span class="w">   </span><span class="nt">Hostname </span><span class="p">:</span><span class="w"> </span>{<span class="l">Endpoint&#39;s address} (without http...)</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="ln">1</span><span class="w">   </span><span class="nt">Hostname </span><span class="p">:</span><span class="w"> </span>{<span class="l">Endpoint&#39;s address} (without http...)</span><span class="w">
 </span><span class="ln">2</span><span class="w">   </span><span class="nt">Path </span><span class="p">:</span><span class="w"> </span><span class="l">/</span><span class="w">
 </span></code></pre></div><ul>
 <li>Next -&gt; Next -&gt; Create</li>
@@ -285,7 +285,7 @@ Change username and password to:</li>
 <ul>
 <li><code>Navigation Menu</code> -&gt; <code>IAM &amp; Admin</code> -&gt; <code>IAM</code> -&gt; ADD</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="ln">1</span><span class="nt">New Member </span><span class="p">:</span><span class="w"> </span>{<span class="l">Username 2 from Lab instruction page}</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="ln">1</span><span class="nt">New Member </span><span class="p">:</span><span class="w"> </span>{<span class="l">Username 2 from Lab instruction page}</span><span class="w">
 </span><span class="ln">2</span><span class="w"></span><span class="nt">Role </span><span class="p">:</span><span class="w"> </span><span class="l">Project -&gt; Editor</span><span class="w">
 </span></code></pre></div><ul>
 <li>Save.</li>

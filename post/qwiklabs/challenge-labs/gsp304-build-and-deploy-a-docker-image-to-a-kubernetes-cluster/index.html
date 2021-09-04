@@ -185,21 +185,21 @@
   </ul>
 </nav>
     <h3 id="built-docker-image-with-tag-v1">Built Docker image with tag V1</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gsutil cp gs://sureskills-ql/challenge-labs/ch04-kubernetes-app-deployment/echo-web.tar.gz .
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gsutil cp gs://sureskills-ql/challenge-labs/ch04-kubernetes-app-deployment/echo-web.tar.gz .
 </code></pre></div><p>OR</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gsutil cp gs://<span class="nv">$DEVSHELL_PROJECT_ID</span>/echo-web.tar.gz .
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gsutil cp gs://<span class="nv">$DEVSHELL_PROJECT_ID</span>/echo-web.tar.gz .
 </code></pre></div><h3 id="extract-downloaded-zip">Extract downloaded zip</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>tar -xvf echo-web.tar.gz
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>tar -xvf echo-web.tar.gz
 <span class="ln">2</span>
 <span class="ln">3</span>gcloud builds submit --tag gcr.io/<span class="nv">$DEVSHELL_PROJECT_ID</span>/echo-app:v1 .
 </code></pre></div><h3 id="create-kubernetes-cluster">Create Kubernetes cluster</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud container clusters create echo-cluster --num-nodes <span class="m">2</span> --zone us-central1-a --machine-type n1-standard-2
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud container clusters create echo-cluster --num-nodes <span class="m">2</span> --zone us-central1-a --machine-type n1-standard-2
 </code></pre></div><h3 id="deploy-application-to-kubernetes-cluster">Deploy application to Kubernetes cluster</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl create deployment echo-web --image<span class="o">=</span>gcr.io/qwiklabs-resources/echo-app:v1
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl create deployment echo-web --image<span class="o">=</span>gcr.io/qwiklabs-resources/echo-app:v1
 </code></pre></div><h3 id="expose-app-to-allow-external-access">Expose app to allow external access</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl expose deployment echo-web --type<span class="o">=</span>LoadBalancer --port<span class="o">=</span><span class="m">80</span> --target-port<span class="o">=</span><span class="m">8000</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl expose deployment echo-web --type<span class="o">=</span>LoadBalancer --port<span class="o">=</span><span class="m">80</span> --target-port<span class="o">=</span><span class="m">8000</span>
 </code></pre></div><h3 id="extract-kubernetes-services">Extract Kubernetes services</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl get svc
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl get svc
 </code></pre></div><p>Congratulations, you're all done with the lab 😄</p>
 
   </article>

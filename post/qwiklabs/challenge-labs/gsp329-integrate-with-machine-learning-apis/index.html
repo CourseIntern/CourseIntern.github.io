@@ -172,7 +172,7 @@
     <h2>Overview</h2>
     <nav id="TableOfContents"></nav>
     <p>Run in Cloud Shell</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">export</span> <span class="nv">SANAME</span><span class="o">=</span>challenge
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="nb">export</span> <span class="nv">SANAME</span><span class="o">=</span>challenge
 <span class="ln">2</span>gcloud iam service-accounts create <span class="nv">$SANAME</span>
 <span class="ln">3</span>gcloud projects add-iam-policy-binding <span class="nv">$DEVSHELL_PROJECT_ID</span> --member<span class="o">=</span>serviceAccount:<span class="nv">$SANAME</span>@<span class="nv">$DEVSHELL_PROJECT_ID</span>.iam.gserviceaccount.com --role<span class="o">=</span>roles/bigquery.admin
 <span class="ln">4</span>gcloud projects add-iam-policy-binding <span class="nv">$DEVSHELL_PROJECT_ID</span> --member<span class="o">=</span>serviceAccount:<span class="nv">$SANAME</span>@<span class="nv">$DEVSHELL_PROJECT_ID</span>.iam.gserviceaccount.com --role<span class="o">=</span>roles/storage.admin
@@ -182,7 +182,7 @@
 </code></pre></div><ul>
 <li>Open Editor and replace the content of &quot;analyze-images.py&quot; file with</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="ln">  1</span><span class="c1"># Dataset: image_classification_dataset</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="ln">  1</span><span class="c1"># Dataset: image_classification_dataset</span>
 <span class="ln">  2</span>
 <span class="ln">  3</span><span class="c1"># Table name: image_text_detail</span>
 <span class="ln">  4</span>
@@ -393,11 +393,11 @@
 </code></pre></div><ul>
 <li>In Cloud Shell run</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>python3 analyze-images.py <span class="nv">$DEVSHELL_PROJECT_ID</span> <span class="nv">$DEVSHELL_PROJECT_ID</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>python3 analyze-images.py <span class="nv">$DEVSHELL_PROJECT_ID</span> <span class="nv">$DEVSHELL_PROJECT_ID</span>
 </code></pre></div><ul>
 <li>Navigation Menu -&gt; BigQuery, Run</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="ln">1</span><span class="k">SELECT</span><span class="w"> </span><span class="n">locale</span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="n">locale</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">lcount</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">image_classification_dataset</span><span class="p">.</span><span class="n">image_text_detail</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">locale</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">lcount</span><span class="w"> </span><span class="k">DESC</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="ln">1</span><span class="k">SELECT</span><span class="w"> </span><span class="n">locale</span><span class="p">,</span><span class="k">COUNT</span><span class="p">(</span><span class="n">locale</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">lcount</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">image_classification_dataset</span><span class="p">.</span><span class="n">image_text_detail</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">locale</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">lcount</span><span class="w"> </span><span class="k">DESC</span><span class="w">
 </span></code></pre></div><p>Congratulations, you're all done with the lab 😄</p>
 
   </article>

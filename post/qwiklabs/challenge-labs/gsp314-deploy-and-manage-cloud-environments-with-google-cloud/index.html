@@ -185,7 +185,7 @@
 <ul>
 <li>SSH to <code>kraken-jumphost</code> and run</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span><span class="nb">cd</span> /work/dm
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span><span class="nb">cd</span> /work/dm
 <span class="ln"> 2</span>sed -i s/SET_REGION/us-east1/g prod-network.yaml
 <span class="ln"> 3</span>
 <span class="ln"> 4</span>gcloud deployment-manager deployments create prod-network --config<span class="o">=</span>prod-network.yaml
@@ -207,7 +207,7 @@
 <ul>
 <li>Still in kraken-jumphost's SSH, run</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud config <span class="nb">set</span> compute/zone us-east1-b
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud config <span class="nb">set</span> compute/zone us-east1-b
 <span class="ln">2</span>
 <span class="ln">3</span>gcloud compute instances create kraken-admin --network-interface<span class="o">=</span><span class="s2">&#34;subnet=kraken-mgmt-subnet&#34;</span> --network-interface<span class="o">=</span><span class="s2">&#34;subnet=kraken-prod-subnet&#34;</span>
 </code></pre></div><h4 id="create-alert">Create alert</h4>
@@ -216,7 +216,7 @@
 <li>Create an alert</li>
 <li>Configure the policy to email your email and set</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="ln">1</span><span class="w">   </span><span class="nt">Resource Type </span><span class="p">:</span><span class="w"> </span><span class="l">VM Instance</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="ln">1</span><span class="w">   </span><span class="nt">Resource Type </span><span class="p">:</span><span class="w"> </span><span class="l">VM Instance</span><span class="w">
 </span><span class="ln">2</span><span class="w">   </span><span class="nt">Metric </span><span class="p">:</span><span class="w"> </span><span class="l">CPU utilization</span><span class="w">
 </span><span class="ln">3</span><span class="w">   </span><span class="nt">Filter </span><span class="p">:</span><span class="w"> </span><span class="l">instance_name</span><span class="w">
 </span><span class="ln">4</span><span class="w">            </span><span class="nt">Value </span><span class="p">:</span><span class="w"> </span><span class="l">kraken-admin</span><span class="w">
@@ -227,7 +227,7 @@
 <ul>
 <li>Switch to cloudshell, run</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud config <span class="nb">set</span> compute/zone us-east1-b
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud config <span class="nb">set</span> compute/zone us-east1-b
 <span class="ln">2</span>
 <span class="ln">3</span>gcloud container clusters get-credentials spinnaker-tutorial
 <span class="ln">4</span>
@@ -254,7 +254,7 @@
 <p>Back to cloudshell, run to push a change</p>
 </li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>gcloud config <span class="nb">set</span> compute/zone us-east1-b
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>gcloud config <span class="nb">set</span> compute/zone us-east1-b
 <span class="ln"> 2</span>
 <span class="ln"> 3</span>gcloud <span class="nb">source</span> repos clone sample-app
 <span class="ln"> 4</span>

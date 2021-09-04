@@ -172,11 +172,11 @@
     <h2>Overview</h2>
     <nav id="TableOfContents"></nav>
     <p>Task 1 : Create a custom security role</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>nano role-definition.yaml
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>nano role-definition.yaml
 </code></pre></div><ul>
 <li>Copy the below content to file</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="ln">1</span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;orca_storage_update&#34;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="ln">1</span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;orca_storage_update&#34;</span><span class="w">
 </span><span class="ln">2</span><span class="w"></span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Permissions&#34;</span><span class="w">
 </span><span class="ln">3</span><span class="w"></span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;ALPHA&#34;</span><span class="w">
 </span><span class="ln">4</span><span class="w"></span><span class="nt">includedPermissions</span><span class="p">:</span><span class="w">
@@ -188,13 +188,13 @@
 </span></code></pre></div><ul>
 <li>Save by : ctrl + o -&gt; enter -&gt; ctrl + x</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud iam roles create orca_storage_update --project <span class="nv">$DEVSHELL_PROJECT_ID</span> <span class="se">\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud iam roles create orca_storage_update --project <span class="nv">$DEVSHELL_PROJECT_ID</span> <span class="se">\
 </span><span class="ln">2</span><span class="se"></span>--file role-definition.yaml
 </code></pre></div><p>Task 2 &amp; 3 : Create a service account and Bind a custom security role to an account</p>
 <ul>
 <li>Navigate to <code>IAM &amp; Admin</code> -&gt; <code>Service Accounts</code> -&gt; <code>CREATE SERVICE ACCOUNT</code>.</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="ln">1</span><span class="w">  </span><span class="nt">Service account name </span><span class="p">:</span><span class="w"> </span><span class="l">orca-private-cluster-sa , then click create and add roles.</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="ln">1</span><span class="w">  </span><span class="nt">Service account name </span><span class="p">:</span><span class="w"> </span><span class="l">orca-private-cluster-sa , then click create and add roles.</span><span class="w">
 </span><span class="ln">2</span><span class="w">  </span><span class="nt">Roles </span><span class="p">:</span><span class="w"> </span><span class="l">orca_storage_update</span><span class="w">
 </span><span class="ln">3</span><span class="w">          </span><span class="l">Monitoring Viewer</span><span class="w">
 </span><span class="ln">4</span><span class="w">          </span><span class="l">Monitoring Metric Writer</span><span class="w">
@@ -206,7 +206,7 @@
 <ul>
 <li>Replace the project id</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud container clusters create orca-test-cluster --num-nodes <span class="m">1</span> --master-ipv4-cidr<span class="o">=</span>172.16.0.64/28 --network orca-build-vpc --subnetwork orca-build-subnet --enable-master-authorized-networks  --master-authorized-networks 192.168.10.2/32 --enable-ip-alias --enable-private-nodes --enable-private-endpoint --service-account orca-private-cluster-sa@&lt;Project ID&gt;.iam.gserviceaccount.com --zone us-east1-b
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud container clusters create orca-test-cluster --num-nodes <span class="m">1</span> --master-ipv4-cidr<span class="o">=</span>172.16.0.64/28 --network orca-build-vpc --subnetwork orca-build-subnet --enable-master-authorized-networks  --master-authorized-networks 192.168.10.2/32 --enable-ip-alias --enable-private-nodes --enable-private-endpoint --service-account orca-private-cluster-sa@&lt;Project ID&gt;.iam.gserviceaccount.com --zone us-east1-b
 </code></pre></div><p>Task 5 : Deploy an application to a private Kubernetes Engine cluster</p>
 <ul>
 <li>
@@ -216,7 +216,7 @@
 <p>Replace the project id</p>
 </li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud container clusters get-credentials orca-test-cluster --internal-ip --zone us-east1-b --project &lt;Project ID&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud container clusters get-credentials orca-test-cluster --internal-ip --zone us-east1-b --project &lt;Project ID&gt;
 <span class="ln">2</span>
 <span class="ln">3</span>kubectl create deployment hello-server --image<span class="o">=</span>gcr.io/google-samples/hello-app:1.0
 </code></pre></div><p>Congratulations, you're all done with the lab 😄</p>

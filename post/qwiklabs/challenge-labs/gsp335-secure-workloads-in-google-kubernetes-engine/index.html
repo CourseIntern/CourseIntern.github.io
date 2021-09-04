@@ -187,9 +187,9 @@
   </ul>
 </nav>
     <p>Start by executing the following commands:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gsutil -m cp gs://cloud-training/gsp335/* .
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gsutil -m cp gs://cloud-training/gsp335/* .
 </code></pre></div><h3 id="task---1--create-kubernetes-cluster">Task - 1 : Create kubernetes cluster</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud container clusters create kraken-cluster <span class="se">\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud container clusters create kraken-cluster <span class="se">\
 </span><span class="ln">2</span><span class="se"></span>   --zone us-central1-c <span class="se">\
 </span><span class="ln">3</span><span class="se"></span>   --machine-type n1-standard-4 <span class="se">\
 </span><span class="ln">4</span><span class="se"></span>   --num-nodes <span class="m">2</span> <span class="se">\
@@ -197,13 +197,13 @@
 <span class="ln">6</span>
 <span class="ln">7</span>gcloud container clusters get-credentials kraken-cluster  --zone us-central1-c
 </code></pre></div><h3 id="task---2--create-cloud-sql-instance">Task - 2 : Create Cloud SQL instance</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud sql instances create kraken-cloud-sql --region us-central1
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud sql instances create kraken-cloud-sql --region us-central1
 <span class="ln">2</span>
 <span class="ln">3</span>gcloud sql databases create wordpress --instance kraken-cloud-sql --charset utf8 --collation utf8_general_ci
 <span class="ln">4</span>
 <span class="ln">5</span>gcloud sql users create wordpress --host % --instance kraken-cloud-sql --password Passw0rd
 </code></pre></div><h3 id="task---3--create-a-service-account">Task - 3 : Create a service account</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>gcloud iam service-accounts create kraken-wordpress-sa
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>gcloud iam service-accounts create kraken-wordpress-sa
 <span class="ln"> 2</span>
 <span class="ln"> 3</span>gcloud projects add-iam-policy-binding <span class="nv">$DEVSHELL_PROJECT_ID</span> <span class="se">\
 </span><span class="ln"> 4</span><span class="se"></span>   --member<span class="o">=</span><span class="s2">&#34;serviceAccount:kraken-wordpress-sa@</span><span class="nv">$DEVSHELL_PROJECT_ID</span><span class="s2">.iam.gserviceaccount.com&#34;</span> <span class="se">\
@@ -217,7 +217,7 @@
 </span><span class="ln">12</span><span class="se"></span>   --from-literal <span class="nv">username</span><span class="o">=</span>wordpress <span class="se">\
 </span><span class="ln">13</span><span class="se"></span>   --from-literal <span class="nv">password</span><span class="o">=</span><span class="s1">&#39;Passw0rd&#39;</span>
 </code></pre></div><h3 id="task---4--create-the-wordpress-deployment-and-service">Task - 4 : Create the WordPress deployment and service</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl create -f volume.yaml
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl create -f volume.yaml
 </code></pre></div><ul>
 <li>
 <p>Go to the overview page of your Cloud SQL instance, and copy the Connection name.</p>
@@ -227,22 +227,22 @@
 with the Connection name of your Cloud SQL instance and Save the file changes.</p>
 </li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl apply -f wordpress.yaml
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl apply -f wordpress.yaml
 </code></pre></div><h3 id="task---5--setup-ingress-with-tls">Task - 5 : Setup Ingress with TLS</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>helm version
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>helm version
 <span class="ln">2</span>
 <span class="ln">3</span>helm repo add stable https://charts.helm.sh/stable
 <span class="ln">4</span>helm repo update
 </code></pre></div><ul>
 <li>If your environment does not install with Helm</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>    curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>    curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
 <span class="ln">2</span>    chmod <span class="m">700</span> get_helm.sh
 <span class="ln">3</span>    ./get_helm.sh
 </code></pre></div><ul>
 <li>Now, you can continue:</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>helm install nginx-ingress stable/nginx-ingress --set rbac.create<span class="o">=</span><span class="nb">true</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>helm install nginx-ingress stable/nginx-ingress --set rbac.create<span class="o">=</span><span class="nb">true</span>
 <span class="ln"> 2</span>
 <span class="ln"> 3</span>kubectl get service nginx-ingress-controller -w
 <span class="ln"> 4</span>
@@ -257,7 +257,7 @@ with the Connection name of your Cloud SQL instance and Save the file changes.</
 <li>Edit issuer.yaml and set the email address
 Save the file changes and run</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl apply -f issuer.yaml
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl apply -f issuer.yaml
 </code></pre></div><ul>
 <li>
 <p>Edit ingress.yaml and set your <code>YOUR_LAB_USERNAME.labdns.xyz</code> DNS record to lines 11 and 14.</p>
@@ -266,13 +266,13 @@ Save the file changes and run</li>
 <p>Save the file changes and run</p>
 </li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl apply -f ingress.yaml
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl apply -f ingress.yaml
 </code></pre></div><h3 id="task---6--setup-network-policy">Task - 6 : Setup Network Policy</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>nano network-policy.yaml
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>nano network-policy.yaml
 </code></pre></div><ul>
 <li>Set the values of name and spec as shown below</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="ln"> 1</span><span class="w">   </span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">Networking.k8s.io/v1</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="ln"> 1</span><span class="w">   </span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">Networking.k8s.io/v1</span><span class="w">
 </span><span class="ln"> 2</span><span class="w">   </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">NetworkPolicy</span><span class="w">
 </span><span class="ln"> 3</span><span class="w">   </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span><span class="ln"> 4</span><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">allow-world-to-nginx-ingress</span><span class="w">
@@ -288,7 +288,7 @@ Save the file changes and run</li>
 </span></code></pre></div><ul>
 <li>Save the file by <code>ctrl + x</code> -&gt; <code>y</code> -&gt; <code>enter</code></li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl apply -f network-policy.yaml
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl apply -f network-policy.yaml
 </code></pre></div><h3 id="task---7--setup-binary-authorization">Task - 7 : Setup Binary Authorization</h3>
 <ul>
 <li>Goto <code>Cloud Console</code> -&gt; <code>Security</code> -&gt; <code>Binary Authorization</code>.</li>
@@ -297,11 +297,11 @@ Save the file changes and run</li>
 <li>Select <code>Disallow all</code> images for the Default rule.</li>
 <li>Scroll down to Images exempt from this policy, click <code>ADD IMAGE PATH</code> and paste</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>docker.io/library/wordpress:latest
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>docker.io/library/wordpress:latest
 </code></pre></div><ul>
 <li>Repeat the above two steps to add the following image paths</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>us.gcr.io/k8s-artifacts-prod/ingress-nginx/*
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>us.gcr.io/k8s-artifacts-prod/ingress-nginx/*
 <span class="ln">2</span>gcr.io/cloudsql-docker/*
 <span class="ln">3</span>quay.io/jetstack/*
 </code></pre></div><ul>
@@ -319,7 +319,7 @@ Save the file changes and run</li>
 </li>
 </ul>
 <h3 id="task---8--setup-pod-security-policy">Task - 8 : Setup Pod Security Policy</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl apply -f psp-role.yaml
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl apply -f psp-role.yaml
 <span class="ln">2</span>kubectl apply -f pop-use.yaml
 <span class="ln">3</span>
 <span class="ln">4</span>nano psp-restrictive.yaml
@@ -331,7 +331,7 @@ Save the file changes and run</li>
 <p>Save the changes.</p>
 </li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl apply
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl apply
 </code></pre></div><p>Congratulations, you're all done with the lab 😄</p>
 
   </article>

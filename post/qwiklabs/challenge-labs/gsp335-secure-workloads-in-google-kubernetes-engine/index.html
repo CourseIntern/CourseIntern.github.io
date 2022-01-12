@@ -184,35 +184,28 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#task---1--create-kubernetes-cluster">Task - 1 : Create kubernetes cluster</a></li>
-        <li><a href="#task---2--create-cloud-sql-instance">Task - 2 : Create Cloud SQL instance</a></li>
-        <li><a href="#task---3--create-a-service-account">Task - 3 : Create a service account</a></li>
-        <li><a href="#task---4--create-the-wordpress-deployment-and-service">Task - 4 : Create the WordPress deployment and service</a></li>
-        <li><a href="#task---5--setup-ingress-with-tls">Task - 5 : Setup Ingress with TLS</a></li>
-        <li><a href="#task---6--setup-network-policy">Task - 6 : Setup Network Policy</a></li>
-        <li><a href="#task---7--setup-binary-authorization">Task - 7 : Setup Binary Authorization</a></li>
-        <li><a href="#task---8--setup-pod-security-policy">Task - 8 : Setup Pod Security Policy</a></li>
+        <li><a href="#task---1-setup-cluster">Task - 1: Setup cluster</a></li>
+        <li><a href="#task---2-setup-wordpress">Task - 2: Setup wordpress</a></li>
+        <li><a href="#task---3-setup-ingress-with-tls">Task - 3: Setup Ingress with TLS</a></li>
+        <li><a href="#task---4-set-up-network-policy">Task - 4: Set up Network Policy</a></li>
+        <li><a href="#task---5-setup-binary-authorization">Task - 5: Setup Binary Authorization</a></li>
+        <li><a href="#task---6-setup-pod-security-policy">Task - 6: Setup Pod Security Policy</a></li>
       </ul>
     </li>
   </ul>
 </nav>
     <p>Start by executing the following commands:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gsutil -m cp gs://cloud-training/gsp335/* .
-</code></pre></div><h3 id="task---1--create-kubernetes-cluster">Task - 1 : Create kubernetes cluster</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gsutil cp gs://spls/gsp335/gsp335.zip .
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>unzip gsp335.zip
+</code></pre></div><h3 id="task---1-setup-cluster">Task - 1: Setup cluster</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud container clusters create kraken-cluster <span class="se">\
 </span><span class="ln">2</span><span class="se"></span>   --zone us-central1-c <span class="se">\
 </span><span class="ln">3</span><span class="se"></span>   --machine-type n1-standard-4 <span class="se">\
 </span><span class="ln">4</span><span class="se"></span>   --num-nodes <span class="m">2</span> <span class="se">\
 </span><span class="ln">5</span><span class="se"></span>   --enable-network-policy
-<span class="ln">6</span>
-<span class="ln">7</span>gcloud container clusters get-credentials kraken-cluster  --zone us-central1-c
-</code></pre></div><h3 id="task---2--create-cloud-sql-instance">Task - 2 : Create Cloud SQL instance</h3>
+</code></pre></div><p>Create the Cloud SQL instance:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud sql instances create kraken-cloud-sql --region us-central1
-<span class="ln">2</span>
-<span class="ln">3</span>gcloud sql databases create wordpress --instance kraken-cloud-sql --charset utf8 --collation utf8_general_ci
-<span class="ln">4</span>
-<span class="ln">5</span>gcloud sql users create wordpress --host % --instance kraken-cloud-sql --password Passw0rd
-</code></pre></div><h3 id="task---3--create-a-service-account">Task - 3 : Create a service account</h3>
+</code></pre></div><h3 id="task---2-setup-wordpress">Task - 2: Setup wordpress</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>gcloud iam service-accounts create kraken-wordpress-sa
 <span class="ln"> 2</span>
 <span class="ln"> 3</span>gcloud projects add-iam-policy-binding <span class="nv">$DEVSHELL_PROJECT_ID</span> <span class="se">\
@@ -226,19 +219,11 @@
 <span class="ln">11</span>kubectl create secret generic cloudsql-db-credentials <span class="se">\
 </span><span class="ln">12</span><span class="se"></span>   --from-literal <span class="nv">username</span><span class="o">=</span>wordpress <span class="se">\
 </span><span class="ln">13</span><span class="se"></span>   --from-literal <span class="nv">password</span><span class="o">=</span><span class="s1">&#39;Passw0rd&#39;</span>
-</code></pre></div><h3 id="task---4--create-the-wordpress-deployment-and-service">Task - 4 : Create the WordPress deployment and service</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl create -f volume.yaml
-</code></pre></div><ul>
-<li>
+</code></pre></div><p>Remember the passowrd you set-up above as you'll need it later.</p>
 <p>Go to the overview page of your Cloud SQL instance, and copy the Connection name.</p>
-</li>
-<li>
-<p>Open <code>wordpress.yaml</code> with your any editor, and replace <code>INSTANCE_CONNECTION_NAME</code> (in line 61)
-with the Connection name of your Cloud SQL instance and Save the file changes.</p>
-</li>
-</ul>
+<p>Open wordpress.yaml with your any editor, and replace INSTANCE_CONNECTION_NAME (in line 61) with the Connection name of your Cloud SQL instance and Save the file changes.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl apply -f wordpress.yaml
-</code></pre></div><h3 id="task---5--setup-ingress-with-tls">Task - 5 : Setup Ingress with TLS</h3>
+</code></pre></div><h3 id="task---3-setup-ingress-with-tls">Task - 3: Setup Ingress with TLS</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>helm version
 <span class="ln">2</span>
 <span class="ln">3</span>helm repo add stable https://charts.helm.sh/stable
@@ -277,7 +262,7 @@ Save the file changes and run</li>
 </li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl apply -f ingress.yaml
-</code></pre></div><h3 id="task---6--setup-network-policy">Task - 6 : Setup Network Policy</h3>
+</code></pre></div><h3 id="task---4-set-up-network-policy">Task - 4: Set up Network Policy</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>nano network-policy.yaml
 </code></pre></div><ul>
 <li>Set the values of name and spec as shown below</li>
@@ -299,7 +284,7 @@ Save the file changes and run</li>
 <li>Save the file by <code>ctrl + x</code> -&gt; <code>y</code> -&gt; <code>enter</code></li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl apply -f network-policy.yaml
-</code></pre></div><h3 id="task---7--setup-binary-authorization">Task - 7 : Setup Binary Authorization</h3>
+</code></pre></div><h3 id="task---5-setup-binary-authorization">Task - 5: Setup Binary Authorization</h3>
 <ul>
 <li>Goto <code>Cloud Console</code> -&gt; <code>Security</code> -&gt; <code>Binary Authorization</code>.</li>
 <li>Enable the <code>Binary Authorization API</code>.</li>
@@ -328,7 +313,7 @@ Save the file changes and run</li>
 <p>Edit Binary authorization and <code>Enable Binary Authorization</code> then <code>SAVE CHANGES</code>.</p>
 </li>
 </ul>
-<h3 id="task---8--setup-pod-security-policy">Task - 8 : Setup Pod Security Policy</h3>
+<h3 id="task---6-setup-pod-security-policy">Task - 6: Setup Pod Security Policy</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl apply -f psp-role.yaml
 <span class="ln">2</span>kubectl apply -f pop-use.yaml
 <span class="ln">3</span>

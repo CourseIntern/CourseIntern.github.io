@@ -962,22 +962,17 @@ Change username and password to:&lt;/li&gt;
       <description>
         
           &lt;p&gt;Start by executing the following commands:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;gsutil -m cp gs://cloud-training/gsp335/* .
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;task---1--create-kubernetes-cluster&#34;&gt;Task - 1 : Create kubernetes cluster&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;gsutil cp gs://spls/gsp335/gsp335.zip .
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;unzip gsp335.zip
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;task---1-setup-cluster&#34;&gt;Task - 1: Setup cluster&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;gcloud container clusters create kraken-cluster &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;   --zone us-central1-c &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;   --machine-type n1-standard-4 &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;   --num-nodes &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;   --enable-network-policy
-&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;gcloud container clusters get-credentials kraken-cluster  --zone us-central1-c
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;task---2--create-cloud-sql-instance&#34;&gt;Task - 2 : Create Cloud SQL instance&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Create the Cloud SQL instance:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;gcloud sql instances create kraken-cloud-sql --region us-central1
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;gcloud sql databases create wordpress --instance kraken-cloud-sql --charset utf8 --collation utf8_general_ci
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;gcloud sql users create wordpress --host % --instance kraken-cloud-sql --password Passw0rd
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;task---3--create-a-service-account&#34;&gt;Task - 3 : Create a service account&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;task---2-setup-wordpress&#34;&gt;Task - 2: Setup wordpress&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;gcloud iam service-accounts create kraken-wordpress-sa
 &lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;gcloud projects add-iam-policy-binding &lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
@@ -991,19 +986,11 @@ Change username and password to:&lt;/li&gt;
 &lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;kubectl create secret generic cloudsql-db-credentials &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;   --from-literal &lt;span class=&#34;nv&#34;&gt;username&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;wordpress &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;   --from-literal &lt;span class=&#34;nv&#34;&gt;password&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Passw0rd&amp;#39;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;task---4--create-the-wordpress-deployment-and-service&#34;&gt;Task - 4 : Create the WordPress deployment and service&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;kubectl create -f volume.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Remember the passowrd you set-up above as you&#39;ll need it later.&lt;/p&gt;
 &lt;p&gt;Go to the overview page of your Cloud SQL instance, and copy the Connection name.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Open &lt;code&gt;wordpress.yaml&lt;/code&gt; with your any editor, and replace &lt;code&gt;INSTANCE_CONNECTION_NAME&lt;/code&gt; (in line 61)
-with the Connection name of your Cloud SQL instance and Save the file changes.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Open wordpress.yaml with your any editor, and replace INSTANCE_CONNECTION_NAME (in line 61) with the Connection name of your Cloud SQL instance and Save the file changes.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;kubectl apply -f wordpress.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;task---5--setup-ingress-with-tls&#34;&gt;Task - 5 : Setup Ingress with TLS&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;task---3-setup-ingress-with-tls&#34;&gt;Task - 3: Setup Ingress with TLS&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;helm version
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;helm repo add stable https://charts.helm.sh/stable
@@ -1042,7 +1029,7 @@ Save the file changes and run&lt;/li&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;kubectl apply -f ingress.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;task---6--setup-network-policy&#34;&gt;Task - 6 : Setup Network Policy&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;task---4-set-up-network-policy&#34;&gt;Task - 4: Set up Network Policy&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;nano network-policy.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;Set the values of name and spec as shown below&lt;/li&gt;
@@ -1064,7 +1051,7 @@ Save the file changes and run&lt;/li&gt;
 &lt;li&gt;Save the file by &lt;code&gt;ctrl + x&lt;/code&gt; -&amp;gt; &lt;code&gt;y&lt;/code&gt; -&amp;gt; &lt;code&gt;enter&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;kubectl apply -f network-policy.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;task---7--setup-binary-authorization&#34;&gt;Task - 7 : Setup Binary Authorization&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;task---5-setup-binary-authorization&#34;&gt;Task - 5: Setup Binary Authorization&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Goto &lt;code&gt;Cloud Console&lt;/code&gt; -&amp;gt; &lt;code&gt;Security&lt;/code&gt; -&amp;gt; &lt;code&gt;Binary Authorization&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Enable the &lt;code&gt;Binary Authorization API&lt;/code&gt;.&lt;/li&gt;
@@ -1093,7 +1080,7 @@ Save the file changes and run&lt;/li&gt;
 &lt;p&gt;Edit Binary authorization and &lt;code&gt;Enable Binary Authorization&lt;/code&gt; then &lt;code&gt;SAVE CHANGES&lt;/code&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;task---8--setup-pod-security-policy&#34;&gt;Task - 8 : Setup Pod Security Policy&lt;/h3&gt;
+&lt;h3 id=&#34;task---6-setup-pod-security-policy&#34;&gt;Task - 6: Setup Pod Security Policy&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;kubectl apply -f psp-role.yaml
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;kubectl apply -f pop-use.yaml
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;

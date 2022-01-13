@@ -644,7 +644,7 @@ Use the same input_size for the limited_model&lt;/p&gt;
     </item>
     
     <item>
-      <title>GSP304 : Build and Deploy a Docker Image to a Kubernetes Cluster</title>
+      <title>GSP-304 : Build and Deploy a Docker Image to a Kubernetes Cluster</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp304-build-and-deploy-a-docker-image-to-a-kubernetes-cluster/</link>
       <pubDate>Sun, 23 May 2021 18:17:07 +0530</pubDate>
       
@@ -695,7 +695,7 @@ Use the same input_size for the limited_model&lt;/p&gt;
     </item>
     
     <item>
-      <title>GSP321: Set Up and Configure a Cloud Environment in Google Cloud</title>
+      <title>GSP-321: Set Up and Configure a Cloud Environment in Google Cloud</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp321-set-up-and-configure-a-cloud-environment-in-google-cloud/</link>
       <pubDate>Wed, 19 May 2021 01:28:18 +0530</pubDate>
       
@@ -812,7 +812,7 @@ Change username and password to:&lt;/li&gt;
     </item>
     
     <item>
-      <title>GSP344: Serverless Firebase Development</title>
+      <title>GSP-344: Serverless Firebase Development</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp344-serverless-firebase-development/</link>
       <pubDate>Wed, 19 May 2021 01:22:25 +0530</pubDate>
       
@@ -869,7 +869,7 @@ Change username and password to:&lt;/li&gt;
     </item>
     
     <item>
-      <title>GSP328: Serverless Cloud Run Development</title>
+      <title>GSP-328: Serverless Cloud Run Development</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp328-serverless-cloud-run-development/</link>
       <pubDate>Wed, 19 May 2021 01:17:06 +0530</pubDate>
       
@@ -954,7 +954,7 @@ Change username and password to:&lt;/li&gt;
     </item>
     
     <item>
-      <title>GSP335 : Secure Workloads in Google Kubernetes Engine</title>
+      <title>GSP-335 : Secure Workloads in Google Kubernetes Engine</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp335-secure-workloads-in-google-kubernetes-engine/</link>
       <pubDate>Wed, 19 May 2021 01:06:55 +0530</pubDate>
       
@@ -1101,7 +1101,7 @@ Save the file changes and run&lt;/li&gt;
     </item>
     
     <item>
-      <title>GSP305: Scale Out and Update a Containerized Application on a Kubernetes Cluster</title>
+      <title>GSP-305: Scale Out and Update a Containerized Application on a Kubernetes Cluster</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp305-scale-out-and-update-a-containerized-application-on-a-kubernetes-cluster/</link>
       <pubDate>Wed, 19 May 2021 01:04:08 +0530</pubDate>
       
@@ -1134,7 +1134,7 @@ Save by esc -&amp;gt; Esc - &amp;gt; &amp;quot;:wq&amp;quot; and press enter.&lt
     </item>
     
     <item>
-      <title>GSP323: Perform Foundational Data, ML, and AI Tasks in Google Cloud</title>
+      <title>GSP-323: Perform Foundational Data, ML, and AI Tasks in Google Cloud</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp323-perform-foundational-data-ml-and-ai-tasks-in-google-cloud/</link>
       <pubDate>Wed, 19 May 2021 00:57:36 +0530</pubDate>
       
@@ -1233,7 +1233,7 @@ Save by esc -&amp;gt; Esc - &amp;gt; &amp;quot;:wq&amp;quot; and press enter.&lt
     </item>
     
     <item>
-      <title>GSP343: Optimize Costs for Google Kubernetes Engine</title>
+      <title>GSP-343: Optimize Costs for Google Kubernetes Engine</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp343-optimize-costs-for-google-kubernetes-engine/</link>
       <pubDate>Wed, 19 May 2021 00:51:51 +0530</pubDate>
       
@@ -1308,7 +1308,7 @@ Save by esc -&amp;gt; Esc - &amp;gt; &amp;quot;:wq&amp;quot; and press enter.&lt
     </item>
     
     <item>
-      <title>GSP306: Migrate a Mysql Database to Google Cloud Sql</title>
+      <title>GSP-306: Migrate a Mysql Database to Google Cloud Sql</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp306-migrate-a-mysql-database-to-google-cloud-sql/</link>
       <pubDate>Wed, 19 May 2021 00:48:21 +0530</pubDate>
       
@@ -1355,7 +1355,7 @@ Save by esc -&amp;gt; Esc - &amp;gt; &amp;quot;:wq&amp;quot; and press enter.&lt
     </item>
     
     <item>
-      <title>GSP329: Integrate With Machine Learning APIs</title>
+      <title>GSP-329: Integrate With Machine Learning APIs</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp329-integrate-with-machine-learning-apis/</link>
       <pubDate>Wed, 19 May 2021 00:42:47 +0530</pubDate>
       
@@ -1596,7 +1596,7 @@ Save by esc -&amp;gt; Esc - &amp;gt; &amp;quot;:wq&amp;quot; and press enter.&lt
     </item>
     
     <item>
-      <title>GSP787: Insights From Data With Bigquery Challenge Lab</title>
+      <title>GSP-787: Insights From Data With Bigquery Challenge Lab</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp787-insights-from-data-with-bigquery-challenge-lab/</link>
       <pubDate>Wed, 19 May 2021 00:35:20 +0530</pubDate>
       
@@ -1890,7 +1890,7 @@ Save by esc -&amp;gt; Esc - &amp;gt; &amp;quot;:wq&amp;quot; and press enter.&lt
     </item>
     
     <item>
-      <title>GSP330: Implement DevOps in Google Cloud</title>
+      <title>GSP-330: Implement DevOps in Google Cloud</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp330-implement-devops-in-google-cloud/</link>
       <pubDate>Wed, 19 May 2021 00:30:46 +0530</pubDate>
       
@@ -1974,7 +1974,7 @@ Save by esc -&amp;gt; Esc - &amp;gt; &amp;quot;:wq&amp;quot; and press enter.&lt
     </item>
     
     <item>
-      <title>GSP101: Google Cloud Essential Skills</title>
+      <title>GSP-101: Google Cloud Essential Skills</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp101-google-cloud-essential-skills/</link>
       <pubDate>Wed, 19 May 2021 00:27:44 +0530</pubDate>
       
@@ -2014,7 +2014,7 @@ Save by esc -&amp;gt; Esc - &amp;gt; &amp;quot;:wq&amp;quot; and press enter.&lt
     </item>
     
     <item>
-      <title>GSP665: Exploring the Public Cryptocurrency Datasets Available in BigQuery</title>
+      <title>GSP-665: Exploring the Public Cryptocurrency Datasets Available in BigQuery</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp665-exploring-the-public-cryptocurrency-datasets-available-in-bigquery/</link>
       <pubDate>Wed, 19 May 2021 00:25:27 +0530</pubDate>
       
@@ -2053,7 +2053,7 @@ Save by esc -&amp;gt; Esc - &amp;gt; &amp;quot;:wq&amp;quot; and press enter.&lt
     </item>
     
     <item>
-      <title>GSP342: Ensure Access &amp; Identity in Google Cloud</title>
+      <title>GSP-342: Ensure Access &amp; Identity in Google Cloud</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp342-ensure-access-identity-in-google-cloud/</link>
       <pubDate>Tue, 18 May 2021 23:36:24 +0530</pubDate>
       
@@ -2115,7 +2115,7 @@ Save by esc -&amp;gt; Esc - &amp;gt; &amp;quot;:wq&amp;quot; and press enter.&lt
     </item>
     
     <item>
-      <title>GSP327: Engineer Data in Google Cloud</title>
+      <title>GSP-327: Engineer Data in Google Cloud</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp327-engineer-data-in-google-cloud/</link>
       <pubDate>Tue, 18 May 2021 23:23:49 +0530</pubDate>
       
@@ -2175,7 +2175,7 @@ Save by esc -&amp;gt; Esc - &amp;gt; &amp;quot;:wq&amp;quot; and press enter.&lt
     </item>
     
     <item>
-      <title>GSP318: Deploy to Kubernetes in Google Cloud</title>
+      <title>GSP-318: Deploy to Kubernetes in Google Cloud</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp318-deploy-to-kubernetes-in-google-cloud/</link>
       <pubDate>Tue, 18 May 2021 23:17:35 +0530</pubDate>
       
@@ -2287,7 +2287,7 @@ Press &amp;quot;Esc&amp;quot; -&amp;gt; &amp;quot;:wq&amp;quot; -&amp;gt; Enter&
     </item>
     
     <item>
-      <title>GSP314 : Deploy and Manage Cloud Environments with Google Cloud</title>
+      <title>GSP-314 : Deploy and Manage Cloud Environments with Google Cloud</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp314-deploy-and-manage-cloud-environments-with-google-cloud/</link>
       <pubDate>Tue, 18 May 2021 23:09:28 +0530</pubDate>
       
@@ -2386,7 +2386,7 @@ Press &amp;quot;Esc&amp;quot; -&amp;gt; &amp;quot;:wq&amp;quot; -&amp;gt; Enter&
     </item>
     
     <item>
-      <title>GSP341: Create ML Models with BigQuery ML</title>
+      <title>GSP-341: Create ML Models with BigQuery ML</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp341-create-ml-models-with-bigquery-ml/</link>
       <pubDate>Tue, 18 May 2021 22:51:16 +0530</pubDate>
       
@@ -2503,7 +2503,7 @@ Press &amp;quot;Esc&amp;quot; -&amp;gt; &amp;quot;:wq&amp;quot; -&amp;gt; Enter&
     </item>
     
     <item>
-      <title>GSP313: Create and Manage Cloud Resources</title>
+      <title>GSP-313: Create and Manage Cloud Resources</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp313-create-and-manage-cloud-resources/</link>
       <pubDate>Tue, 18 May 2021 22:45:00 +0530</pubDate>
       
@@ -2588,7 +2588,7 @@ Press &amp;quot;Esc&amp;quot; -&amp;gt; &amp;quot;:wq&amp;quot; -&amp;gt; Enter&
     </item>
     
     <item>
-      <title>GSP302 : Configure a Firewall and a Startup Script with Deployment Manager</title>
+      <title>GSP-302 : Configure a Firewall and a Startup Script with Deployment Manager</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp302-configure-a-firewall-and-a-startup-script-with-deployment-manager/</link>
       <pubDate>Tue, 18 May 2021 22:40:07 +0530</pubDate>
       
@@ -2665,7 +2665,7 @@ Press &amp;quot;Esc&amp;quot; -&amp;gt; &amp;quot;:wq&amp;quot; -&amp;gt; Enter&
     </item>
     
     <item>
-      <title>GSP322 : Build and Secure Networks in Google Cloud: Challenge Lab</title>
+      <title>GSP-322 : Build and Secure Networks in Google Cloud: Challenge Lab</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp322-build-and-secure-networks-in-google-cloud/</link>
       <pubDate>Tue, 18 May 2021 22:31:50 +0530</pubDate>
       
@@ -2699,7 +2699,7 @@ Press &amp;quot;Esc&amp;quot; -&amp;gt; &amp;quot;:wq&amp;quot; -&amp;gt; Enter&
     </item>
     
     <item>
-      <title>GSP340 : Build and Optimize Data Warehouses with BigQuery: Challenge Lab</title>
+      <title>GSP-340 : Build and Optimize Data Warehouses with BigQuery: Challenge Lab</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp340-build-and-optimize-data-warehouses-with-bigquery/</link>
       <pubDate>Tue, 18 May 2021 22:22:05 +0530</pubDate>
       
@@ -2772,7 +2772,7 @@ Press &amp;quot;Esc&amp;quot; -&amp;gt; &amp;quot;:wq&amp;quot; -&amp;gt; Enter&
     </item>
     
     <item>
-      <title>GSP319 : Build a Website on Google Cloud: Challenge Lab</title>
+      <title>GSP-319 : Build a Website on Google Cloud: Challenge Lab</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp319-build-a-website-on-google-cloud/</link>
       <pubDate>Tue, 18 May 2021 22:09:17 +0530</pubDate>
       
@@ -2826,7 +2826,7 @@ Press &amp;quot;Esc&amp;quot; -&amp;gt; &amp;quot;:wq&amp;quot; -&amp;gt; Enter&
     </item>
     
     <item>
-      <title>GSP345 : Automating Infrastructure on Google Cloud with Terraform: Challenge Lab</title>
+      <title>GSP-345 : Automating Infrastructure on Google Cloud with Terraform: Challenge Lab</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp345-automating-infrastructure-on-google-cloud-with-terraform/</link>
       <pubDate>Tue, 18 May 2021 21:57:57 +0530</pubDate>
       
@@ -3130,7 +3130,7 @@ Press &amp;quot;Esc&amp;quot; -&amp;gt; &amp;quot;:wq&amp;quot; -&amp;gt; Enter&
     </item>
     
     <item>
-      <title>GSP311 : Automate Interactions with Contact Center AI: Challenge Lab</title>
+      <title>GSP-311 : Automate Interactions with Contact Center AI: Challenge Lab</title>
       <link>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp311-automate-interactions-with-contact-center-ai/</link>
       <pubDate>Tue, 18 May 2021 21:34:49 +0530</pubDate>
       

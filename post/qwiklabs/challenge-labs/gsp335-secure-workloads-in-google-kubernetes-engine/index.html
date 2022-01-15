@@ -194,25 +194,26 @@
     </li>
   </ul>
 </nav>
-    <p>Start by executing the following commands:</p>
+    <p>Please use your own credentials while completing the lab -- that means using your own service account, database credentials, etc. wherever necessary.</p>
+<p>Start by executing the following commands:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gsutil cp gs://spls/gsp335/gsp335.zip .
 </code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>unzip gsp335.zip
 </code></pre></div><h3 id="task---1-setup-cluster">Task - 1: Setup cluster</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud container clusters create kraken-cluster <span class="se">\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud container clusters create &lt;cluster-name&gt; <span class="se">\
 </span><span class="ln">2</span><span class="se"></span>   --zone us-central1-c <span class="se">\
 </span><span class="ln">3</span><span class="se"></span>   --machine-type n1-standard-4 <span class="se">\
 </span><span class="ln">4</span><span class="se"></span>   --num-nodes <span class="m">2</span> <span class="se">\
 </span><span class="ln">5</span><span class="se"></span>   --enable-network-policy
 </code></pre></div><p>Create the Cloud SQL instance:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud sql instances create kraken-cloud-sql --region us-central1
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud sql instances create &lt;your-sql-instance-name&gt; --region us-central1
 </code></pre></div><h3 id="task---2-setup-wordpress">Task - 2: Setup wordpress</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>gcloud iam service-accounts create kraken-wordpress-sa
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>gcloud iam service-accounts create &lt;your-service-account-credentials&gt;
 <span class="ln"> 2</span>
 <span class="ln"> 3</span>gcloud projects add-iam-policy-binding <span class="nv">$DEVSHELL_PROJECT_ID</span> <span class="se">\
-</span><span class="ln"> 4</span><span class="se"></span>   --member<span class="o">=</span><span class="s2">&#34;serviceAccount:kraken-wordpress-sa@</span><span class="nv">$DEVSHELL_PROJECT_ID</span><span class="s2">.iam.gserviceaccount.com&#34;</span> <span class="se">\
+</span><span class="ln"> 4</span><span class="se"></span>   --member<span class="o">=</span><span class="s2">&#34;serviceAccount:&lt;your-service-account-credentials&gt;@</span><span class="nv">$DEVSHELL_PROJECT_ID</span><span class="s2">.iam.gserviceaccount.com&#34;</span> <span class="se">\
 </span><span class="ln"> 5</span><span class="se"></span>   --role<span class="o">=</span><span class="s2">&#34;roles/cloudsql.client&#34;</span>
 <span class="ln"> 6</span>
-<span class="ln"> 7</span>gcloud iam service-accounts keys create key.json --iam-account<span class="o">=</span>kraken-wordpress-sa@<span class="nv">$DEVSHELL_PROJECT_ID</span>.iam.gserviceaccount.com
+<span class="ln"> 7</span>gcloud iam service-accounts keys create key.json --iam-account<span class="o">=</span>&lt;your-service-account-credentials&gt;@<span class="nv">$DEVSHELL_PROJECT_ID</span>.iam.gserviceaccount.com
 <span class="ln"> 8</span>
 <span class="ln"> 9</span>kubectl create secret generic cloudsql-instance-credentials --from-file key.json
 <span class="ln">10</span>
@@ -243,7 +244,7 @@
 <span class="ln"> 4</span>
 <span class="ln"> 5</span>. add_ip.sh
 <span class="ln"> 6</span>
-<span class="ln"> 7</span>kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.2.0/cert-manager.yaml
+<span class="ln"> 7</span>kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v0.16.0/cert-manager.yaml
 <span class="ln"> 8</span>
 <span class="ln"> 9</span>kubectl create clusterrolebinding cluster-admin-binding <span class="se">\
 </span><span class="ln">10</span><span class="se"></span>   --clusterrole<span class="o">=</span>cluster-admin <span class="se">\
@@ -267,19 +268,18 @@ Save the file changes and run</li>
 </code></pre></div><ul>
 <li>Set the values of name and spec as shown below</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="ln"> 1</span><span class="w">   </span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">Networking.k8s.io/v1</span><span class="w">
-</span><span class="ln"> 2</span><span class="w">   </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">NetworkPolicy</span><span class="w">
-</span><span class="ln"> 3</span><span class="w">   </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span><span class="ln"> 4</span><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">allow-world-to-nginx-ingress</span><span class="w">
-</span><span class="ln"> 5</span><span class="w">      </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">default</span><span class="w">
-</span><span class="ln"> 6</span><span class="w">   </span><span class="nt">spec</span><span class="p">:</span><span class="w">
-</span><span class="ln"> 7</span><span class="w">      </span><span class="nt">podSelector</span><span class="p">:</span><span class="w">
-</span><span class="ln"> 8</span><span class="w">         </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w">
-</span><span class="ln"> 9</span><span class="w">         </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx-ingress</span><span class="w">
-</span><span class="ln">10</span><span class="w">      </span><span class="nt">policyTypes</span><span class="p">:</span><span class="w">
-</span><span class="ln">11</span><span class="w">      </span>- <span class="l">Ingress</span><span class="w">
-</span><span class="ln">12</span><span class="w">      </span><span class="nt">ingress</span><span class="p">:</span><span class="w">
-</span><span class="ln">13</span><span class="w">      </span>- {}<span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="ln"> 1</span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">networking.k8s.io/v1</span><span class="w">
+</span><span class="ln"> 2</span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">NetworkPolicy</span><span class="w">
+</span><span class="ln"> 3</span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span><span class="ln"> 4</span><span class="w"></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">allow-nginx-access-to-internet</span><span class="w">
+</span><span class="ln"> 5</span><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span><span class="ln"> 6</span><span class="w"></span><span class="nt">podSelector</span><span class="p">:</span><span class="w">
+</span><span class="ln"> 7</span><span class="w"></span><span class="nt">matchLabels</span><span class="p">:</span><span class="w">
+</span><span class="ln"> 8</span><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx-ingress</span><span class="w">
+</span><span class="ln"> 9</span><span class="w"></span><span class="nt">policyTypes</span><span class="p">:</span><span class="w">
+</span><span class="ln">10</span><span class="w"></span>- <span class="l">Ingress</span><span class="w">
+</span><span class="ln">11</span><span class="w"></span><span class="nt">ingress</span><span class="p">:</span><span class="w">
+</span><span class="ln">12</span><span class="w"></span>- {}<span class="w">
 </span></code></pre></div><ul>
 <li>Save the file by <code>ctrl + x</code> -&gt; <code>y</code> -&gt; <code>enter</code></li>
 </ul>
@@ -314,19 +314,19 @@ Save the file changes and run</li>
 </li>
 </ul>
 <h3 id="task---6-setup-pod-security-policy">Task - 6: Setup Pod Security Policy</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl apply -f psp-role.yaml
-<span class="ln">2</span>kubectl apply -f pop-use.yaml
-<span class="ln">3</span>
-<span class="ln">4</span>nano psp-restrictive.yaml
+<p>In the video, editing for psp-restrictive.yaml is shown through script editor. For this tutorial, we are using nano.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>nano psp-restrictive.yaml
 </code></pre></div><ul>
 <li>
 <p>replace <code>appVersion: extensions/v1beta1</code> with <code>policy/v1beta1</code></p>
 </li>
 <li>
-<p>Save the changes.</p>
+<p>Save the changes &amp; apply the config through kubectl.</p>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl apply
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl apply -f psp-role.yaml
+<span class="ln">2</span>kubectl apply -f pop-use.yaml
+<span class="ln">3</span>kubectl apply -f psp-restrictive.yaml
 </code></pre></div><p>Congratulations, you're all done with the lab 😄</p>
 
   </article>

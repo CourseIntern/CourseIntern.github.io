@@ -398,25 +398,26 @@ Change username and password to:&lt;/li&gt;
       <guid>https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp335-secure-workloads-in-google-kubernetes-engine/</guid>
       <description>
         
-          &lt;p&gt;Start by executing the following commands:&lt;/p&gt;
+          &lt;p&gt;Please use your own credentials while completing the lab -- that means using your own service account, database credentials, etc. wherever necessary.&lt;/p&gt;
+&lt;p&gt;Start by executing the following commands:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;gsutil cp gs://spls/gsp335/gsp335.zip .
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;unzip gsp335.zip
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;task---1-setup-cluster&#34;&gt;Task - 1: Setup cluster&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;gcloud container clusters create kraken-cluster &lt;span class=&#34;se&#34;&gt;\
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;gcloud container clusters create &amp;lt;cluster-name&amp;gt; &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;   --zone us-central1-c &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;   --machine-type n1-standard-4 &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;   --num-nodes &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;   --enable-network-policy
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Create the Cloud SQL instance:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;gcloud sql instances create kraken-cloud-sql --region us-central1
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;gcloud sql instances create &amp;lt;your-sql-instance-name&amp;gt; --region us-central1
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;task---2-setup-wordpress&#34;&gt;Task - 2: Setup wordpress&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;gcloud iam service-accounts create kraken-wordpress-sa
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;gcloud iam service-accounts create &amp;lt;your-service-account-credentials&amp;gt;
 &lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;gcloud projects add-iam-policy-binding &lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;   --member&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;serviceAccount:kraken-wordpress-sa@&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;.iam.gserviceaccount.com&amp;#34;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;   --member&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;serviceAccount:&amp;lt;your-service-account-credentials&amp;gt;@&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;.iam.gserviceaccount.com&amp;#34;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;   --role&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;roles/cloudsql.client&amp;#34;&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;gcloud iam service-accounts keys create key.json --iam-account&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;kraken-wordpress-sa@&lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt;.iam.gserviceaccount.com
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;gcloud iam service-accounts keys create key.json --iam-account&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;lt;your-service-account-credentials&amp;gt;@&lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt;.iam.gserviceaccount.com
 &lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;kubectl create secret generic cloudsql-instance-credentials --from-file key.json
 &lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;
@@ -447,7 +448,7 @@ Change username and password to:&lt;/li&gt;
 &lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;. add_ip.sh
 &lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.2.0/cert-manager.yaml
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v0.16.0/cert-manager.yaml
 &lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;kubectl create clusterrolebinding cluster-admin-binding &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;   --clusterrole&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;cluster-admin &lt;span class=&#34;se&#34;&gt;\
@@ -471,19 +472,18 @@ Save the file changes and run&lt;/li&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;Set the values of name and spec as shown below&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;apiVersion&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Networking.k8s.io/v1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;kind&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;NetworkPolicy&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;metadata&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;allow-world-to-nginx-ingress&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;namespace&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;default&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;spec&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;podSelector&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;         &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;matchLabels&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;         &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;nginx-ingress&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;policyTypes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;Ingress&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ingress&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- {}&lt;span class=&#34;w&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;apiVersion&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;networking.k8s.io/v1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;kind&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;NetworkPolicy&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;metadata&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;allow-nginx-access-to-internet&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;spec&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;podSelector&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;matchLabels&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;nginx-ingress&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;policyTypes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;Ingress&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ingress&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;- {}&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;Save the file by &lt;code&gt;ctrl + x&lt;/code&gt; -&amp;gt; &lt;code&gt;y&lt;/code&gt; -&amp;gt; &lt;code&gt;enter&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -518,19 +518,19 @@ Save the file changes and run&lt;/li&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;task---6-setup-pod-security-policy&#34;&gt;Task - 6: Setup Pod Security Policy&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;kubectl apply -f psp-role.yaml
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;kubectl apply -f pop-use.yaml
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;nano psp-restrictive.yaml
+&lt;p&gt;In the video, editing for psp-restrictive.yaml is shown through script editor. For this tutorial, we are using nano.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;nano psp-restrictive.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;replace &lt;code&gt;appVersion: extensions/v1beta1&lt;/code&gt; with &lt;code&gt;policy/v1beta1&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Save the changes.&lt;/p&gt;
+&lt;p&gt;Save the changes &amp;amp; apply the config through kubectl.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;kubectl apply
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;kubectl apply -f psp-role.yaml
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;kubectl apply -f pop-use.yaml
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;kubectl apply -f psp-restrictive.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Congratulations, you&#39;re all done with the lab 😄&lt;/p&gt;
 
         

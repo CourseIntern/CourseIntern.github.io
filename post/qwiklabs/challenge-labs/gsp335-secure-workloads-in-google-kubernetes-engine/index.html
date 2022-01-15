@@ -219,8 +219,11 @@
 <span class="ln">10</span>
 <span class="ln">11</span>kubectl create secret generic cloudsql-db-credentials <span class="se">\
 </span><span class="ln">12</span><span class="se"></span>   --from-literal <span class="nv">username</span><span class="o">=</span>wordpress <span class="se">\
-</span><span class="ln">13</span><span class="se"></span>   --from-literal <span class="nv">password</span><span class="o">=</span><span class="s1">&#39;Passw0rd&#39;</span>
+</span><span class="ln">13</span><span class="se"></span>   --from-literal <span class="nv">password</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
 </code></pre></div><p>Remember the passowrd you set-up above as you'll need it later.</p>
+<p>Create the WordPress deployment and service</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl create -f volume.yaml
+</code></pre></div><p>Go to the editor and replace instance name with SQL instance name.</p>
 <p>Go to the overview page of your Cloud SQL instance, and copy the Connection name.</p>
 <p>Open wordpress.yaml with your any editor, and replace INSTANCE_CONNECTION_NAME (in line 61) with the Connection name of your Cloud SQL instance and Save the file changes.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>kubectl apply -f wordpress.yaml
@@ -232,15 +235,15 @@
 </code></pre></div><ul>
 <li>If your environment does not install with Helm</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>    curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
-<span class="ln">2</span>    chmod <span class="m">700</span> get_helm.sh
-<span class="ln">3</span>    ./get_helm.sh
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+<span class="ln">2</span>chmod <span class="m">700</span> get_helm.sh
+<span class="ln">3</span>./get_helm.sh
 </code></pre></div><ul>
 <li>Now, you can continue:</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>helm install nginx-ingress stable/nginx-ingress --set rbac.create<span class="o">=</span><span class="nb">true</span>
 <span class="ln"> 2</span>
-<span class="ln"> 3</span>kubectl get service nginx-ingress-controller -w
+<span class="ln"> 3</span>kubectl get service nginx-ingress-controller
 <span class="ln"> 4</span>
 <span class="ln"> 5</span>. add_ip.sh
 <span class="ln"> 6</span>

@@ -423,8 +423,11 @@ Change username and password to:&lt;/li&gt;
 &lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;kubectl create secret generic cloudsql-db-credentials &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;   --from-literal &lt;span class=&#34;nv&#34;&gt;username&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;wordpress &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;   --from-literal &lt;span class=&#34;nv&#34;&gt;password&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Passw0rd&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;   --from-literal &lt;span class=&#34;nv&#34;&gt;password&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Remember the passowrd you set-up above as you&#39;ll need it later.&lt;/p&gt;
+&lt;p&gt;Create the WordPress deployment and service&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;kubectl create -f volume.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Go to the editor and replace instance name with SQL instance name.&lt;/p&gt;
 &lt;p&gt;Go to the overview page of your Cloud SQL instance, and copy the Connection name.&lt;/p&gt;
 &lt;p&gt;Open wordpress.yaml with your any editor, and replace INSTANCE_CONNECTION_NAME (in line 61) with the Connection name of your Cloud SQL instance and Save the file changes.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;kubectl apply -f wordpress.yaml
@@ -436,15 +439,15 @@ Change username and password to:&lt;/li&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;If your environment does not install with Helm&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;    curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;    chmod &lt;span class=&#34;m&#34;&gt;700&lt;/span&gt; get_helm.sh
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;    ./get_helm.sh
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;chmod &lt;span class=&#34;m&#34;&gt;700&lt;/span&gt; get_helm.sh
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;./get_helm.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;Now, you can continue:&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;helm install nginx-ingress stable/nginx-ingress --set rbac.create&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;kubectl get service nginx-ingress-controller -w
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;kubectl get service nginx-ingress-controller
 &lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;. add_ip.sh
 &lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;

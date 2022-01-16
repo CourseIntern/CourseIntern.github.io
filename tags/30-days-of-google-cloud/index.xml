@@ -36,22 +36,17 @@
 &lt;li&gt;Save by : ctrl + o -&amp;gt; enter -&amp;gt; ctrl + x&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;gcloud iam service-accounts create orca-private-cluster-sa --display-name &lt;span class=&#34;s2&#34;&gt;&amp;#34;Orca Private Cluster Service Account&amp;#34;&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;gcloud iam roles create &amp;lt;IAM-ROLE-NAME-TASK-1&amp;gt; --project &lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--file role-definition.yaml
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;gcloud iam roles create &amp;lt;IAM-ROLE-NAME-TASK-1&amp;gt; --project &lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt; --file role-definition.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Task 2: Create a service account&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;gcloud iam service-accounts create &amp;lt;IAM-SERVICE-ACC-TASK-2&amp;gt; --display-name &lt;span class=&#34;s2&#34;&gt;&amp;#34;Orca Private Cluster Service Account&amp;#34;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Task 3: Bind a custom security role to an account&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;gcloud projects add-iam-policy-binding &lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;   --member serviceAccount:&amp;lt;IAM-SERVICE-ACC-TASK-2&amp;gt;@&lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt;.iam.gserviceaccount.com --role roles/monitoring.viewer
-&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;gcloud projects add-iam-policy-binding &lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;   --member serviceAccount:&amp;lt;IAM-SERVICE-ACC-TASK-2&amp;gt;@&lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt;.iam.gserviceaccount.com --role roles/monitoring.metricWriter
-&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;gcloud projects add-iam-policy-binding &lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;   --member serviceAccount:&amp;lt;IAM-SERVICE-ACC-TASK-2&amp;gt;@&lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt;.iam.gserviceaccount.com --role roles/logging.logWriter
-&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;gcloud projects add-iam-policy-binding &lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;   --member serviceAccount:&amp;lt;IAM-SERVICE-ACC-TASK-2&amp;gt;@&lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt;.iam.gserviceaccount.com --role projects/&lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt;/roles/&amp;lt;IAM-ROLE-NAME-TASK-1&amp;gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;gcloud projects add-iam-policy-binding &lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt; --member serviceAccount:&amp;lt;IAM-SERVICE-ACC-TASK-2&amp;gt;@&lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt;.iam.gserviceaccount.com --role roles/monitoring.viewer
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;gcloud projects add-iam-policy-binding &lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt; --member serviceAccount:&amp;lt;IAM-SERVICE-ACC-TASK-2&amp;gt;@&lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt;.iam.gserviceaccount.com --role roles/monitoring.metricWriter
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;gcloud projects add-iam-policy-binding &lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt; --member serviceAccount:&amp;lt;IAM-SERVICE-ACC-TASK-2&amp;gt;@&lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt;.iam.gserviceaccount.com --role roles/logging.logWriter
+&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;gcloud projects add-iam-policy-binding &lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt; --member serviceAccount:&amp;lt;IAM-SERVICE-ACC-TASK-2&amp;gt;@&lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt;.iam.gserviceaccount.com --role projects/&lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt;/roles/&amp;lt;IAM-ROLE-NAME-TASK-1&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Task 4: Create and configure a new Kubernetes Engine private cluster&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;gcloud container clusters create &amp;lt;CLUSTER-NAME-TASK-4&amp;gt; --num-nodes &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; --master-ipv4-cidr&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;172.16.0.64/28 --network orca-build-vpc --subnetwork orca-build-subnet --enable-master-authorized-networks  --master-authorized-networks 192.168.10.2/32 --enable-ip-alias --enable-private-nodes --enable-private-endpoint --service-account &amp;lt;IAM-SERVICE-ACC-TASK-2&amp;gt;@&lt;span class=&#34;nv&#34;&gt;$DEVSHELL_PROJECT_ID&lt;/span&gt;.iam.gserviceaccount.com --zone us-east1-b
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Step 5: Deploy an application to a private Kubernetes Engine cluster.&lt;/p&gt;
@@ -71,8 +66,7 @@ Run the following commands in ssh of orca-jumphost:&lt;/p&gt;
 &lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;kubectl create deployment hello-server --image&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;gcr.io/google-samples/hello-app:1.0
 &lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;kubectl expose deployment hello-server --name orca-hello-service &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;   --type LoadBalancer --port &lt;span class=&#34;m&#34;&gt;80&lt;/span&gt; --target-port &lt;span class=&#34;m&#34;&gt;8080&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;kubectl expose deployment hello-server --name orca-hello-service --type LoadBalancer --port &lt;span class=&#34;m&#34;&gt;80&lt;/span&gt; --target-port &lt;span class=&#34;m&#34;&gt;8080&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Congratulations, you&#39;re all done with the lab 😄&lt;/p&gt;
 
         

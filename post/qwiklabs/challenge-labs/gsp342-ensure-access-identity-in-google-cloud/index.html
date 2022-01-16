@@ -142,7 +142,7 @@
   <use xlink:href="#calendar"></use>
 </svg></span>
     <span class="post_date">
-      May 18, 2021</span>
+      Jan 16, 2022</span>
     <span class="post_time"> · 2 min read</span><span>&nbsp;· <a href='https://www.courseintern.com/tags/qwiklabs' title="qwiklabs" class="post_tag button button_translucent">qwiklabs
         </a><a href='https://www.courseintern.com/tags/googlecloudready-facilitator-program' title="googlecloudready facilitator program" class="post_tag button button_translucent">googlecloudready facilitator program
         </a><a href='https://www.courseintern.com/tags/30-days-of-google-cloud' title="30 days of google cloud" class="post_tag button button_translucent">30 days of google cloud
@@ -181,9 +181,10 @@
     
     <h2>Overview</h2>
     <nav id="TableOfContents"></nav>
-    <p><strong>NOTE</strong>: Replace <IAM-ROLE-NAME-TASK-1>, <IAM-SERVICE-ACC-TASK-2> &amp; <CLUSTER-NAME-TASK-4> with your own values as per your own account.</p>
+    <p><strong>NOTE</strong>: Replace <code>&lt;IAM-ROLE-NAME-TASK-1&gt;</code>, <code>&lt;IAM-SERVICE-ACC-TASK-2&gt;</code> &amp; <code>&lt;CLUSTER-NAME-TASK-4&gt;</code> with your own values as per your own account.</p>
 <p>Task 1: Create a custom security role</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>nano role-definition.yaml
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud config <span class="nb">set</span> compute/zone us-east1-b
+<span class="ln">2</span>nano role-definition.yaml
 </code></pre></div><ul>
 <li>Copy the below content to file</li>
 </ul>
@@ -199,8 +200,9 @@
 </span></code></pre></div><ul>
 <li>Save by : ctrl + o -&gt; enter -&gt; ctrl + x</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud iam roles create &lt;IAM-ROLE-NAME-TASK-1&gt; --project <span class="nv">$DEVSHELL_PROJECT_ID</span> <span class="se">\
-</span><span class="ln">2</span><span class="se"></span>--file role-definition.yaml
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud iam service-accounts create orca-private-cluster-sa --display-name <span class="s2">&#34;Orca Private Cluster Service Account&#34;</span>
+<span class="ln">2</span>gcloud iam roles create &lt;IAM-ROLE-NAME-TASK-1&gt; --project <span class="nv">$DEVSHELL_PROJECT_ID</span> <span class="se">\
+</span><span class="ln">3</span><span class="se"></span>--file role-definition.yaml
 </code></pre></div><p>Task 2: Create a service account</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud iam service-accounts create &lt;IAM-SERVICE-ACC-TASK-2&gt; --display-name <span class="s2">&#34;Orca Private Cluster Service Account&#34;</span>
 </code></pre></div><p>Task 3: Bind a custom security role to an account</p>

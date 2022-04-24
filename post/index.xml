@@ -1397,7 +1397,7 @@ Save by esc -&amp;gt; Esc - &amp;gt; &amp;quot;:wq&amp;quot; and press enter.&lt
 &lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;MYSQLIP&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;gcloud sql instances describe wordpress --format&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;value(ipAddresses.ipAddress)&amp;#34;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;mysql --host&lt;span class=&#34;o&#34;&gt;=[&lt;/span&gt;INSTANCE_IP_ADDR&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;mysql --host&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$MYSQLIP&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --user&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;root --password
 &lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;CREATE DATABASE wordpress&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
@@ -1416,7 +1416,8 @@ Save by esc -&amp;gt; Esc - &amp;gt; &amp;quot;:wq&amp;quot; and press enter.&lt
 &lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; /var/www/html/wordpress
 &lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;sudo nano wp-config.php
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Congratulations, you&#39;re all done with the lab 😄&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Replace the localhost with SQL Instance IP
+Congratulations, you&#39;re all done with the lab 😄&lt;/p&gt;
 
         
       </description>
@@ -2053,10 +2054,10 @@ Save by esc -&amp;gt; Esc - &amp;gt; &amp;quot;:wq&amp;quot; and press enter.&lt
 &lt;ul&gt;
 &lt;li&gt;Goto Compute Engine -&amp;gt; VM Instannces -&amp;gt; Create Instance.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Name &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;apache&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Zone &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;us-central1-a&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Name &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;&amp;lt;Given in the lab&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Zone &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;&amp;lt;Given in the lab&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Series &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;N1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Boot Disk &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Linux 9 (stretch)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Boot Disk &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Default&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Tick &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Allow HTTP Traffic&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;          &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Allow HTTPS Traffic&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -2191,7 +2192,7 @@ Save by esc -&amp;gt; Esc - &amp;gt; &amp;quot;:wq&amp;quot; and press enter.&lt
           &lt;p&gt;Please enter the following commands:&lt;/p&gt;
 &lt;h4 id=&#34;task---1--create-a-docker-image-and-store-the-dockerfile&#34;&gt;Task - 1 : Create a Docker image and store the Dockerfile&lt;/h4&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;gcloud auth list
-&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;gsutil cat gs://cloud-training/gsp318/marking/setup_marking.sh &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; bash
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;gsutil cat gs://cloud-training/gsp318/marking/setup_marking_v2.sh &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; bash
 &lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;gcloud &lt;span class=&#34;nb&#34;&gt;source&lt;/span&gt; repos clone valkyrie-app
 &lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; valkyrie-app
 &lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;cat &amp;gt; Dockerfile &lt;span class=&#34;s&#34;&gt;&amp;lt;&amp;lt;EOF
@@ -2201,80 +2202,69 @@ Save by esc -&amp;gt; Esc - &amp;gt; &amp;quot;:wq&amp;quot; and press enter.&lt
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;RUN go install -v
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;ENTRYPOINT [&amp;#34;app&amp;#34;,&amp;#34;-single=true&amp;#34;,&amp;#34;-port=8080&amp;#34;]
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;EOF&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;docker build -t valkyrie-app:v0.0.1 .
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;docker build -t &amp;lt;Docker Image&amp;gt;:&amp;lt;Tag Name&amp;gt; .
 &lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ..
 &lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; marking
-&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;./step1.sh
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;./step1_v2.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;task---2--test-the-created-docker-image&#34;&gt;Task - 2 : Test the created Docker image&lt;/h4&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ..
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; valkyrie-app
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;docker run -p 8080:8080 valkyrie-app:v0.0.1 &lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;docker run -p 8080:8080 &amp;lt;Docker Image&amp;gt;:&amp;lt;Tag Name&amp;gt; &lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ..
 &lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; marking
-&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;./step2.sh
+&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;./step2_v2.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;task---3--push-the-docker-image-in-the-google-container-repository&#34;&gt;Task - 3 : Push the Docker image in the Google Container Repository&lt;/h4&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ..
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; valkyrie-app
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;docker tag valkyrie-app:v0.0.1 gcr.io/&lt;span class=&#34;nv&#34;&gt;$GOOGLE_CLOUD_PROJECT&lt;/span&gt;/valkyrie-app:v0.0.1
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;docker push gcr.io/&lt;span class=&#34;nv&#34;&gt;$GOOGLE_CLOUD_PROJECT&lt;/span&gt;/valkyrie-app:v0.0.1
-&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;sed -i s#IMAGE_HERE#gcr.io/&lt;span class=&#34;nv&#34;&gt;$GOOGLE_CLOUD_PROJECT&lt;/span&gt;/valkyrie-app:v0.0.1#g k8s/deployment.yaml
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;docker tag &amp;lt;Docker Image&amp;gt;:&amp;lt;Tag Name&amp;gt; gcr.io/&lt;span class=&#34;nv&#34;&gt;$GOOGLE_CLOUD_PROJECT&lt;/span&gt;/&amp;lt;Docker Image&amp;gt;:&amp;lt;Tag Name&amp;gt;
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;docker push gcr.io/&lt;span class=&#34;nv&#34;&gt;$GOOGLE_CLOUD_PROJECT&lt;/span&gt;/&amp;lt;Docker Image&amp;gt;:&amp;lt;Tag Name&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;task---4--create-and-expose-a-deployment-in-kubernetes&#34;&gt;Task - 4 : Create and expose a deployment in Kubernetes&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;sed -i s#IMAGE_HERE#gcr.io/&lt;span class=&#34;nv&#34;&gt;$GOOGLE_CLOUD_PROJECT&lt;/span&gt;/valkyrie-app:v0.0.1#g k8s/deployment.yaml
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;sed -i s#IMAGE_HERE#gcr.io/&lt;span class=&#34;nv&#34;&gt;$GOOGLE_CLOUD_PROJECT&lt;/span&gt;/&amp;lt;Docker Image&amp;gt;:&amp;lt;Tag Name&amp;gt;#g k8s/deployment.yaml
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;gcloud container clusters get-credentials valkyrie-dev --zone us-east1-d
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;kubectl create -f k8s/deployment.yaml
 &lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;kubectl create -f k8s/service.yaml
-&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;git merge origin/kurt-dev
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;task---5--increase-the-replicas-from-1-to-3&#34;&gt;Task - 5 : Increase the replicas from 1 to 3&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;kubectl edit deployment valkyrie-dev
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;Press &amp;quot;i&amp;quot; to get into insert mode and change &amp;quot;replicas&amp;quot; from 1 to 3.
-Press &amp;quot;Esc&amp;quot; -&amp;gt; &amp;quot;:wq&amp;quot; -&amp;gt; Enter to exit Vim.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;task---6--update-the-deployment-with-a-new-version-of-valkyrie-app&#34;&gt;Task - 6 : Update the deployment with a new version of valkyrie-app&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;docker build -t gcr.io/&lt;span class=&#34;nv&#34;&gt;$GOOGLE_CLOUD_PROJECT&lt;/span&gt;/valkyrie-app:v0.0.2 .
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;docker push gcr.io/&lt;span class=&#34;nv&#34;&gt;$GOOGLE_CLOUD_PROJECT&lt;/span&gt;/valkyrie-app:v0.0.2
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;kubectl edit deployment valkyrie-dev
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;Press &#39;i&#39; to edit and change image to &amp;quot;image: gcr.io/YOUR_PROJECT_ID/valkyrie-app:v0.0.2&amp;quot;.
-Press &amp;quot;Esc&amp;quot; -&amp;gt; &amp;quot;:wq&amp;quot; -&amp;gt; Enter&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;task---5--update-the-deployment-with-a-new-version-of-valkyrie-app&#34;&gt;Task - 5 : Update the deployment with a new version of valkyrie-app&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;git merge origin/kurt-dev
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;kubectl edit deployment valkyrie-dev
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;### change replicas from 1 to &amp;lt;Replicas Count&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;### change &amp;lt;Tag Name&amp;gt; to &amp;lt;Updated Version&amp;gt; in two places&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;docker build -t gcr.io/&lt;span class=&#34;nv&#34;&gt;$GOOGLE_CLOUD_PROJECT&lt;/span&gt;/&amp;lt;Docker Image&amp;gt;:&amp;lt;Updated Version&amp;gt; .
+&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;docker push gcr.io/&lt;span class=&#34;nv&#34;&gt;$GOOGLE_CLOUD_PROJECT&lt;/span&gt;/&amp;lt;Docker Image&amp;gt;:&amp;lt;Updated Version&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;task---6--create-a-pipeline-in-jenkins-to-deploy-your-app&#34;&gt;Task - 6 : Create a pipeline in Jenkins to deploy your app&lt;/h4&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;docker ps
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;task---7--create-a-pipeline-in-jenkins-to-deploy-your-app&#34;&gt;Task - 7 : Create a pipeline in Jenkins to deploy your app&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; container_id
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;POD_NAME&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;kubectl get pods --namespace default -l &lt;span class=&#34;s2&#34;&gt;&amp;#34;app.kubernetes.io/component=jenkins-master&amp;#34;&lt;/span&gt; -l &lt;span class=&#34;s2&#34;&gt;&amp;#34;app.kubernetes.io/instance=cd&amp;#34;&lt;/span&gt; -o &lt;span class=&#34;nv&#34;&gt;jsonpath&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;{.items[0].metadata.name}&amp;#34;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;kubectl port-forward &lt;span class=&#34;nv&#34;&gt;$POD_NAME&lt;/span&gt; 8080:8080 &amp;gt;&amp;gt; /dev/null &lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;printf&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;kubectl get secret cd-jenkins -o &lt;span class=&#34;nv&#34;&gt;jsonpath&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;{.data.jenkins-admin-password}&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; base64 --decode&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;gcloud &lt;span class=&#34;nb&#34;&gt;source&lt;/span&gt; repos list
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; &amp;lt;take container_id from above command&amp;gt;
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;POD_NAME&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;kubectl get pods --namespace default -l &lt;span class=&#34;s2&#34;&gt;&amp;#34;app.kubernetes.io/component=jenkins-master&amp;#34;&lt;/span&gt; -l &lt;span class=&#34;s2&#34;&gt;&amp;#34;app.kubernetes.io/instance=cd&amp;#34;&lt;/span&gt; -o &lt;span class=&#34;nv&#34;&gt;jsonpath&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;{.items[0].metadata.name}&amp;#34;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;kubectl port-forward &lt;span class=&#34;nv&#34;&gt;$POD_NAME&lt;/span&gt; 8080:8080 &amp;gt;&amp;gt; /dev/null &lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;printf&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;kubectl get secret cd-jenkins -o &lt;span class=&#34;nv&#34;&gt;jsonpath&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;{.data.jenkins-admin-password}&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; base64 --decode&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;Open Jenkins Web View -&amp;gt; Preview on port 8080&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Username &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;admin&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Password &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;{&lt;span class=&#34;l&#34;&gt;Code output from previous command}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Password &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;{&lt;span class=&#34;l&#34;&gt;Code output from previous command} &lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Go through the following:&lt;/p&gt;
 &lt;p&gt;-&amp;gt; Manage Jenkins
 -&amp;gt; Manage Credentials
--&amp;gt; Global
--&amp;gt; add credentials
+-&amp;gt; Jenkins
+-&amp;gt; Global credentials (unrestricted)
+-&amp;gt; Add credentials
 -&amp;gt; Kind: Google Service Account from metadata
 -&amp;gt; OK&lt;/p&gt;
 &lt;p&gt;-&amp;gt; Jenkins
 -&amp;gt; New Item
 -&amp;gt; Name : valkyrie-app
 -&amp;gt; Pipeline
+-&amp;gt; Pipeline script from SCM
+-&amp;gt; Set SCM to git
 -&amp;gt; OK&lt;/p&gt;
 &lt;p&gt;-&amp;gt; Pipeline
 -&amp;gt; Script: Pipeline script from SCM
 -&amp;gt; SCM: Git&lt;/p&gt;
-&lt;p&gt;-&amp;gt; Repository URL: {Url from previous command}
+&lt;p&gt;-&amp;gt; Repository URL: {find it using command: gcloud source repos list}
 -&amp;gt; Credentials: {Project id}&lt;/p&gt;
 &lt;p&gt;-&amp;gt; Apply
 -&amp;gt; Save&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;In cloud shell , run&lt;/li&gt;
-&lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;sed -i &lt;span class=&#34;s2&#34;&gt;&amp;#34;s/green/orange/g&amp;#34;&lt;/span&gt; source/html.go
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;sed -i &lt;span class=&#34;s2&#34;&gt;&amp;#34;s/YOUR_PROJECT/&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$GOOGLE_CLOUD_PROJECT&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;/g&amp;#34;&lt;/span&gt; Jenkinsfile
@@ -2517,14 +2507,12 @@ Press &amp;quot;Esc&amp;quot; -&amp;gt; &amp;quot;:wq&amp;quot; -&amp;gt; Enter&
       <description>
         
           &lt;p&gt;Please follow these commands:&lt;/p&gt;
-&lt;h3 id=&#34;task-1--create-a-project-jumphost-instance-zone-us-east1-b&#34;&gt;Task 1 : Create a project jumphost instance (zone: us-east1-b)&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;gcloud compute instances create nucleus-jumphost &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --network nucleus-vpc &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --zone us-east1-b  &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --machine-type f1-micro  &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --image-family debian-9  &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --image-project debian-cloud &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;task-2--create-a-kubernetes-service-cluster&#34;&gt;Task 2 : Create a Kubernetes service cluster&lt;/h3&gt;
+&lt;h3 id=&#34;task-1--create-a-project-jumphost-instance&#34;&gt;Task 1 : Create a project jumphost instance&lt;/h3&gt;
+&lt;p&gt;Please navigate to the compute engine &amp;gt; VM instance &amp;amp; click on create instance.
+Instance Name: As mentioned in the lab instruction
+Machine type: N1 (f1-macro)
+Do not change the other settings just click on the create.&lt;/p&gt;
+&lt;h3 id=&#34;task-2--create-a-kubernetes-service-cluster&#34;&gt;Task 2 : Create a Kubernetes service cluster&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;gcloud container clusters create nucleus-backend &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --num-nodes &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --network nucleus-vpc &lt;span class=&#34;se&#34;&gt;\
@@ -2537,8 +2525,8 @@ Press &amp;quot;Esc&amp;quot; -&amp;gt; &amp;quot;:wq&amp;quot; -&amp;gt; Enter&
 &lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;kubectl expose deployment hello-server &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --type&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;LoadBalancer &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --port &lt;span class=&#34;m&#34;&gt;8080&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;task-3--create-the-web-server-frontend&#34;&gt;Task 3 : Create the web server frontend&lt;/h3&gt;
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --port &amp;lt;Use port given in the lab&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;task-3--set-up-an-http-load-balancer&#34;&gt;Task 3 : Set up an HTTP load balancer&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;cat &lt;span class=&#34;s&#34;&gt;&amp;lt;&amp;lt; EOF &amp;gt; startup.sh
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;#! /bin/bash
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;apt-get update
@@ -2548,46 +2536,50 @@ Press &amp;quot;Esc&amp;quot; -&amp;gt; &amp;quot;:wq&amp;quot; -&amp;gt; Enter&
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;EOF&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;gcloud compute instance-templates create web-server-template &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --metadata-from-file startup-script&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;startup.sh &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --network nucleus-vpc &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --machine-type g1-small &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --region us-east1
-&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;gcloud compute instance-groups managed create web-server-group &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --base-instance-name web-server &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --size &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --template web-server-template &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --region us-east1
-&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;gcloud compute firewall-rules create web-server-firewall &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --allow tcp:80 &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --network nucleus-vpc
-&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;gcloud compute http-health-checks create http-basic-check
-&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;gcloud compute instance-groups managed &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          set-named-ports web-server-group &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --named-ports http:80 &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --region us-east1
-&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;gcloud compute backend-services create web-server-backend &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --protocol HTTP &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --http-health-checks http-basic-check &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --global
-&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;gcloud compute backend-services add-backend web-server-backend &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --instance-group web-server-group &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --instance-group-region us-east1 &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --global
-&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;gcloud compute url-maps create web-server-map &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --default-service web-server-backend
-&lt;span class=&#34;ln&#34;&gt;41&lt;/span&gt;gcloud compute target-http-proxies create http-lb-proxy &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;42&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --url-map web-server-map
-&lt;span class=&#34;ln&#34;&gt;43&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;44&lt;/span&gt;gcloud compute forwarding-rules create http-content-rule &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;45&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;        --global &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;46&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;        --target-http-proxy http-lb-proxy &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;47&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;        --ports &lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;48&lt;/span&gt;gcloud compute forwarding-rules list
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Congratulations, you&#39;re all done with the lab 😄&lt;/p&gt;
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --metadata-from-file startup-script&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;startup.sh &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --network nucleus-vpc &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --machine-type g1-small &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --region us-east1
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;       
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;gcloud compute target-pools create nginx-pool
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;gcloud compute instance-groups managed create web-server-group &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --base-instance-name web-server &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --size &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --template web-server-template &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --region us-east1
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;gcloud compute firewall-rules create &amp;lt;Copy FIREWALL_NAME given in the lab&amp;gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --allow tcp:80 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --network nucleus-vpc
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;       
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;gcloud compute http-health-checks create http-basic-check
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;gcloud compute instance-groups managed &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       set-named-ports web-server-group &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --named-ports http:80 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --region us-east1
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;gcloud compute backend-services create web-server-backend &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --protocol HTTP &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --http-health-checks http-basic-check &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --global
+&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;gcloud compute backend-services add-backend web-server-backend &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --instance-group web-server-group &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --instance-group-region us-east1 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --global
+&lt;span class=&#34;ln&#34;&gt;41&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;42&lt;/span&gt;gcloud compute url-maps create web-server-map &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;43&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --default-service web-server-backend
+&lt;span class=&#34;ln&#34;&gt;44&lt;/span&gt;gcloud compute target-http-proxies create http-lb-proxy &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;45&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --url-map web-server-map
+&lt;span class=&#34;ln&#34;&gt;46&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;47&lt;/span&gt;gcloud compute forwarding-rules create permit-tcp-rule-261 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;48&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;     --global &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;49&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;     --target-http-proxy http-lb-proxy &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;     --ports &lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;51&lt;/span&gt;gcloud compute forwarding-rules list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;(Note: After running all the commands it can take upto 2-3 minutes to update the score for task 3)
+Congratulations, you&#39;re all done with the lab 😄&lt;/p&gt;
 
         
       </description>

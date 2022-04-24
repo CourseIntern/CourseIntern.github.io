@@ -195,7 +195,7 @@
 <span class="ln">12</span>
 <span class="ln">13</span><span class="nv">MYSQLIP</span><span class="o">=</span><span class="k">$(</span>gcloud sql instances describe wordpress --format<span class="o">=</span><span class="s2">&#34;value(ipAddresses.ipAddress)&#34;</span><span class="k">)</span>
 <span class="ln">14</span>
-<span class="ln">15</span>mysql --host<span class="o">=[</span>INSTANCE_IP_ADDR<span class="o">]</span> <span class="se">\
+<span class="ln">15</span>mysql --host<span class="o">=</span><span class="nv">$MYSQLIP</span> <span class="se">\
 </span><span class="ln">16</span><span class="se"></span>    --user<span class="o">=</span>root --password
 <span class="ln">17</span>
 <span class="ln">18</span>CREATE DATABASE wordpress<span class="p">;</span>
@@ -214,7 +214,8 @@
 <span class="ln">31</span><span class="nb">cd</span> /var/www/html/wordpress
 <span class="ln">32</span>
 <span class="ln">33</span>sudo nano wp-config.php
-</code></pre></div><p>Congratulations, you're all done with the lab 😄</p>
+</code></pre></div><p>Replace the localhost with SQL Instance IP
+Congratulations, you're all done with the lab 😄</p>
 
   </article>
 <aside class="sidebar">

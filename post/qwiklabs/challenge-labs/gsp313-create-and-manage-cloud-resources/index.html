@@ -184,22 +184,20 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#task-1--create-a-project-jumphost-instance-zone-us-east1-b">Task 1 : Create a project jumphost instance (zone: us-east1-b)</a></li>
+        <li><a href="#task-1--create-a-project-jumphost-instance">Task 1 : Create a project jumphost instance</a></li>
         <li><a href="#task-2--create-a-kubernetes-service-cluster">Task 2 : Create a Kubernetes service cluster</a></li>
-        <li><a href="#task-3--create-the-web-server-frontend">Task 3 : Create the web server frontend</a></li>
+        <li><a href="#task-3--set-up-an-http-load-balancer">Task 3 : Set up an HTTP load balancer</a></li>
       </ul>
     </li>
   </ul>
 </nav>
     <p>Please follow these commands:</p>
-<h3 id="task-1--create-a-project-jumphost-instance-zone-us-east1-b">Task 1 : Create a project jumphost instance (zone: us-east1-b)</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>gcloud compute instances create nucleus-jumphost <span class="se">\
-</span><span class="ln">2</span><span class="se"></span>          --network nucleus-vpc <span class="se">\
-</span><span class="ln">3</span><span class="se"></span>          --zone us-east1-b  <span class="se">\
-</span><span class="ln">4</span><span class="se"></span>          --machine-type f1-micro  <span class="se">\
-</span><span class="ln">5</span><span class="se"></span>          --image-family debian-9  <span class="se">\
-</span><span class="ln">6</span><span class="se"></span>          --image-project debian-cloud <span class="se">\
-</span></code></pre></div><h3 id="task-2--create-a-kubernetes-service-cluster">Task 2 : Create a Kubernetes service cluster</h3>
+<h3 id="task-1--create-a-project-jumphost-instance">Task 1 : Create a project jumphost instance</h3>
+<p>Please navigate to the compute engine &gt; VM instance &amp; click on create instance.
+Instance Name: As mentioned in the lab instruction
+Machine type: N1 (f1-macro)
+Do not change the other settings just click on the create.</p>
+<h3 id="task-2--create-a-kubernetes-service-cluster">Task 2 : Create a Kubernetes service cluster</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>gcloud container clusters create nucleus-backend <span class="se">\
 </span><span class="ln"> 2</span><span class="se"></span>          --num-nodes <span class="m">1</span> <span class="se">\
 </span><span class="ln"> 3</span><span class="se"></span>          --network nucleus-vpc <span class="se">\
@@ -212,8 +210,8 @@
 <span class="ln">10</span>
 <span class="ln">11</span>kubectl expose deployment hello-server <span class="se">\
 </span><span class="ln">12</span><span class="se"></span>          --type<span class="o">=</span>LoadBalancer <span class="se">\
-</span><span class="ln">13</span><span class="se"></span>          --port <span class="m">8080</span>
-</code></pre></div><h3 id="task-3--create-the-web-server-frontend">Task 3 : Create the web server frontend</h3>
+</span><span class="ln">13</span><span class="se"></span>          --port &lt;Use port given in the lab&gt;
+</code></pre></div><h3 id="task-3--set-up-an-http-load-balancer">Task 3 : Set up an HTTP load balancer</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>cat <span class="s">&lt;&lt; EOF &gt; startup.sh
 </span><span class="ln"> 2</span><span class="s">#! /bin/bash
 </span><span class="ln"> 3</span><span class="s">apt-get update
@@ -223,46 +221,50 @@
 </span><span class="ln"> 7</span><span class="s">EOF</span>
 <span class="ln"> 8</span>
 <span class="ln"> 9</span>gcloud compute instance-templates create web-server-template <span class="se">\
-</span><span class="ln">10</span><span class="se"></span>          --metadata-from-file startup-script<span class="o">=</span>startup.sh <span class="se">\
-</span><span class="ln">11</span><span class="se"></span>          --network nucleus-vpc <span class="se">\
-</span><span class="ln">12</span><span class="se"></span>          --machine-type g1-small <span class="se">\
-</span><span class="ln">13</span><span class="se"></span>          --region us-east1
-<span class="ln">14</span>
-<span class="ln">15</span>gcloud compute instance-groups managed create web-server-group <span class="se">\
-</span><span class="ln">16</span><span class="se"></span>          --base-instance-name web-server <span class="se">\
-</span><span class="ln">17</span><span class="se"></span>          --size <span class="m">2</span> <span class="se">\
-</span><span class="ln">18</span><span class="se"></span>          --template web-server-template <span class="se">\
-</span><span class="ln">19</span><span class="se"></span>          --region us-east1
-<span class="ln">20</span>
-<span class="ln">21</span>gcloud compute firewall-rules create web-server-firewall <span class="se">\
-</span><span class="ln">22</span><span class="se"></span>          --allow tcp:80 <span class="se">\
-</span><span class="ln">23</span><span class="se"></span>          --network nucleus-vpc
-<span class="ln">24</span>gcloud compute http-health-checks create http-basic-check
-<span class="ln">25</span>gcloud compute instance-groups managed <span class="se">\
-</span><span class="ln">26</span><span class="se"></span>          set-named-ports web-server-group <span class="se">\
-</span><span class="ln">27</span><span class="se"></span>          --named-ports http:80 <span class="se">\
-</span><span class="ln">28</span><span class="se"></span>          --region us-east1
-<span class="ln">29</span>
-<span class="ln">30</span>gcloud compute backend-services create web-server-backend <span class="se">\
-</span><span class="ln">31</span><span class="se"></span>          --protocol HTTP <span class="se">\
-</span><span class="ln">32</span><span class="se"></span>          --http-health-checks http-basic-check <span class="se">\
-</span><span class="ln">33</span><span class="se"></span>          --global
-<span class="ln">34</span>gcloud compute backend-services add-backend web-server-backend <span class="se">\
-</span><span class="ln">35</span><span class="se"></span>          --instance-group web-server-group <span class="se">\
-</span><span class="ln">36</span><span class="se"></span>          --instance-group-region us-east1 <span class="se">\
-</span><span class="ln">37</span><span class="se"></span>          --global
-<span class="ln">38</span>
-<span class="ln">39</span>gcloud compute url-maps create web-server-map <span class="se">\
-</span><span class="ln">40</span><span class="se"></span>          --default-service web-server-backend
-<span class="ln">41</span>gcloud compute target-http-proxies create http-lb-proxy <span class="se">\
-</span><span class="ln">42</span><span class="se"></span>          --url-map web-server-map
-<span class="ln">43</span>
-<span class="ln">44</span>gcloud compute forwarding-rules create http-content-rule <span class="se">\
-</span><span class="ln">45</span><span class="se"></span>        --global <span class="se">\
-</span><span class="ln">46</span><span class="se"></span>        --target-http-proxy http-lb-proxy <span class="se">\
-</span><span class="ln">47</span><span class="se"></span>        --ports <span class="m">80</span>
-<span class="ln">48</span>gcloud compute forwarding-rules list
-</code></pre></div><p>Congratulations, you're all done with the lab 😄</p>
+</span><span class="ln">10</span><span class="se"></span>       --metadata-from-file startup-script<span class="o">=</span>startup.sh <span class="se">\
+</span><span class="ln">11</span><span class="se"></span>       --network nucleus-vpc <span class="se">\
+</span><span class="ln">12</span><span class="se"></span>       --machine-type g1-small <span class="se">\
+</span><span class="ln">13</span><span class="se"></span>       --region us-east1
+<span class="ln">14</span>       
+<span class="ln">15</span>gcloud compute target-pools create nginx-pool
+<span class="ln">16</span>
+<span class="ln">17</span>gcloud compute instance-groups managed create web-server-group <span class="se">\
+</span><span class="ln">18</span><span class="se"></span>       --base-instance-name web-server <span class="se">\
+</span><span class="ln">19</span><span class="se"></span>       --size <span class="m">2</span> <span class="se">\
+</span><span class="ln">20</span><span class="se"></span>       --template web-server-template <span class="se">\
+</span><span class="ln">21</span><span class="se"></span>       --region us-east1
+<span class="ln">22</span>
+<span class="ln">23</span>gcloud compute firewall-rules create &lt;Copy FIREWALL_NAME given in the lab&gt; <span class="se">\
+</span><span class="ln">24</span><span class="se"></span>       --allow tcp:80 <span class="se">\
+</span><span class="ln">25</span><span class="se"></span>       --network nucleus-vpc
+<span class="ln">26</span>       
+<span class="ln">27</span>gcloud compute http-health-checks create http-basic-check
+<span class="ln">28</span>gcloud compute instance-groups managed <span class="se">\
+</span><span class="ln">29</span><span class="se"></span>       set-named-ports web-server-group <span class="se">\
+</span><span class="ln">30</span><span class="se"></span>       --named-ports http:80 <span class="se">\
+</span><span class="ln">31</span><span class="se"></span>       --region us-east1
+<span class="ln">32</span>
+<span class="ln">33</span>gcloud compute backend-services create web-server-backend <span class="se">\
+</span><span class="ln">34</span><span class="se"></span>       --protocol HTTP <span class="se">\
+</span><span class="ln">35</span><span class="se"></span>       --http-health-checks http-basic-check <span class="se">\
+</span><span class="ln">36</span><span class="se"></span>       --global
+<span class="ln">37</span>gcloud compute backend-services add-backend web-server-backend <span class="se">\
+</span><span class="ln">38</span><span class="se"></span>       --instance-group web-server-group <span class="se">\
+</span><span class="ln">39</span><span class="se"></span>       --instance-group-region us-east1 <span class="se">\
+</span><span class="ln">40</span><span class="se"></span>       --global
+<span class="ln">41</span>
+<span class="ln">42</span>gcloud compute url-maps create web-server-map <span class="se">\
+</span><span class="ln">43</span><span class="se"></span>       --default-service web-server-backend
+<span class="ln">44</span>gcloud compute target-http-proxies create http-lb-proxy <span class="se">\
+</span><span class="ln">45</span><span class="se"></span>       --url-map web-server-map
+<span class="ln">46</span>
+<span class="ln">47</span>gcloud compute forwarding-rules create permit-tcp-rule-261 <span class="se">\
+</span><span class="ln">48</span><span class="se"></span>     --global <span class="se">\
+</span><span class="ln">49</span><span class="se"></span>     --target-http-proxy http-lb-proxy <span class="se">\
+</span><span class="ln">50</span><span class="se"></span>     --ports <span class="m">80</span>
+<span class="ln">51</span>gcloud compute forwarding-rules list
+</code></pre></div><p>(Note: After running all the commands it can take upto 2-3 minutes to update the score for task 3)
+Congratulations, you're all done with the lab 😄</p>
 
   </article>
 <aside class="sidebar">

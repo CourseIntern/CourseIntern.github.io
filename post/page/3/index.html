@@ -384,7 +384,7 @@ Task - 1 : Total Confirmed Cases 1SELECTsum(cumulative_confirmed)astotal_cases_w
           <p class="pale">
             
               Task 1 : Create a Compute Engine instance, add necessary firewall rules
- Goto Compute Engine -&gt; VM Instannces -&gt; Create Instance.  1Name :apache2Zone :us-central1-a3Series :N14Boot Disk :Linux 9 (stretch)56Tick :Allow HTTP Traffic7Allow HTTPS Traffic Click Create.  Task 2 : Configure Apache2 Web Server in your …
+ Goto Compute Engine -&gt; VM Instannces -&gt; Create Instance.  1Name :&lt;Given in the lab&gt;2Zone :&lt;Given in the lab&gt;3Series :N14Boot Disk :Default56Tick :Allow HTTP Traffic7Allow HTTPS Traffic Click Create.  Task 2 : Configure Apache2 …
             
           </p>
           <a href="https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp101-google-cloud-essential-skills/" title="Read More" class="excerpt_more button">Read More</a>
@@ -575,7 +575,7 @@ Task - 1: Clean your training data …
           <p class="pale">
             
               Please enter the following commands:
-Task - 1 : Create a Docker image and store the Dockerfile 1gcloud auth list 2gsutil cat gs://cloud-training/gsp318/marking/setup_marking.sh | bash 3gcloud source repos clone valkyrie-app 4cd valkyrie-app 5cat &gt; Dockerfile &lt;&lt;EOF 6FROM golang:1.10 7WORKDIR /go/src/app 8COPY …
+Task - 1 : Create a Docker image and store the Dockerfile 1gcloud auth list 2gsutil cat gs://cloud-training/gsp318/marking/setup_marking_v2.sh | bash 3gcloud source repos clone valkyrie-app 4cd valkyrie-app 5cat &gt; Dockerfile &lt;&lt;EOF 6FROM golang:1.10 7WORKDIR /go/src/app …
             
           </p>
           <a href="https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp318-deploy-to-kubernetes-in-google-cloud/" title="Read More" class="excerpt_more button">Read More</a>
@@ -768,7 +768,8 @@ Task 2: Create a forecasting BigQuery machine learning model In BigQuery Console
           <p class="pale">
             
               Please follow these commands:
-Task 1 : Create a project jumphost instance (zone: us-east1-b) 1gcloud compute instances create nucleus-jumphost \ 2 --network nucleus-vpc \ 3 --zone us-east1-b \ 4 --machine-type f1-micro \ 5 --image-family debian-9 \ 6 --image-project debian-cloud \ Task 2 : Create a Kubernetes service …
+Task 1 : Create a project jumphost instance Please navigate to the compute engine &gt; VM instance &amp; click on create instance. Instance Name: As mentioned in the lab instruction Machine type: N1 (f1-macro) Do not change the other settings just click on the create.
+Task 2 : Create a …
             
           </p>
           <a href="https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp313-create-and-manage-cloud-resources/" title="Read More" class="excerpt_more button">Read More</a>

@@ -1918,57 +1918,61 @@ Do not change the other settings just click on the create.&lt;/p&gt;
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --type&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;LoadBalancer &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;          --port &amp;lt;Use port given in the lab&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;task-3--set-up-an-http-load-balancer&#34;&gt;Task 3 : Set up an HTTP load balancer&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;cat &lt;span class=&#34;s&#34;&gt;&amp;lt;&amp;lt; EOF &amp;gt; startup.sh
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;#! /bin/bash
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;apt-get update
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;apt-get install -y nginx
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;service nginx start
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;sed -i -- &amp;#39;s/nginx/Google Cloud Platform - &amp;#39;&amp;#34;\$HOSTNAME&amp;#34;&amp;#39;/&amp;#39; /var/www/html/index.nginx-debian.html
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;EOF&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;cat &lt;span class=&#34;s&#34;&gt;&amp;lt;&amp;lt; EOF &amp;gt; startup.sh
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;#! /bin/bash
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;apt-get update
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;apt-get install -y nginx
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;service nginx start
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;sed -i -- &amp;#39;s/nginx/Google Cloud Platform - &amp;#39;&amp;#34;\$HOSTNAME&amp;#34;&amp;#39;/&amp;#39; /var/www/html/index.nginx-debian.html
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;EOF&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;gcloud compute instance-templates create web-server-template &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --metadata-from-file startup-script&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;startup.sh &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --network nucleus-vpc &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --machine-type g1-small &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --region us-east1
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;gcloud compute target-pools create nginx-pool
 &lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;gcloud compute instance-templates create web-server-template &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --metadata-from-file startup-script&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;startup.sh &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --network nucleus-vpc &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --machine-type g1-small &lt;span class=&#34;se&#34;&gt;\
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;gcloud compute instance-groups managed create web-server-group &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --base-instance-name web-server &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --size &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --template web-server-template &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --region us-east1
-&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;       
-&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;gcloud compute target-pools create nginx-pool
-&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;gcloud compute instance-groups managed create web-server-group &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --base-instance-name web-server &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --size &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --template web-server-template &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --region us-east1
-&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;gcloud compute firewall-rules create &amp;lt;Copy FIREWALL_NAME given in the lab&amp;gt; &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --allow tcp:80 &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --network nucleus-vpc
-&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;       
-&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;gcloud compute http-health-checks create http-basic-check
-&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;gcloud compute instance-groups managed &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       set-named-ports web-server-group &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --named-ports http:80 &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --region us-east1
-&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;gcloud compute backend-services create web-server-backend &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --protocol HTTP &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --http-health-checks http-basic-check &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --global
-&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;gcloud compute backend-services add-backend web-server-backend &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --instance-group web-server-group &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --instance-group-region us-east1 &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --global
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;gcloud compute firewall-rules create &amp;lt;Copy FIREWALL_NAME given in the lab&amp;gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --allow tcp:80 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --network nucleus-vpc
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;gcloud compute http-health-checks create http-basic-check
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;gcloud compute instance-groups managed &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       set-named-ports web-server-group &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --named-ports http:80 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --region us-east1
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;gcloud compute backend-services create web-server-backend &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --protocol HTTP &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --http-health-checks http-basic-check &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --global
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;gcloud compute backend-services add-backend web-server-backend &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --instance-group web-server-group &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --instance-group-region us-east1 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --global
+&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;gcloud compute url-maps create web-server-map &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --default-service web-server-backend
+&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;gcloud compute target-http-proxies create http-lb-proxy &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --url-map web-server-map
 &lt;span class=&#34;ln&#34;&gt;41&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;42&lt;/span&gt;gcloud compute url-maps create web-server-map &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;43&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --default-service web-server-backend
-&lt;span class=&#34;ln&#34;&gt;44&lt;/span&gt;gcloud compute target-http-proxies create http-lb-proxy &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;45&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;       --url-map web-server-map
+&lt;span class=&#34;ln&#34;&gt;42&lt;/span&gt;gcloud compute forwarding-rules create permit-tcp-rule-261 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;43&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;     --global &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;44&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;     --target-http-proxy http-lb-proxy &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;45&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;     --ports &lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;46&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;47&lt;/span&gt;gcloud compute forwarding-rules create permit-tcp-rule-261 &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;48&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;     --global &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;49&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;     --target-http-proxy http-lb-proxy &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;     --ports &lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;51&lt;/span&gt;gcloud compute forwarding-rules list
+&lt;span class=&#34;ln&#34;&gt;47&lt;/span&gt;gcloud compute forwarding-rules list
+&lt;span class=&#34;ln&#34;&gt;48&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;(Note: After running all the commands it can take upto 2-3 minutes to update the score for task 3)
 Congratulations, you&#39;re all done with the lab 😄&lt;/p&gt;
 

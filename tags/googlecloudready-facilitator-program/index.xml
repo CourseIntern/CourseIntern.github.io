@@ -2016,9 +2016,7 @@ Do not change the other settings just click on the create.&lt;/p&gt;
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;43&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;     --global &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;44&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;     --target-http-proxy http-lb-proxy &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;45&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;     --ports &lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;46&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;47&lt;/span&gt;gcloud compute forwarding-rules list
-&lt;span class=&#34;ln&#34;&gt;48&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;gcloud compute forwarding-rules list
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;(Note: After running all the commands it can take upto 2-3 minutes to update the score for task 3)
 Congratulations, you&#39;re all done with the lab 😄&lt;/p&gt;
 

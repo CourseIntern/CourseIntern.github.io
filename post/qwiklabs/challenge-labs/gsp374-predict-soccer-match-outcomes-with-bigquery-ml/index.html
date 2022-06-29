@@ -23,7 +23,7 @@
 <meta property="og:url" content="https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp374-predict-soccer-match-outcomes-with-bigquery-ml/" />
 <meta property="og:title" content="GSP-374 : Predict Soccer Match Outcomes with BigQuery ML" />
 <meta property="og:description" content="GSP-374 : Predict Soccer Match Outcomes with BigQuery ML" />
-<meta property="og:image" content="https://www.courseintern.com/images/thumbnail.png" />
+<meta property="og:image" content="https://www.courseintern.com/images/qwiklabs/challenge-labs/GSP374.png" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="https://www.courseintern.com/icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://www.courseintern.com/icons/favicon-32x32.png">
@@ -177,6 +177,8 @@
   </div>
 
     
+    <img src="/images/qwiklabs/challenge-labs/GSP374.png" class="image_featured" alt="GSP-374 : Predict Soccer Match Outcomes with BigQuery ML">
+    
     
     <h2>Overview</h2>
     <nav id="TableOfContents">
@@ -321,7 +323,7 @@
 </span><span class="ln">24</span><span class="w">   </span><span class="n">Events</span><span class="p">.</span><span class="n">subEventName</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">shotType</span><span class="p">,</span><span class="w">
 </span><span class="ln">25</span><span class="w">   </span><span class="cm">/* 101 is known Tag for &#39;goals&#39; from goals table */</span><span class="w">
 </span><span class="ln">26</span><span class="w">   </span><span class="p">(</span><span class="mi">101</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">UNNEST</span><span class="p">(</span><span class="n">Events</span><span class="p">.</span><span class="n">tags</span><span class="p">.</span><span class="n">id</span><span class="p">))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">isGoal</span><span class="p">,</span><span class="w">
-</span><span class="ln">27</span><span class="w"> 
+</span><span class="ln">27</span><span class="w">
 </span><span class="ln">28</span><span class="w">   </span><span class="o">`</span><span class="n">soccer</span><span class="p">.</span><span class="n">GetShotDistanceToGoal238</span><span class="o">`</span><span class="p">(</span><span class="n">Events</span><span class="p">.</span><span class="n">positions</span><span class="p">[</span><span class="n">ORDINAL</span><span class="p">(</span><span class="mi">1</span><span class="p">)].</span><span class="n">x</span><span class="p">,</span><span class="w">          </span><span class="o">//</span><span class="n">Change</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="n">according</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">lab</span><span class="w">
 </span><span class="ln">29</span><span class="w">       </span><span class="n">Events</span><span class="p">.</span><span class="n">positions</span><span class="p">[</span><span class="n">ORDINAL</span><span class="p">(</span><span class="mi">1</span><span class="p">)].</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">shotDistance</span><span class="p">,</span><span class="w">
 </span><span class="ln">30</span><span class="w">   </span><span class="o">`</span><span class="n">soccer</span><span class="p">.</span><span class="n">GetShotAngleToGoal238</span><span class="o">`</span><span class="p">(</span><span class="n">Events</span><span class="p">.</span><span class="n">positions</span><span class="p">[</span><span class="n">ORDINAL</span><span class="p">(</span><span class="mi">1</span><span class="p">)].</span><span class="n">x</span><span class="p">,</span><span class="w">             </span><span class="o">//</span><span class="n">Change</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="n">according</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">lab</span><span class="w">

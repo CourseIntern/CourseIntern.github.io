@@ -23,7 +23,7 @@
 <meta property="og:url" content="https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp354-building-and-deploying-machine-learning-solutions-with-vertex-ai/" />
 <meta property="og:title" content="GSP-354 : Building and Deploying Machine Learning Solutions with Vertex AI" />
 <meta property="og:description" content="GSP-354 : Building and Deploying Machine Learning Solutions with Vertex AI" />
-<meta property="og:image" content="https://www.courseintern.com/images/thumbnail.png" />
+<meta property="og:image" content="https://www.courseintern.com/images/qwiklabs/challenge-labs/GSP354.png" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="https://www.courseintern.com/icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://www.courseintern.com/icons/favicon-32x32.png">
@@ -177,6 +177,8 @@
   </div>
 
     
+    <img src="/images/qwiklabs/challenge-labs/GSP354.png" class="image_featured" alt="GSP-354 : Building and Deploying Machine Learning Solutions with Vertex AI">
+    
     
     <h2>Overview</h2>
     <nav id="TableOfContents">
@@ -254,7 +256,7 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="ln">1</span><span class="o">!</span><span class="n">gcloud</span><span class="w"> </span><span class="n">builds</span><span class="w"> </span><span class="n">submit</span><span class="w"> </span><span class="err">{</span><span class="n">MODEL_DIR</span><span class="err">}</span><span class="w"> </span><span class="c1">--timeout=20m --config {MODEL_DIR}/cloudbuild.yaml
 </span></code></pre></div><h1 id="task-6-define-a-pipeline-using-the-kfp-v2-sdk">Task 6: Define a pipeline using the KFP V2 SDK</h1>
 <h3 id="todo-change-this-to-your-name">TODO: change this to your name.</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="ln">1</span><span class="k">USER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;qwiklabsdemo&#34;</span><span class="w">  
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="ln">1</span><span class="k">USER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;qwiklabsdemo&#34;</span><span class="w">
 </span></code></pre></div><h3 id="todo-fill-in-the-remaining-arguments-from-the-pipeline-constructor">TODO: fill in the remaining arguments from the pipeline constructor.</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="ln">1</span><span class="n">display_name</span><span class="o">=</span><span class="n">display_name</span><span class="p">,</span><span class="w">
 </span><span class="ln">2</span><span class="w">    </span><span class="n">container_uri</span><span class="o">=</span><span class="n">container_uri</span><span class="p">,</span><span class="w">
@@ -264,7 +266,7 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="ln">1</span><span class="n">endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vertexai</span><span class="p">.</span><span class="n">Endpoint</span><span class="p">(</span><span class="w">
 </span><span class="ln">2</span><span class="w"></span><span class="n">endpoint_name</span><span class="o">=</span><span class="n">ENDPOINT_NAME</span><span class="p">,</span><span class="w">
 </span><span class="ln">3</span><span class="w"></span><span class="n">project</span><span class="o">=</span><span class="n">PROJECT_ID</span><span class="p">,</span><span class="w">
-</span><span class="ln">4</span><span class="w"></span><span class="k">location</span><span class="o">=</span><span class="n">REGION</span><span class="w"> 
+</span><span class="ln">4</span><span class="w"></span><span class="k">location</span><span class="o">=</span><span class="n">REGION</span><span class="w">
 </span><span class="ln">5</span><span class="w"></span><span class="p">)</span><span class="w">
 </span></code></pre></div><h3 id="todo-write-a-movie-review-to-test-your-model-eg-the-dark-knight-is-the-best-batman-movie">TODO: write a movie review to test your model e.g. &quot;The Dark Knight is the best Batman movie!&quot;</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="ln">1</span><span class="n">test_review</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;The Dark Knight is the best Batman movie!&#34;</span><span class="w">
